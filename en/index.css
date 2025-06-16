@@ -1,0 +1,1345 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /*background-color: #0062cc;*/
+}
+
+/* Apply a max-width to the body element */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    width: 100%;         /* Garante que a largura total seja 100% */
+    font-family: 'EB Garamond', serif;
+    /* background-color: blue; */
+    scroll-behavior: smooth;
+}
+
+.justify{
+    text-align: justify;
+}
+
+/* ****************************************************** LOADER ******************************************************* */
+
+.loader-container {
+    background-color: #ffffff;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000000;
+}
+
+
+
+
+/* ****************************************************** LOADER FIM ******************************************************* */
+
+
+ 
+ /* Tornar a navbar transparente */
+.navbar {
+    background-color: #FFFFFF !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100000 !important;
+}
+
+
+.navbar-scroll {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+    background-color: white !important; /* opcional, se quiseres deixar de ser transparente com scroll */
+}
+
+.light-grey,
+.light {
+    background-color: #E6E6E6 !important;
+}
+
+.dark-grey,
+.dark {
+    background-color: #D9D9D9 !important;
+}
+
+.light-grey:hover,
+.dark-grey:hover {
+    background-color: #A6151F !important;
+    color: #EEEEEE !important;
+}
+
+/* Alterar a cor dos textos e ícones para preto */
+.navbar .navbar-brand,
+.navbar .nav-link,
+.navbar-toggler-icon {
+    color: black !important;
+}
+
+
+
+
+/* Ícone do botão de toggle */
+.navbar-toggler {
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    margin-top: 5px;
+}
+
+
+/* Ícone hamburguer preto */
+.navbar-toggler-icon {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"><path stroke="black" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"/></svg>') !important;
+}
+
+
+/* Alterar a cor do dropdown */
+.dropdown-menu {
+    background-color: white !important;
+}
+
+
+.dropdown-item {
+    color: black !important;
+}
+
+
+.dropdown-item:hover {
+    text-decoration: underline;
+}
+
+
+.logo-image {
+    width: 105px;
+    height: 62px;
+    margin-left: 20px;
+    margin-top: 0px !important;
+}
+
+.navbar-toggler{
+    margin-right: 20px;
+}
+
+
+
+
+.navbar-btn-pack {
+    margin-right: 20px;
+    font-family: 'Instrument Sans';
+    font-size: 1.2rem
+}
+
+
+.nav-link {
+    padding: 10px 30px !important;
+}
+
+.footer-link {
+    text-decoration: none;
+}
+
+.nav-link:hover,
+.footer-link:hover {
+    text-decoration: underline !important;
+    color: #A6151F !important;
+    cursor: pointer;
+}
+
+.nav-link-translate{
+    padding: 10px 0px 10px 30px !important;
+}
+
+@media (max-width: 1199px) {
+    .nav-link-translate{
+        padding: 10px 30px !important;
+    }
+}
+
+
+
+.nav-link-translate:hover {
+    text-decoration: none !important;
+    color: #000000 !important;
+    cursor: pointer;
+}
+
+
+.round-btn {
+    text-transform: capitalize !important;
+    font-family: 'Instrument Sans' !important;
+    font-size: 1.2rem !important;
+    /*font-weight: bold !important;*/
+    color: #000000;
+    padding: 10px 40px !important; /* Ajuste o padding conforme necessário */
+    border-radius: 50px; 
+    background-color: #efefef;
+    margin-left: 30px;
+}
+
+.round-btn-footer {
+    font-family: 'Instrument Sans' !important;
+    padding: 10px 25px !important; /* Ajuste o padding conforme necessário */
+    border-radius: 50px; 
+    background-color: #efefef;
+    font-style: none;
+}
+
+
+.round-btn:hover,
+.round-btn-footer:hover {
+    background-color: #A6151F;
+    color: #EEEEEE;
+}
+
+.round-btn:active,
+.round-btn-footer:active {
+    background-color: #ffffff !important;
+    color: #A6151F !important;
+    border-style: solid !important;
+    border-width: 1px 1px !important;
+    border-color: #A6151F !important;
+}
+
+.red {
+    color: #A6151F;
+}
+
+#ButtonContacto,
+#ButtonSubscricao {
+    outline: none;
+    box-shadow: none;
+    border: none;
+}
+  
+#ButtonContacto:focus,
+#ButtonSubscricao:focus {
+    outline: none;
+    box-shadow: none;
+    border: none;
+}
+
+
+
+
+.welcome-sentence {
+    color: black;
+    font-family: 'EB Garamond', serif;
+    font-size: 6rem;
+    margin-top: -10%;
+}
+
+
+#lottie-animation {
+    margin-top: -20%;
+}
+
+
+/* Estilização do menu hamburguer */
+.menu-icon {
+    width: 30px;
+    height: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    position: relative;
+}
+
+.menu-icon span {
+    display: block;
+    width: 100%;
+    height: 4px;
+    background: black;
+    border-radius: 2px;
+    transition: all 0.4s ease;
+}
+
+/* Animação quando ativo */
+.menu-icon.active span:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+}
+
+.menu-icon.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-icon.active span:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+}
+
+.change-div-size {
+    transform: scale(1.2);
+    transform-origin: center;
+    z-index: -10;
+}
+
+
+/* ==================================================== NEWS ====================================================*/
+
+
+
+#SectionNoticias {
+    padding-top: 80px;
+    background-color: #fff !important;
+    z-index: 100;
+}
+
+.news-container {
+    position: relative;
+    z-index: 1000;
+}
+
+.news-scrolling-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 1rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    cursor: grab;
+
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.news-scrolling-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.news-item {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    transition: transform 0.4s ease;
+    user-select: none;
+    width: 90%;
+    max-width: 700px;
+}
+
+.news-img-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+}
+
+.news-img-wrapper:hover {
+    cursor:grab;
+}
+
+.news-img-wrapper:active {
+    cursor:grabbing;
+}
+
+.news-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.4s ease;
+    filter: grayscale(100%);
+    pointer-events: none;
+    user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+}
+
+.news-item a {
+    user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+/* Impede seleção de texto nos títulos também */
+.news-item h2,
+.news-item h5 {
+    user-select: none;
+}
+
+.news-detail-link {
+    color: #000000;
+    text-decoration: none;
+}
+
+.news-detail-link:hover {
+    color: #000000;
+    text-decoration: underline;
+}
+
+.news-item:hover img {
+    transform: scale(1.07);
+    filter: grayscale(0%);
+}
+
+.news-item h2,
+.news-item h5 {
+    margin: 0;
+    user-select: none;
+}
+
+.carousel-arrows {
+    display: flex;
+    align-items: center;
+}
+
+.news-item.active img {
+    transform: scale(1.07);
+    filter: grayscale(0%);
+}
+
+.void {
+    width: 150px;
+}
+
+@media (max-width: 576px){
+    .void {
+        width: 0px !important;
+    }
+}
+
+
+/* ======================== MEDIA QUERIES ======================== */
+
+/* Tablets */
+@media (min-width: 768px) {
+    .news-item {
+        width: 75%;
+    }
+}
+
+/* Laptops e desktops médios */
+@media (min-width: 1024px) {
+    .news-item {
+        width: 60%;
+    }
+}
+
+/* Desktops grandes */
+@media (min-width: 1400px) {
+    .news-item {
+        width: 50%;
+    }
+}
+
+/* Monitores ultra-wide */
+@media (min-width: 1800px) {
+    .news-item {
+        width: 45%;
+    }
+}
+
+@media (max-width: 576px) {
+    #newsNavigationArrows {
+      display: none;
+    }
+}
+
+
+/* ==================================================== NEWS FIM ====================================================*/
+
+
+
+/* ******************************************************** MANIFESTO *********************************************** */
+
+/* Configuração padrão com grid */
+.values-container {
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: [line1] auto [line2] 25% [line3] 25% [line4] 25%;
+    grid-template-rows: 20vw 20vw; /* Mantém as células quadradas */
+    background-color: #EFEFEF;
+    font-family: 'EB Garamond', serif;
+    font-size: 1.6rem;
+}
+
+/* Garante que os textos dentro da grid respeitem os limites */
+.values-container > div{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: clamp(1rem, 1.5vw, 1.2rem); /* Ajusta dinamicamente */
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+/* Ajuste responsivo para .values-intro */
+.values-intro {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+    display: flex;
+    justify-content: start;
+    gap:10px;
+    flex-direction: column; /* Mantém os elementos empilhados */
+    align-items: flex-start; /* Alinha os itens à esquerda */
+    padding: 2vw;
+    padding-top: 10;
+    text-align: left;
+    max-height: 100%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+
+
+/* Estilização responsiva do título */
+.values-title {
+    font-family: 'EB Garamond', serif !important;
+    align-self: flex-start; /* Mantém o alinhamento à esquerda */
+}
+
+.general-title{
+    font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+    font-weight: 200;
+    text-align: left;
+}
+
+.text-body-emphasis{
+    font-family: "Instrument Sans", sans-serif;
+    font-size: clamp(1.5rem, 1.5vw, 2rem);
+    font-weight: 200;
+}
+
+/* Estilização responsiva do texto */
+.general-font {
+    font-family: "Instrument Sans", sans-serif;
+}
+
+.fat {
+    font-weight: bold !important;
+    font-size: clamp(1.2rem, 1.2vw, 1.4rem) !important;
+}
+
+.general-txt {
+    font-family: "Instrument Sans", sans-serif;
+    font-size: clamp(1rem, 1.2vw, 1.4rem);
+    text-align: left;
+    margin: 0;
+    text-overflow: ellipsis;
+    max-height: 90%;
+}
+
+.regular {
+    font-weight: 200;
+}
+
+.value-item {
+    font-size: clamp(1.5rem, 2.5vw, 2rem) !important; /* Tamanho da fonte aumentado */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 200 !important;
+}
+
+/* Estilização das caixas coloridas */
+.seriousness {
+    background-color: #E6E6E6;
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+}
+
+.trust {
+    background-color: #D9D9D9 !important;
+    grid-column: 4 / 5;
+    grid-row: 1 / 2;
+}
+
+.professionalism {
+    background-color: #E6E6E6 !important;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
+
+.excellence {
+    background-color: #D9D9D9 !important;
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+}
+
+.availability {
+    background-color: #E6E6E6 !important;
+    grid-column: 4 / 5;
+    grid-row: 2 / 3;
+}
+
+.values-container-m{
+    display: none;
+}
+
+.seriousness:hover,
+.trust:hover,
+.professionalism:hover,
+.excellence:hover,
+.availability:hover {
+    background-color: #A6151F !important;
+    color: white;
+}
+
+
+/* ******** */
+/*
+body.scroll-locked {
+  overflow: hidden; 
+  touch-action: none;
+}
+
+.value-highlight {
+  background-color: #A6151F !important;
+  color: white !important;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+*/
+
+
+
+
+/* ******************************************************** MANIFESTO FIM *********************************************** */
+
+.contact-btn,
+.contact-btn-m,
+.more-news-btn {
+    font-size: clamp(1.2rem, 1.5vw, 1.7rem);
+    color: #A6151F;
+    background-color: transparent;
+    font-weight: bold;
+    text-align: left;
+    align-self: flex-start; /* Mantém o alinhamento à esquerda */
+    margin: 0;
+    border: none;
+}
+
+.contact-btn:hover,
+.contact-btn-m:hover,
+.more-news-btn:hover {
+    text-decoration: underline;
+}
+
+.more-news-btn {
+    margin-left: -0.6rem;
+}
+
+@media (max-width: 600px) {
+    .title-mobile-format {
+        margin-left: -1.5rem;
+    }
+}
+
+.container-left {
+    margin-left: calc((100% - 1140px) / 2); /* ou o valor do breakpoint atual */
+  }
+  
+  @media (min-width: 576px) {
+    .container-left {
+      margin-left: calc((100vw - 540px) / 2);
+    }
+  }
+  @media (min-width: 768px) {
+    .container-left {
+      margin-left: calc((100vw - 720px) / 2);
+    }
+  }
+  @media (min-width: 992px) {
+    .container-left {
+      margin-left: calc((100vw - 960px) / 2);
+    }
+  }
+  @media (min-width: 1200px) {
+    .container-left {
+      margin-left: calc((100vw - 1140px) / 2);
+    }
+  }
+  @media (min-width: 1400px) {
+    .container-left {
+      margin-left: calc((100vw - 1320px) / 2);
+    }
+  }
+  
+
+
+
+/* secção especialidades */
+
+/* Container da imagem */
+.position-relative {
+    position: relative;
+}
+
+
+
+
+/* Remove border-radius e outline azul ao clicar */
+.accordion-button {
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    outline: none !important;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.accordion-body {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+/* Cor vermelha ao clicar/abrir */
+.accordion-button:not(.collapsed) {
+    background-color:#A6151F !important;
+    color: white !important;
+}
+
+
+/* Cor branca para o texto dentro do botão quando expandido */
+.accordion-button:not(.collapsed) h2 {
+    color: white !important;
+}
+
+/* Muda a cor do ícone quando o accordion está expandido */
+.accordion-button:not(.collapsed)::after {
+    filter: invert(1);
+}
+
+/* Muda a cor do texto ao passar o mouse */
+.accordion-button:hover {
+    color: white !important;
+}
+
+/* Garante que o texto dentro do botão também muda de cor */
+.accordion-button:hover h2 {
+    color: white !important;
+}
+
+/* Muda a cor do ícone ao passar o mouse */
+.accordion-button:hover::after {
+    filter: invert(1);
+}
+
+/* Remove a seta padrão */
+.accordion-button::after {
+    background-image: url("https://icons.getbootstrap.com/assets/icons/plus-lg.svg");
+    background-size: clamp(1.5rem, 2.5vw, 2rem); /* Ajusta o tamanho */
+    background-repeat: no-repeat;
+    background-position: center;
+    content: ""; /* Remove qualquer outro texto */
+    width: 1.2rem; /* Define largura */
+    height: 1.2rem; /* Define altura */
+    padding: 10px !important;
+  }
+  
+  /* Muda para o ícone de "menos" quando o acordeão está aberto */
+  .accordion-button:not(.collapsed)::after {
+    background-image: url("https://icons.getbootstrap.com/assets/icons/dash-lg.svg");
+  }
+
+/* Remove a borda do accordion */
+.accordion-item {
+    border: none !important;
+}
+
+/* Remove bordas superiores e inferiores entre itens */
+.accordion-button {
+    border-bottom: 1px solid #ddd !important;
+}
+
+/* Remove fundo azul padrão no clique */
+.accordion-button:focus {
+    box-shadow: none !important;
+}
+
+
+/* Garante que os textos dentro da grid respeitem os limites */
+.specialties-container > div{
+    width: 100%;
+    height: 100%;
+}
+
+
+/* Adiciona uma transição suave à abertura e fechamento do accordion */
+.accordion-collapse {
+    transition: all 0.4s ease-in-out; /* Tempo e tipo da animação */
+}
+
+.bold-in-description {
+    font-weight: bold;
+}
+
+
+.team-title{
+    margin-bottom: -2.2rem;
+}
+
+.team-item img {
+    width: 100%; 
+    height: 100%;
+    object-fit: contain; /* Mantém a imagem inteira dentro da div, sem cortes */
+    object-position: bottom; /* Centraliza a imagem na div */
+    user-drag: none; /* Impede o arrasto da imagem (Safari) */
+    -webkit-user-drag: none; /* Impede o arrasto da imagem (Chrome, Edge) */
+    pointer-events: none; /* Bloqueia interações do mouse */
+}
+
+.team-item a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+
+.team-card-block{
+    height: 24vw !important;
+    width: 20vw !important;
+    background-position: center;
+    background-size: cover;
+    transition: all 0.2s ease-in-out !important;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.team-scrolling-wrapper {
+    width: 100vw; /* Garante que a área de rolagem ocupe 100% da largura da viewport */
+    position: relative; /* Manter a posição para ajuste fino */
+    left: 0; /* Garantir que o wrapper esteja totalmente à esquerda */
+    padding-left: var(--bs-gutter-x); /* Adiciona o espaço à esquerda para alinhar com o container */
+    overflow-x: auto; /* Habilita o scroll horizontal */
+    display: flex;
+    flex-wrap: nowrap; /* Impede a quebra de linha */
+    scrollbar-width: none; /* Oculta no Firefox */
+    -ms-overflow-style: none; /* Oculta no Edge/IE */
+    cursor: pointer; /* Cursor de "mão" ao arrastar */
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    gap: 1rem;
+}
+
+.team-scrolling-wrapper::-webkit-scrollbar {
+    display: none; /* Oculta no Chrome/Safari */
+}
+
+
+.team-scrolling-wrapper:active {
+    cursor: grabbing; /* Cursor de "mão apertada" enquanto o elemento está sendo arrastado */
+}
+
+.team-scrolling-wrapper, 
+.team-scrolling-wrapper .value-item {
+    user-select: none; /* Impede a seleção de texto */
+    -webkit-user-select: none; /* Para navegadores baseados em WebKit (Chrome, Safari) */
+    -moz-user-select: none; /* Para Firefox */
+    -ms-user-select: none; /* Para versões antigas do Edge/IE */
+}
+
+@media (max-width: 576px) {
+    #teamNavigationArrows {
+      display: none;
+    }
+}
+
+@media (min-width: 576px) {
+    .team-margin-top-desk {
+        padding-top: 0px !important;
+    }
+}
+
+.invisible-txt {
+    color: #FFFFFF !important;
+}
+
+.carousel-arrows {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.arrow-btn {
+    background-color: #FFFFFF;
+    border: none;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 99999 !important;
+    position: relative; /* garante que o z-index tenha efeito */
+}
+
+.slide-arrow,
+.arrow-right, 
+.arrow-left {
+    height: 30px !important;
+    width: 30px !important;
+}
+
+@media (max-width: 576px) {
+  .team-item.active {
+    background-color: #A6151F !important; /* vermelho */
+  }
+
+  .team-item.active img {
+    filter: grayscale(0%);
+    transition: filter 0.3s ease, transform 0.3s ease;
+  }
+}
+
+.footer-title {
+    font-family: "Instrument Sans";
+}
+
+
+
+/* **************************************************** ESCRITÓRIOS ****************************************************** */
+
+.office {
+  height: 600px;
+  position: relative;
+  overflow: hidden;
+}
+
+.office-bg {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  transition: transform 0.5s ease;
+  z-index: 0;
+  will-change: transform;
+
+  filter: grayscale(100%);
+}
+
+.office:hover .office-bg {
+  transform: scale(1.1);
+  filter: grayscale(0%);
+}
+
+/* Gradiente escuro na parte inferior */
+.office::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0));
+  z-index: 1;
+}
+
+/* Conteúdo sempre acima da imagem e overlay */
+.office > *:not(.office-bg) {
+  position: relative;
+  z-index: 2;
+}
+
+.office-link {
+    text-decoration: none;
+}
+
+.office-link:hover {
+    text-decoration: none;
+}
+
+/* Smartphones */
+@media (max-width: 576px) {
+    .office {
+        height: 300px;
+    }
+}
+
+
+/* Tablets */
+@media (min-width: 768px) {
+    .office {
+        height: 400px;
+    }
+}
+
+/* Laptops e desktops médios */
+@media (min-width: 1024px) {
+    .office {
+        height: 500px;
+    }
+}
+
+/* Desktops grandes */
+@media (min-width: 1400px) {
+    .office {
+        height: 600px;
+    }
+}
+
+/* Monitores ultra-wide */
+@media (min-width: 1800px) {
+    .office {
+        height: 700px;
+    }
+}
+
+/* **************************************************** ESCRITÓRIOS FIM ****************************************************** */
+
+
+
+/* **************************************************** PARCERIAS ****************************************************** */
+
+.sticky-content {
+    width: 100%;
+  }
+  
+  @media (min-width: 768px) {
+    .sticky-content.fixed {
+      position: fixed;
+      top: 100px;
+      /* Ajusta para a largura real da coluna (ex: 50% ou 33.33%) */
+      width: calc(45.5%); /* Se a tua coluna é .col-md-6 */
+      z-index: 10;
+    }
+  
+    .sticky-wrapper .col-md-6 .sticky-content.fixed {
+      width: calc(45.5%);
+    }
+  
+    .sticky-wrapper .col-md-4 .sticky-content.fixed {
+      width: calc(33.3333% - 15px);
+    }
+  
+    .sticky-content.bottom {
+      position: absolute;
+      top: auto;
+      bottom: 0;
+      width: 100%;
+    }
+  
+    .sticky-wrapper {
+      position: relative;
+    }
+  
+    .scrolling-column {
+      padding-top: 0 !important;
+    }
+  }
+  
+
+.picture-wrapper {
+  overflow: hidden;
+  display: inline-block;
+}
+
+
+/*
+.office-picture {
+filter: grayscale(100%);
+transition: transform 0.4s ease, filter 0.4s ease;
+width: 100%;
+height: auto;
+}
+
+  
+.office-picture:hover {
+transform: scale(1.07);
+transition: transform 0.4s ease;
+filter: grayscale(0%);
+}
+*/
+
+.partnership-picture,
+.employee-picture {
+    filter: grayscale(100%);
+    transition: transform 0.4s ease, filter 0.4s ease;
+    width: 100%;
+    height: auto;
+}
+
+.partnership-picture.in-view,
+.employee-picture.in-view {
+    transform: scale(1.07);
+    filter: grayscale(0%);
+}
+
+
+
+@media (max-width: 768px) {
+    .office-address-out {
+        display: none;
+    }
+}
+
+
+
+/* **************************************************** PARCERIAS FIM ****************************************************** */
+
+
+
+
+/* ==================================================== CONTACTO ==========================================================*/
+
+.form-input {
+    color: #000000;
+    background-color: #efefef;
+    border-style: none;
+    font-family: "Instrument Sans", sans-serif;
+}
+
+
+.form-control {
+    border-radius: 0 !important;
+}
+
+.form-control:focus {
+    border-color: #A6151F !important;
+}
+
+@media (max-width: 768px) {
+    .contact-img{
+        display: none;
+    }
+
+    .footer-links{
+        display: none;
+    }
+}
+
+.form-sent-success,
+.form-sent-fail {
+    color: #FFFFFF;
+    font-family: "Instrument Sans", sans-serif;
+    border-radius: 0;
+    border-width: 0;
+}
+
+.disp-none {
+    display: none;
+}
+
+.form-sent-success {
+    background-color: #009900;
+}
+
+.form-sent-fail {
+    background-color: #A6151F;
+}
+
+/* ==================================================== CONTACTO FIM ==========================================================*/
+
+.social-network-icon {
+    font-size: 24px;
+}
+
+
+@media (max-width: 1199px) {
+    .logo-image {
+        width: 80px;
+        height: 47px;
+    }
+
+    .welcome-sentence {
+        font-size: 4rem;
+        margin-top: -15%;
+    }
+
+    .round-btn {
+        background-color: transparent;
+        color: black !important;
+        padding: 10px 30px !important;
+        margin: 0;
+        font-weight: 400 !important;
+        border-radius: 0;
+        text-align: right; 
+    }
+
+    .round-btn:hover {
+        background-color: transparent;
+        text-decoration: underline;
+        color: #A6151F !important;
+    }
+
+    .nav-item {
+        text-align: right;
+    }
+
+    /* Configuração padrão com grid */
+    .values-container {
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: [line1] auto [line2] 25% [line3] 25% [line4] 25% !important;
+        grid-template-rows: 35vw 20vw !important; /* Mantém as células quadradas */
+    }
+
+    .slide-arrow,
+    .arrow-right, 
+    .arrow-left {
+        height: 24px;
+        width: 24px;
+    }
+
+}
+
+
+
+@media (max-width: 982px) {
+    .values-container-m {
+        display: block;
+        font-family: 'EB Garamond', serif;
+        padding: 0;
+        margin: 0;
+        background-color: #EFEFEF;
+    }
+
+    .values-container {
+        display: none;
+    }
+
+    .values-intro {
+        padding-left: 10%;
+        padding-right: 10%;
+        padding-top: 5%;
+    }
+
+    .values-txt {
+        text-align: justify;
+    }
+
+    .card-block {
+        height: 15vw;
+        min-width: 30vw; /* ou 50vw, como preferires */
+        width: auto;
+        background-position: center;
+        background-size: cover;
+        transition: all 0.2s ease-in-out !important;
+    }
+
+    .scrolling-wrapper {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding-left: 1.5rem;  /* Igual às margens do container */
+        padding-right: 1.5rem;
+        margin-left: 0;
+        margin-right: 0;
+
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE/Edge */
+        box-sizing: border-box;
+    }
+
+    .scrolling-wrapper::-webkit-scrollbar {
+        display: none; /* Chrome/Safari */
+    }
+
+    .scrolling-wrapper:active {
+        cursor: grabbing;
+    }
+
+    .scrolling-wrapper,
+    .scrolling-wrapper .value-item {
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+    }
+
+    #SectionNoticias {
+        padding-top: 50px;
+    }
+
+    .team-card-block {
+        height: 43.2vw !important;
+        width: 36vw !important;
+    }
+
+    .arrow-btn {
+        width: 2rem;
+        height: 2rem;
+        font-size: 1rem;
+    }
+
+    .slide-arrow,
+    .arrow-right, 
+    .arrow-left {
+        height: 20px !important;
+        width: 20px !important;
+    }
+}
+
+
+
+@media (max-width: 600px) {
+    .logo-image {
+        width: 60px;
+        height: 35px;
+    }
+    
+    .menu-icon {
+        height: 15px;
+        width: 20px;
+    }
+
+    .menu-icon * {
+        height: 2px !important;
+    }
+
+    /* Animação quando ativo */
+    .menu-icon.active span:nth-child(1) {
+        transform: translateY(6.5px) rotate(45deg);
+    }
+
+    .menu-icon.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-icon.active span:nth-child(3) {
+        transform: translateY(-6.5px) rotate(-45deg);
+    }
+
+    #SectionNoticias{
+        padding-top: 50px;
+    }
+
+    .team-card-block{
+        height: 72vw !important;
+        width: 60vw !important;
+    }
+
+    .arrow-btn {
+        width: 1.7rem;
+        height: 1.7rem;
+        font-size: 0.8rem;
+    }
+
+    .slide-arrow,
+    .arrow-right, 
+    .arrow-left {
+        height: 20px !important;
+        width: 20px !important;
+    }
+    
+}
+
+
+/* ******************************************************** SUBFOOTER *********************************************************** */
+
+.subfooter-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+/* ******************************************************** SUBFOOTER FIM *********************************************************** */
