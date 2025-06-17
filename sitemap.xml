@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset 
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Páginas em Português -->
+  <url>
+    <loc>https://www.rpaadvogados.com/</loc>
+    <lastmod>2024-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rpaadvogados.com/en/" />
+  </url>
+
+  <url>
+    <loc>https://www.rpaadvogados.com/offices.html</loc>
+    <lastmod>2024-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rpaadvogados.com/en/offices.html" />
+  </url>
+
+  <url>
+    <loc>https://www.rpaadvogados.com/team.html</loc>
+    <lastmod>2024-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rpaadvogados.com/en/team.html" />
+  </url>
+
+  <url>
+    <loc>https://www.rpaadvogados.com/legal.html</loc>
+    <lastmod>2024-06-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rpaadvogados.com/en/legal.html" />
+  </url>
+
+  <!-- Páginas em Inglês -->
+  <url>
+    <loc>https://www.rpaadvogados.com/en/</loc>
+    <lastmod>2024-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.rpaadvogados.com/" />
+  </url>
+
+  <url>
+    <loc>https://www.rpaadvogados.com/en/offices.html</loc>
+    <lastmod>2024-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.rpaadvogados.com/offices.html" />
+  </url>
+
+  <url>
+    <loc>https://www.rpaadvogados.com/en/team.html</loc>
+    <lastmod>2024-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.rpaadvogados.com/team.html" />
+  </url>
+
+  <url>
+    <loc>https://www.rpaadvogados.com/en/legal.html</loc>
+    <lastmod>2024-06-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.rpaadvogados.com/legal.html" />
+  </url>
+
+</urlset>
