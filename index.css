@@ -376,7 +376,7 @@ html, body {
 }
 
 .news-item:hover img {
-    transform: scale(1.07);
+    transform: scale(1.03);
     filter: grayscale(0%);
 }
 
