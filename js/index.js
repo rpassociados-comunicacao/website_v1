@@ -389,6 +389,27 @@ document.addEventListener("DOMContentLoaded", function () {
     mediaQuery.addEventListener("change", updateClasses);
 });
 
+document.querySelectorAll('.news-item a').forEach(link => {
+    let isDragging = false;
+    let startX;
+
+    link.addEventListener('mousedown', (e) => {
+        isDragging = false;
+        startX = e.pageX;
+    });
+
+    link.addEventListener('mousemove', (e) => {
+        if (Math.abs(e.pageX - startX) > 5) {
+            isDragging = true;
+        }
+    });
+
+    link.addEventListener('click', (e) => {
+        if (isDragging) {
+            e.preventDefault();
+        }
+    });
+});
 
 
 // ================================================ NEWS FIM ===============================================================

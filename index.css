@@ -324,13 +324,13 @@ html, body {
 }
 
 .news-img-wrapper {
-    width: 100%;
+    width: 100% !important;
     aspect-ratio: 16 / 9;
     overflow: hidden;
 }
 
 .news-img-wrapper:hover {
-    cursor:grab;
+    cursor:pointer;
 }
 
 .news-img-wrapper:active {

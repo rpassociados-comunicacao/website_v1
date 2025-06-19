@@ -330,7 +330,7 @@ html, body {
 }
 
 .news-img-wrapper:hover {
-    cursor:grab;
+    cursor:pointer;
 }
 
 .news-img-wrapper:active {
