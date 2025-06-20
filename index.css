@@ -569,9 +569,10 @@ html, body {
     text-align: left;
 }
 
-.text-body-emphasis{
+.text-body-emphasis,
+.text-body-emphasis::after {
     font-family: "Instrument Sans", sans-serif;
-    font-size: clamp(1.1rem, 1.5vw, 2rem);
+    font-size: clamp(1.1rem, 1.5vw, 2rem) !important;
     font-weight: 200;
 }
 
@@ -749,8 +750,8 @@ body.scroll-locked {
     border-radius: 0 !important;
     box-shadow: none !important;
     outline: none !important;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .accordion-body {
@@ -1268,7 +1269,8 @@ filter: grayscale(0%);
     .values-intro {
         padding-left: 10%;
         padding-right: 10%;
-        padding-top: 5%;
+        padding-top: 10%;
+        padding-bottom: 10%;
     }
 
     .values-txt {
