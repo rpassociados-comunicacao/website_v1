@@ -853,6 +853,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const targetElement = document.getElementById("SectionParceriasLeft");
     const mediaQuery = window.matchMedia("(min-width: 768px)");
     const bostonPartnershipImg = document.getElementById("bostonPartnershipImg");
+    const bostonTowerMobile = document.getElementById("bostonTowerMobile");
   
     function updateClasses(e) {
       if (!targetElement) return;
@@ -862,11 +863,13 @@ document.addEventListener("DOMContentLoaded", function () {
         targetElement.classList.add("container-left");
         targetElement.classList.remove("container");
         targetElement.classList.remove("px-5");
-        bostonPartnershipImg.src = "./assets/imgs/partnerships/boston.webp";
+        bostonPartnershipImg.classList.remove("disp-none");
+        bostonTowerMobile.classList.add("disp-none");
       } else {
         // Largura < 768px
         targetElement.classList.remove("container-left");
-        bostonPartnershipImg.src = "./assets/imgs/partnerships/boston-m.webp";
+        bostonPartnershipImg.classList.add("disp-none");
+        bostonTowerMobile.classList.remove("disp-none");
       }
     }
   
