@@ -754,6 +754,12 @@ body.scroll-locked {
     padding-right: 20px;
 }
 
+#accordionExample .accordion-button::after {
+    font-family: "Instrument Sans", sans-serif;
+    font-size: clamp(0.2rem) !important;
+    font-weight: 200;
+}
+
 .accordion-body {
     padding-left: 50px;
     padding-right: 50px;
@@ -769,11 +775,13 @@ body.scroll-locked {
 /* Cor branca para o texto dentro do botão quando expandido */
 .accordion-button:not(.collapsed) h2 {
     color: white !important;
+    
 }
 
 /* Muda a cor do ícone quando o accordion está expandido */
 .accordion-button:not(.collapsed)::after {
     filter: invert(1);
+    
 }
 
 /* Muda a cor do texto ao passar o mouse */
