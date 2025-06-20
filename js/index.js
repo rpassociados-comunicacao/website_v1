@@ -865,9 +865,7 @@ document.addEventListener("DOMContentLoaded", function () {
         bostonPartnershipImg.src = "./assets/imgs/partnerships/boston.webp";
       } else {
         // Largura < 768px
-        targetElement.classList.add("container");
         targetElement.classList.remove("container-left");
-        targetElement.classList.add("px-5");
         bostonPartnershipImg.src = "./assets/imgs/partnerships/boston-m.webp";
       }
     }
