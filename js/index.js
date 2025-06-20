@@ -131,7 +131,7 @@ setTimeout(() => {
 
 // ******************************************************* ANIMAÇÃO ************************************************
 
-
+/*
 let animation = lottie.loadAnimation({
     container: document.getElementById('lottie-animation'), // O contêiner onde a animação será exibida
     renderer: 'svg', // Tipo de renderização (svg, canvas, ou html)
@@ -154,7 +154,7 @@ const observer = new IntersectionObserver((entries, observer) => {
 });
 
 observer.observe(lottieContainer);
-
+*/
 
 
 // ****************************************************** ANIMAÇÃO FIM **********************************************

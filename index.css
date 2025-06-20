@@ -749,8 +749,8 @@ body.scroll-locked {
     border-radius: 0 !important;
     box-shadow: none !important;
     outline: none !important;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 .accordion-body {
