@@ -32,6 +32,66 @@ html, body {
 }
 
 
+/* ****************************************************** BACKGROUND ******************************************************* */
+
+#sectionBackground {
+  position: relative;
+  height: 100vh;
+  background-image: url('/assets/imgs/paisagem.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: grayscale(100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.background-overlay {
+  position: relative; /* mantém o texto posicionado dentro da section */
+  z-index: 2;
+  color: white;
+  padding: 2rem;
+}
+
+.background-title{
+    padding-top: 80px;
+    font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+    font-weight: 200;
+}
+
+.background-txt {
+    font-family: "Instrument Sans", sans-serif;
+    font-size: clamp(1rem, 1.2vw, 1.4rem);
+    text-align: left;
+    margin: 0;
+    text-overflow: ellipsis;
+    max-height: 90%;
+}
+
+.background-title,
+.background-txt {
+    text-align: center !important;
+}
+
+/* Se quiseres escurecer a imagem para dar mais contraste ao texto */
+#sectionBackground::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4); /* opcional */
+  z-index: 1;
+}
+
+
+
+/* ****************************************************** BACKGROUND FIM ******************************************************* */
+
+
 
 
 /* ****************************************************** LOADER FIM ******************************************************* */
@@ -511,7 +571,7 @@ html, body {
 
 .text-body-emphasis{
     font-family: "Instrument Sans", sans-serif;
-    font-size: clamp(1.5rem, 1.5vw, 2rem);
+    font-size: clamp(1.1rem, 1.5vw, 2rem);
     font-weight: 200;
 }
 
