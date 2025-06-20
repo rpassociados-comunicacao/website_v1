@@ -100,7 +100,7 @@ html, body {
  
  /* Tornar a navbar transparente */
 .navbar {
-    background-color: #FFFFFF !important;
+    color: #FFFFFF !important;
     position: fixed;
     top: 0;
     left: 0;
@@ -108,9 +108,18 @@ html, body {
     z-index: 100000 !important;
 }
 
+.nav-link {
+    color: #FFFFFF;
+}
+
+
+.black-nav-link{
+    color: #000000;
+}
+
 
 .navbar-scroll {
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 6px rgba(149, 112, 112, 0.1);
     transition: box-shadow 0.3s ease-in-out;
     background-color: white !important; /* opcional, se quiseres deixar de ser transparente com scroll */
 }
@@ -132,8 +141,6 @@ html, body {
 }
 
 /* Alterar a cor dos textos e ícones para preto */
-.navbar .navbar-brand,
-.navbar .nav-link,
 .navbar-toggler-icon {
     color: black !important;
 }
@@ -201,7 +208,76 @@ html, body {
     text-decoration: none;
 }
 
-.nav-link:hover,
+/* Navbar padrão - transparente, texto branco */
+.navbar .nav-link {
+  color: #FFFFFF !important;
+  text-decoration: none;
+}
+
+.navbar .nav-link:hover {
+  color: #FFFFFF !important;
+  text-decoration: underline !important;
+}
+
+/* Navbar com scroll - fundo branco, texto preto */
+.navbar.navbar-scroll .nav-link {
+  color: #000000 !important;
+}
+
+.navbar.navbar-scroll .nav-link:hover {
+  color: #000000 !important;
+  text-decoration: underline !important;
+}
+
+
+/* Garante que o link não sublinhe tudo no hover */
+#langToggle {
+  text-decoration: none !important;
+}
+
+/* Apenas o span "translation" sublinha no hover */
+#langToggle:hover .translation {
+  text-decoration: underline;
+}
+
+/* Evita heranças indesejadas */
+#ptBtn {
+  text-decoration: none !important;
+}
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 991.98px) {
+  .navbar.mobile-open {
+    background-color: white !important;
+  }
+
+  .navbar.mobile-open .nav-link {
+    color: black !important;
+  }
+
+  .navbar.mobile-open .round-btn {
+    color: black !important;
+    background-color: #ffffff !important;
+  }
+
+  .navbar.mobile-open .nav-link:hover {
+    text-decoration: underline;
+    color: #A6151F !important;
+  }
+}
+
+
+
+
+
 .footer-link:hover {
     text-decoration: underline !important;
     color: #A6151F !important;
@@ -222,8 +298,11 @@ html, body {
 
 .nav-link-translate:hover {
     text-decoration: none !important;
-    color: #000000 !important;
     cursor: pointer;
+}
+
+.translation:hover {
+    text-decoration: underline;
 }
 
 

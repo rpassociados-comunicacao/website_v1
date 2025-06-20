@@ -175,16 +175,19 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Controlar a alternância do menu ao clicar no ícone de hambúrguer
     navbarToggler.addEventListener("click", function() {
-        // Alterna o ícone de hambúrguer
         menuIcon.classList.toggle("active");
 
-        // Se o menu não estiver visível, abri-lo; caso contrário, fechá-lo
+        const navbar = document.querySelector('.navbar');
+
         if (navColapse.classList.contains('show')) {
-            bsCollapse.hide(); // Fechar o menu
+            bsCollapse.hide();
+            navbar.classList.remove("mobile-open");
         } else {
-            bsCollapse.show(); // Abrir o menu
+            bsCollapse.show();
+            navbar.classList.add("mobile-open");
         }
     });
+
 
     // Fechar o menu quando um link for clicado
     const navLinks = document.querySelectorAll('.nav-item');
@@ -200,6 +203,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
+
 document.getElementById("ham-btn").addEventListener("click", () => {
     const dropDown = document.getElementById("drop-menu"); 
     if (!dropOpen) {
@@ -211,7 +215,12 @@ document.getElementById("ham-btn").addEventListener("click", () => {
     }
       
     console.log("CLICOU NO BOTÃO HAMBURGUER");
-})
+});
+
+
+
+
+
 
 // *************************************************** NAVBAR FIM ********************************************************
 
@@ -991,11 +1000,21 @@ document.getElementById("linkLivroRecl").addEventListener("mouseleave", () => {
 function updateNavbarShadow() {
     const navbar = document.querySelector('.navbar');
     const collapse = document.querySelector('.navbar-collapse');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const navbarLogo = document.getElementById("navbarLogo");
 
     if (window.scrollY > 10 || collapse.classList.contains('show')) {
         navbar.classList.add('navbar-scroll');
+        navbarLogo.src = "./assets/imgs/website_logo.svg";
+        navLinks.forEach(link => {
+            link.classList.add("black-nav-link")
+        });
     } else {
         navbar.classList.remove('navbar-scroll');
+        navbarLogo.src = "./assets/imgs/white_logo.svg";
+        navLinks.forEach(link => {
+            link.classList.remove("black-nav-link")
+        });
     }
 }
 
@@ -1005,3 +1024,7 @@ window.addEventListener('scroll', updateNavbarShadow);
 const collapseEl = document.getElementById('navbarsExample05');
 collapseEl.addEventListener('shown.bs.collapse', updateNavbarShadow);
 collapseEl.addEventListener('hidden.bs.collapse', updateNavbarShadow);
+
+
+
+    
