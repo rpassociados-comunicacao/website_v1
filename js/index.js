@@ -304,27 +304,53 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function updateActiveNewsItem() {
-        const items = scrollContainer.querySelectorAll('.news-item');
-        let firstVisibleItem = null;
-        let minOffset = Infinity;
+        const items = document.querySelectorAll('.news-item');
 
-        items.forEach(item => {
-            const rect = item.getBoundingClientRect();
-            const containerRect = scrollContainer.getBoundingClientRect();
+        // Comportamento para desktop: item mais à esquerda
+        if (window.innerWidth > 576) {
+            let firstVisibleItem = null;
+            let minOffset = Infinity;
 
-            const offset = rect.left - containerRect.left;
+            const containerRect = document.querySelector(".news-scrolling-wrapper").getBoundingClientRect();
 
-            if (offset >= -10 && offset < minOffset) {
-                minOffset = offset;
-                firstVisibleItem = item;
-            }
-        });
+            items.forEach(item => {
+                const rect = item.getBoundingClientRect();
+                const offset = rect.left - containerRect.left;
 
-        items.forEach(item => item.classList.remove('active'));
-        if (firstVisibleItem) {
-            firstVisibleItem.classList.add('active');
+                if (offset >= -10 && offset < minOffset) {
+                    minOffset = offset;
+                    firstVisibleItem = item;
+                }
+            });
+
+            items.forEach(item => item.classList.remove('active'));
+            if (firstVisibleItem) firstVisibleItem.classList.add('active');
+
+        } else {
+            // Comportamento para mobile: item mais centrado verticalmente
+            let mostCenteredItem = null;
+            let minDistance = Infinity;
+
+            const viewportCenter = window.innerHeight / 2;
+
+            items.forEach(item => {
+                const rect = item.getBoundingClientRect();
+                const itemCenter = rect.top + rect.height / 2;
+                const distanceToCenter = Math.abs(viewportCenter - itemCenter);
+
+                if (distanceToCenter < minDistance) {
+                    minDistance = distanceToCenter;
+                    mostCenteredItem = item;
+                }
+            });
+
+            items.forEach(item => item.classList.remove('active'));
+            if (mostCenteredItem) mostCenteredItem.classList.add('active');
         }
     }
+
+    window.addEventListener("scroll", updateActiveNewsItem);
+    window.addEventListener("resize", updateActiveNewsItem);
 
     function scrollToNext(direction) {
         const scrollAmount = getSingleCardWidthWithGap();
@@ -417,6 +443,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // RESPONSIVO — container-left vs px-5
 document.addEventListener("DOMContentLoaded", function () {
     const targetElement = document.getElementById("SectionNewsLeft");
+    const seeMore = this.getElementById("moreNewsBtn");
     const mediaQuery = window.matchMedia("(min-width: 576px)");
 
     function updateClasses(e) {
@@ -424,9 +451,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (e.matches) {
             targetElement.classList.add("container-left");
+            targetElement.classList.remove("px-2");
+            targetElement.classList.remove("mx-1");
             targetElement.classList.remove("px-5");
         } else {
-            targetElement.classList.add("px-5");
+            seeMore.classList.add("ms-1");
+            targetElement.classList.add("px-2");
+            targetElement.classList.add("mx-1");
             targetElement.classList.remove("container-left");
         }
     }
@@ -456,6 +487,33 @@ document.querySelectorAll('.news-item a').forEach(link => {
         }
     });
 });
+
+function showLastNewsItemsMobileOnly() {
+    const isMobile = window.innerWidth < 576;
+    const items = Array.from(document.querySelectorAll(".news-item"));
+
+    if (isMobile) {
+        // Mostra apenas os últimos 3
+        items.forEach((item, index) => {
+            if (index < items.length - 3) {
+                item.style.display = "none";
+            } else {
+                item.style.display = "flex";
+            }
+        });
+    } else {
+        // Mostra todos em desktop
+        items.forEach(item => {
+            item.style.display = "flex";
+        });
+    }
+}
+
+// Chamada inicial
+document.addEventListener("DOMContentLoaded", showLastNewsItemsMobileOnly);
+
+// Atualizar se o user redimensionar
+window.addEventListener("resize", showLastNewsItemsMobileOnly);
 
 
 // ================================================ NEWS FIM ===============================================================
@@ -1042,17 +1100,21 @@ function updateNavbarShadow() {
     const collapse = document.querySelector('.navbar-collapse');
     const navLinks = document.querySelectorAll('.nav-link');
     const navbarLogo = document.getElementById("navbarLogo");
+    const ptBtn = document.getElementById("ptBtn");
     const menuIconSpans = document.querySelectorAll(".menu-icon span");
 
     if (window.scrollY > 10 || collapse.classList.contains('show')) {
         navbar.classList.add('navbar-scroll');
+        ptBtn.classList.add("red");
         navbarLogo.src = "./assets/imgs/website_logo.svg";
         navLinks.forEach(link => link.classList.add("black-nav-link"));
         menuIconSpans.forEach(span => span.style.backgroundColor = "#000");
         console.log("Entrou no IF do updateNavbarShadow");
+
     } else {
         navbar.classList.remove('navbar-scroll');
         navbar.classList.remove('mobile-open');
+        ptBtn.classList.remove("red");
         navbarLogo.src = "./assets/imgs/white_logo.svg";
         navLinks.forEach(link => link.classList.remove("black-nav-link"));
         menuIconSpans.forEach(span => span.style.backgroundColor = "#fff");

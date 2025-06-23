@@ -37,7 +37,7 @@ html, body {
 #sectionBackground {
   position: relative;
   height: 100vh;
-  background-image: url('/assets/imgs/paisagem.jpg');
+  background-image: url('/assets/imgs/paisagem.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -112,6 +112,11 @@ html, body {
     color: #FFFFFF;
 }
 
+.nav-link,
+.round-btn {
+    font-size: 1.1rem !important;
+}
+
 
 .black-nav-link{
     color: #000000;
@@ -180,8 +185,8 @@ html, body {
 
 
 .logo-image {
-    width: 105px;
-    height: 62px;
+    width: 80px;
+    height: 47px;
     margin-left: 20px;
     margin-top: 0px !important;
 }
@@ -274,6 +279,13 @@ html, body {
   }
 }
 
+/* Efeito hover vermelho sempre que .navbar tem class .navbar-scroll ou .navbar.mobile-open */
+.navbar.navbar-scroll .nav-link:hover,
+.navbar.mobile-open .nav-link:hover {
+  color: #A6151F !important;
+  text-decoration: underline !important;
+}
+
 
 
 
@@ -309,7 +321,6 @@ html, body {
 .round-btn {
     text-transform: capitalize !important;
     font-family: 'Instrument Sans' !important;
-    font-size: 1.2rem !important;
     /*font-weight: bold !important;*/
     color: #000000;
     padding: 10px 40px !important; /* Ajuste o padding conforme necessário */
@@ -547,6 +558,22 @@ html, body {
 
 
 /* ======================== MEDIA QUERIES ======================== */
+
+@media (max-width: 576px) {
+
+  .news-scrolling-wrapper {
+    flex-direction: column;
+    align-items: center; /* centra verticalmente os itens */
+    overflow-x: visible; /* remove o scroll horizontal */
+    gap: 0.8rem;
+  }
+
+  .news-item {
+    width: 100%;
+    max-width: 700px;
+  }
+}
+
 
 /* Tablets */
 @media (min-width: 768px) {
