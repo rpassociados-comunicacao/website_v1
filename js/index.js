@@ -33,15 +33,19 @@ function scrollAnim(e) {
 
     if (!targetElement) return;
 
-    targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+    const rect = targetElement.getBoundingClientRect();
+    const absoluteTop = rect.top + window.pageYOffset;
 
-    // Se estiver em mobile, ajustar com offset negativo após pequeno atraso
-    if (window.innerWidth < 992) {
-        setTimeout(() => {
-            window.scrollBy({ top: -80, left: 0, behavior: "smooth" });
-        }, 300); // tempo suficiente para o scrollIntoView começar
-    }
+    // Offset para mobile (100px), senão 0
+    const offset = window.innerWidth < 992 ? 50 : 0;
+
+    // Scroll suave e direto para a posição com offset
+    window.scrollTo({
+        top: absoluteTop - offset,
+        behavior: 'smooth'
+    });
 }
+
 
 
 
