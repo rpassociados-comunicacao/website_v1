@@ -36,14 +36,17 @@ function scrollAnim(e) {
     const rect = targetElement.getBoundingClientRect();
     const absoluteTop = rect.top + window.pageYOffset;
 
-    // Offset para mobile (100px), senão 0
     const offset = window.innerWidth < 992 ? 50 : 0;
 
-    // Scroll suave e direto para a posição com offset
     window.scrollTo({
         top: absoluteTop - offset,
         behavior: 'smooth'
     });
+
+    // Atualizar a navbar após o scroll suave (espera 1s como fallback)
+    setTimeout(() => {
+        updateNavbarShadow();
+    }, 1000);
 }
 
 
@@ -188,18 +191,42 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Controlar a alternância do menu ao clicar no ícone de hambúrguer
     navbarToggler.addEventListener("click", function() {
-        menuIcon.classList.toggle("active");
+    menuIcon.classList.toggle("active");
 
-        const navbar = document.querySelector('.navbar');
+    const navbar = document.querySelector('.navbar');
 
-        if (navColapse.classList.contains('show')) {
-            bsCollapse.hide();
-            navbar.classList.remove("mobile-open");
+    if (navColapse.classList.contains('show')) {
+        bsCollapse.hide();
+        navbar.classList.remove("mobile-open");
+
+        // ESTÁS A FECHAR O MENU
+        if (window.scrollY === 0) {
+            // Topo da página → fundo transparente
+            setMenuIconColor("#fff");
+            navbarLogo.src = "./assets/imgs/white_logo.svg";
         } else {
-            bsCollapse.show();
-            navbar.classList.add("mobile-open");
+            // Já com scroll → fundo branco
+            setMenuIconColor("#000");
+            navbarLogo.src = "./assets/imgs/website_logo.svg";
         }
+
+    } else {
+        bsCollapse.show();
+        navbar.classList.add("mobile-open");
+
+        // ESTÁS A ABRIR O MENU → sempre fundo branco
+        setMenuIconColor("#000");
+        navbarLogo.src = "./assets/imgs/website_logo.svg";
+    }
+});
+
+function setMenuIconColor(color) {
+    const spans = document.querySelectorAll(".menu-icon span");
+    spans.forEach(span => {
+        span.style.backgroundColor = color;
     });
+}
+
 
 
     // Fechar o menu quando um link for clicado
@@ -229,9 +256,6 @@ document.getElementById("ham-btn").addEventListener("click", () => {
       
     console.log("CLICOU NO BOTÃO HAMBURGUER");
 });
-
-
-
 
 
 
@@ -1010,26 +1034,32 @@ document.getElementById("linkLivroRecl").addEventListener("mouseleave", () => {
 
 // ************************************************************** FOOTER FIM *******************************************************
 
+
 function updateNavbarShadow() {
+    console.log('updateNavbarShadow — scrollY é', window.scrollY);
+
     const navbar = document.querySelector('.navbar');
     const collapse = document.querySelector('.navbar-collapse');
     const navLinks = document.querySelectorAll('.nav-link');
     const navbarLogo = document.getElementById("navbarLogo");
+    const menuIconSpans = document.querySelectorAll(".menu-icon span");
 
     if (window.scrollY > 10 || collapse.classList.contains('show')) {
         navbar.classList.add('navbar-scroll');
         navbarLogo.src = "./assets/imgs/website_logo.svg";
-        navLinks.forEach(link => {
-            link.classList.add("black-nav-link")
-        });
+        navLinks.forEach(link => link.classList.add("black-nav-link"));
+        menuIconSpans.forEach(span => span.style.backgroundColor = "#000");
+        console.log("Entrou no IF do updateNavbarShadow");
     } else {
         navbar.classList.remove('navbar-scroll');
+        navbar.classList.remove('mobile-open');
         navbarLogo.src = "./assets/imgs/white_logo.svg";
-        navLinks.forEach(link => {
-            link.classList.remove("black-nav-link")
-        });
+        navLinks.forEach(link => link.classList.remove("black-nav-link"));
+        menuIconSpans.forEach(span => span.style.backgroundColor = "#fff");
+        console.log("Entrou no ELSE do updateNavbarShadow");
     }
 }
+
 
 window.addEventListener('scroll', updateNavbarShadow);
 
@@ -1039,5 +1069,3 @@ collapseEl.addEventListener('shown.bs.collapse', updateNavbarShadow);
 collapseEl.addEventListener('hidden.bs.collapse', updateNavbarShadow);
 
 
-
-    
