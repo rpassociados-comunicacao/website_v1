@@ -33,19 +33,16 @@ function scrollAnim(e) {
 
     if (!targetElement) return;
 
-    const isMobile = window.innerWidth < 768; // adapta se necessário
-
-    // Faz o scroll normalmente
     targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
 
-    if (isMobile) {
-        // Após pequeno delay, ajusta manualmente para compensar a navbar
+    // Se estiver em mobile, ajustar com offset negativo após pequeno atraso
+    if (window.innerWidth < 992) {
         setTimeout(() => {
-            const navbarHeight = document.querySelector('.navbar')?.offsetHeight || 0;
-            window.scrollBy({ top: -navbarHeight, left: 0, behavior: "smooth" });
-        }, 400); // tempo tem que ser testado com base na velocidade do scroll e devices
+            window.scrollBy({ top: -80, left: 0, behavior: "smooth" });
+        }, 300); // tempo suficiente para o scrollIntoView começar
     }
 }
+
 
 
 // Detecta se estás na index de forma fiável
