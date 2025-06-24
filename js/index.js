@@ -28,7 +28,7 @@ function scrollAnim(e) {
 
 function scrollAnim(e) {
     console.log(`Clicou em ${e}`);
-    const targetSelector = `#Section${e}`;
+    const targetSelector = `#${e}`;
     const targetElement = document.querySelector(targetSelector);
 
     if (!targetElement) return;
@@ -76,18 +76,18 @@ function addScrollHandler(buttonId, sectionId) {
 
 // Lista de botões
 const scrollButtons = [
-    { id: "ButtonEspecialidades", section: "Especialidades" },
-    { id: "FooterBtnEspecialidades", section: "Especialidades" },
+    { id: "ButtonEspecialidades", section: "Atividade" },
+    { id: "FooterBtnEspecialidades", section: "Atividade" },
     { id: "ButtonEquipa", section: "Equipa" },
     { id: "FooterBtnEquipa", section: "Equipa" },
-    { id: "ButtonValores", section: "Valores" },
-    { id: "FooterBtnValores", section: "Valores" },
+    { id: "ButtonValores", section: "Manifesto" },
+    { id: "FooterBtnValores", section: "Manifesto" },
     { id: "ButtonEscritorios", section: "Escritorios" },
     { id: "FooterBtnEscritorios", section: "Escritorios" },
     { id: "ButtonParcerias", section: "Parcerias" },
     { id: "FooterBtnParcerias", section: "Parcerias" },
-    { id: "ButtonBlog", section: "Noticias" },
-    { id: "FooterBtnBlog", section: "Noticias" },
+    { id: "ButtonBlog", section: "Destaques" },
+    { id: "FooterBtnBlog", section: "Destaques" },
     { id: "valuesContactBtn", section: "Contacto" },
     { id: "valuesContactBtnMobile", section: "Contacto" },
     { id: "equipaContactBtn", section: "Contacto" }
