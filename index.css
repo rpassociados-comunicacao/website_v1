@@ -589,23 +589,24 @@ html, body {
 
 /* Laptops e desktops médios */
 @media (min-width: 1024px) {
-    .news-item {
-        width: 60%;
-    }
+  .news-item {
+    width: 90%;
+    max-width: 1050px; /* Aumenta o limite */
+  }
 }
 
-/* Desktops grandes */
 @media (min-width: 1400px) {
-    .news-item {
-        width: 50%;
-    }
+  .news-item {
+    width: 75%;
+    max-width: 1050px;
+  }
 }
 
-/* Monitores ultra-wide */
 @media (min-width: 1800px) {
-    .news-item {
-        width: 45%;
-    }
+  .news-item {
+    width: 67.5%;
+    max-width: 1050px;
+  }
 }
 
 @media (max-width: 576px) {
