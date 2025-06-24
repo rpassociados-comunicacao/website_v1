@@ -107,7 +107,16 @@ onScroll(); // Executa na carga inicial
 document.addEventListener("DOMContentLoaded", function () {
     const targetElement = document.getElementById("SectionLeft");
     const mediaQuery = window.matchMedia("(min-width: 768px)");
-
+    const juliaImg = document.getElementById("juliaImg");
+    const carolinaImg = document.getElementById("carolinaImg");
+    const joanaImg = document.getElementById("joanaImg");
+    const joaoImg = document.getElementById("joaoImg");
+    const veronicaImg = document.getElementById("veronicaImg");
+    const britoImg = document.getElementById("britoImg");
+    const ricardoImg = document.getElementById("ricardoImg");
+    const joaomImg = document.getElementById("joaomImg");
+    const biancaImg = document.getElementById("biancaImg");
+    
   
     function updateClasses(e) {
       if (!targetElement) return;
@@ -117,12 +126,29 @@ document.addEventListener("DOMContentLoaded", function () {
         targetElement.classList.add("container-left");
         targetElement.classList.remove("container");
         targetElement.classList.remove("px-5");
+        juliaImg.src = "./assets/imgs/team/julia-bg.webp";
+        carolinaImg.src = "./assets/imgs/team/carolina-bg.webp";
+        joanaImg.src = "./assets/imgs/team/joana-bg.webp";
+        veronicaImg.src = "./assets/imgs/team/veronica-bg.webp";
+        britoImg.src = "./assets/imgs/team/brito-bg.webp";
+        ricardoImg.src = "./assets/imgs/team/ricardo-bg.webp";
+        joaomImg.src = "./assets/imgs/team/joaom-bg.webp";
+        biancaImg.src = "./assets/imgs/team/bianca-bg.webp";
         
       } else {
         // Largura < 768px
         targetElement.classList.add("container");
         targetElement.classList.remove("container-left");
         targetElement.classList.add("px-5");
+        juliaImg.src = "./assets/imgs/team/julia-bg.webp";
+        carolinaImg.src = "./assets/imgs/team/carolina-bg.webp";
+        joanaImg.src = "./assets/imgs/team/joana-bg.webp";
+        joaoImg.src = "./assets/imgs/team/joao-bg.webp";
+        veronicaImg.src = "./assets/imgs/team/veronica-bg.webp";
+        britoImg.src = "./assets/imgs/team/brito-bg.webp";
+        ricardoImg.src = "./assets/imgs/team/ricardo-bg.webp";
+        joaomImg.src = "./assets/imgs/team/joaom-bg.webp";
+        biancaImg.src = "./assets/imgs/team/bianca-bg.webp";
         
       }
     }
@@ -158,9 +184,10 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-
 document.addEventListener("DOMContentLoaded", function () {
-    const targetElement = document.getElementById("SectionLeft");
+    const targetElement = document.getElementById("termos");
+    const targetElementPriv = document.getElementById("privacidade");
+    const targetElementRal = document.getElementById("ral");
     const mediaQuery = window.matchMedia("(min-width: 768px)");
   
     function updateClasses(e) {
@@ -168,12 +195,17 @@ document.addEventListener("DOMContentLoaded", function () {
   
       if (e.matches) {
         // Largura >= 768px
-        targetElement.classList.add("container-left");
+        targetElement.classList.add("container");
+        targetElementPriv.classList.add("container");
+        targetElementRal.classList.add("container");
       } else {
         // Largura < 768px
-        targetElement.classList.remove("container-left");
         targetElement.classList.remove("container");
         targetElement.classList.remove("px-5");
+        targetElementPriv.classList.remove("container");
+        targetElementPriv.classList.remove("px-5");
+        targetElementRal.classList.remove("container");
+        targetElementRal.classList.remove("px-5");
       }
     }
   
@@ -186,8 +218,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-//================================================== EQUIPA FIM =================================================
 
+//================================================== EQUIPA FIM =================================================
 
 document.addEventListener("DOMContentLoaded", () => {
     const hash = window.location.hash;
@@ -210,3 +242,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 300); // tempo suficiente para a navbar existir e o layout estar pronto
     }
 });
+
+
+
