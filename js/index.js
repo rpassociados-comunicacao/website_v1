@@ -641,29 +641,35 @@ function updateActiveTeamItem() {
 
     items.forEach(item => {
         item.classList.remove('active');
-
         const img = item.querySelector('img');
-        const imgBase = item.getAttribute("data-img");
-        if (img && imgBase && isMobile) {
-            img.src = `./assets/imgs/team/${imgBase}.webp`;
+        if (img) {
+            img.classList.remove("colored-img");
         }
     });
 
     if (firstVisibleItem && isMobile) {
         firstVisibleItem.classList.add('active');
-        const img = firstVisibleItem.querySelector('img');
-        const imgBase = firstVisibleItem.getAttribute("data-img");
-        const newName = firstVisibleItem.getAttribute("data-name");
 
-        if (img && imgBase) {
-            img.src = `./assets/imgs/team/${imgBase}-color.webp`;
+        const img = firstVisibleItem.querySelector('img');
+        const newName = firstVisibleItem.getAttribute("data-name");
+        const newFunction = firstVisibleItem.getAttribute("data-function");
+
+        if (img) {
+            img.classList.add("colored-img");
         }
 
         const descriptionName = document.getElementById("descriptionName");
+        const descriptionFunction = document.getElementById("descriptionFunction");
+
         descriptionName.textContent = newName;
         descriptionName.classList.remove("invisible-txt");
+
+        if (newFunction && descriptionFunction) {
+            descriptionFunction.textContent = newFunction;
+        }
     }
 }
+
 
 document.addEventListener("DOMContentLoaded", function () {
     const slider = document.querySelector(".team-scrolling-wrapper");
@@ -723,32 +729,45 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+// Hover em desktop apenas (imagem já é colorida, só alteramos o texto)
 document.querySelectorAll(".team-item").forEach(item => {
     if (window.innerWidth > 576) {
         item.addEventListener("mouseenter", (e) => {
             const teamItem = e.target.closest(".team-item");
             const newName = teamItem.getAttribute("data-name");
             const newFunction = teamItem.getAttribute("data-function");
-            const newImage = teamItem.getAttribute("data-img");
+            const imgElement = teamItem.querySelector("img");
 
             document.getElementById("descriptionName").textContent = newName;
             document.getElementById("descriptionName").classList.remove("invisible-txt");
             document.getElementById("descriptionFunction").textContent = newFunction;
 
-            const imgElement = teamItem.querySelector("img");
             if (imgElement) {
-                imgElement.src = `./assets/imgs/team/${newImage}-color.webp`;
+                imgElement.classList.add("colored-img");
+            }
+        });
+
+        item.addEventListener("mouseleave", () => {
+            const imgElement = item.querySelector("img");
+            if (imgElement) {
+                imgElement.classList.remove("colored-img");
             }
 
-            item.addEventListener("mouseout", () => {
-                imgElement.src = `./assets/imgs/team/${newImage}.webp`;
-                document.getElementById("descriptionName").classList.add("invisible-txt");
-                document.getElementById("descriptionName").textContent = ".";
-                document.getElementById("descriptionFunction").textContent = "Profissionais dedicados à defesa dos direitos com rigor, ética e compromisso.";
-            });
+            // Verifica se o rato está fora de todos os itens
+            setTimeout(() => {
+                const isHoveringAny = Array.from(document.querySelectorAll(".team-item")).some(el => el.matches(':hover'));
+                if (!isHoveringAny) {
+                    document.getElementById("descriptionName").classList.add("invisible-txt");
+                    document.getElementById("descriptionName").textContent = ".";
+                    document.getElementById("descriptionFunction").textContent =
+                        "Equipa jurídica diversificada, com profissionais dedicados a defender os seus direitos.";
+                }
+            }, 10);
         });
     }
 });
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
     const scrollContainer = document.querySelector(".team-scrolling-wrapper");
@@ -789,7 +808,6 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(updateTeamArrowVisibility, 1000);
 });
 
-
 function updateTeamArrowVisibility() {
     const scrollContainer = document.querySelector(".team-scrolling-wrapper");
     const arrowLeft = document.getElementById("arrow-left");
@@ -803,7 +821,6 @@ function updateTeamArrowVisibility() {
     arrowLeft.style.display = scrollLeft > 0 ? "block" : "none";
     arrowRight.style.display = scrollLeft < maxScrollLeft - 1 ? "block" : "none";
 }
-
 
 // Arrows hover effects
 document.querySelectorAll('.arrow-right img').forEach(arrow => {
@@ -824,6 +841,7 @@ document.querySelectorAll('.arrow-left img').forEach(arrow => {
     });
 });
 
+// Impedir clique ao arrastar
 document.querySelectorAll('.team-item a').forEach(link => {
     let isDragging = false;
     let startX;
@@ -845,6 +863,7 @@ document.querySelectorAll('.team-item a').forEach(link => {
         }
     });
 });
+
 
 //================================================= TEAM FIM ============================================================
 

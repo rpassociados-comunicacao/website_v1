@@ -982,8 +982,8 @@ body.scroll-locked {
 
 
 .team-card-block{
-    height: 24vw !important;
-    width: 20vw !important;
+    height: 30vw !important;
+    width: 25vw !important;
     background-position: center;
     background-size: cover;
     transition: all 0.2s ease-in-out !important;
@@ -1023,6 +1023,16 @@ body.scroll-locked {
     -moz-user-select: none; /* Para Firefox */
     -ms-user-select: none; /* Para versões antigas do Edge/IE */
 }
+
+.team-item img {
+  filter: grayscale(100%);
+}
+
+.team-item.active img,
+.team-item:hover img {
+  filter: grayscale(0%);
+}
+
 
 @media (max-width: 576px) {
     #teamNavigationArrows {
