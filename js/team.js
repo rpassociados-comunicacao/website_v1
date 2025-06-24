@@ -194,11 +194,11 @@ document.addEventListener("DOMContentLoaded", function () {
       if (e.matches) {
         // Largura >= 768px
         targetElement.classList.add("container-left");
-        targetElement.classList.remove("container");
-        targetElement.classList.remove("px-5");
       } else {
         // Largura < 768px
         targetElement.classList.remove("container-left");
+        targetElement.classList.remove("container");
+        targetElement.classList.remove("px-5");
       }
     }
   

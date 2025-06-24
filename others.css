@@ -1076,7 +1076,7 @@ filter: grayscale(0%);
 
 .partnership-picture.in-view,
 .employee-picture.in-view {
-    transform: scale(1.07);
+    transform: scale(1.04);
     filter: grayscale(0%);
 }
 
