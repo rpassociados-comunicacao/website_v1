@@ -184,7 +184,30 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-
+document.addEventListener("DOMContentLoaded", function () {
+    const targetElement = document.getElementById("SectionLeft");
+    const mediaQuery = window.matchMedia("(min-width: 768px)");
+  
+    function updateClasses(e) {
+      if (!targetElement) return;
+  
+      if (e.matches) {
+        // Largura >= 768px
+        targetElement.classList.add("container-left");
+        targetElement.classList.remove("container");
+        targetElement.classList.remove("px-5");
+      } else {
+        // Largura < 768px
+        targetElement.classList.remove("container-left");
+      }
+    }
+  
+    // Executa à carga
+    updateClasses(mediaQuery);
+  
+    // E ao mudar de tamanho
+    mediaQuery.addEventListener("change", updateClasses);
+});
 
 
 

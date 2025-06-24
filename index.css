@@ -681,12 +681,27 @@ html, body {
     text-align: left;
 }
 
-.text-body-emphasis,
-.text-body-emphasis::after {
+.text-body-emphasis {
     font-family: "Instrument Sans", sans-serif;
     font-size: clamp(1.1rem, 1.5vw, 2rem) !important;
     font-weight: 200;
 }
+
+
+.text-body-emphasis-activities {
+    font-family: "Instrument Sans", sans-serif;
+    font-size: clamp(1.1rem, 1.5vw, 1.5rem) !important;
+    margin-bottom: 0px;
+    font-weight: 200;
+}
+
+
+.accordion-button::after {
+  width: clamp(1.1rem, 1.5vw, 1.5rem) !important;           /* reduz a largura */
+  height: clamp(1.1rem, 1.5vw, 1.5rem) !important;          /* reduz a altura */
+  background-size: clamp(1.1rem, 1.5vw, 1.5rem) !important; /* reduz o tamanho do ícone */
+}
+
 
 /* Estilização responsiva do texto */
 .general-font {
