@@ -7,7 +7,7 @@ let esp6Shown = false;
 
 let dropOpen = false;
 
-gsap.registerPlugin(ScrollToPlugin); // Registra o plugin!
+gsap.registerPlugin(ScrollToPlugin); // Regista o plugin!
 
 const navbarHeight = document.querySelector('.navbar')?.getBoundingClientRect().height || 0;
 

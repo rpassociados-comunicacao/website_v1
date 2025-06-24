@@ -213,3 +213,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 //================================================== EQUIPA FIM =================================================
+
+document.addEventListener("DOMContentLoaded", () => {
+    const hash = window.location.hash;
+
+    if (hash) {
+        const target = document.querySelector(hash);
+        if (!target) return;
+
+        // Espera pequeno atraso para garantir que o layout carregou
+        setTimeout(() => {
+            const navbar = document.querySelector(".navbar");
+            const navbarHeight = navbar ? navbar.offsetHeight : 70;
+
+            const targetTop = target.getBoundingClientRect().top + window.scrollY;
+
+            window.scrollTo({
+                top: targetTop - navbarHeight,
+                behavior: "smooth"
+            });
+        }, 300); // tempo suficiente para a navbar existir e o layout estar pronto
+    }
+});
+
+
+
