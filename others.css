@@ -113,8 +113,8 @@ html, body {
 
 
 .logo-image {
-    width: 105px;
-    height: 62px;
+    width: 80px;
+    height: 47px;
     margin-left: 20px;
     margin-top: 0px !important;
 }
@@ -135,6 +135,11 @@ html, body {
 
 .nav-link {
     padding: 10px 30px !important;
+}
+
+.nav-link,
+.round-btn {
+    font-size: 1.1rem !important;
 }
 
 .footer-link {
@@ -168,13 +173,13 @@ html, body {
 
 #langToggle:hover .translation {
   text-decoration: underline;
+  color: #A6151F;
 }
 
 
 .round-btn {
     text-transform: capitalize !important;
     font-family: 'Instrument Sans' !important;
-    font-size: 1.2rem !important;
     /*font-weight: bold !important;*/
     color: #000000;
     padding: 10px 40px !important; /* Ajuste o padding conforme necessário */
@@ -1149,6 +1154,7 @@ filter: grayscale(0%);
     .logo-image {
         width: 80px;
         height: 47px;
+        margin-left: 15px;
     }
 
     .welcome-sentence {

@@ -286,8 +286,11 @@ html, body {
   text-decoration: underline !important;
 }
 
-
-
+/* Divisoria a preto sempre que .navbar tem class .navbar-scroll ou .navbar.mobile-open */
+.navbar.navbar-scroll .divisoria,
+.navbar.mobile-open .divisoria:hover {
+  color: #000000 !important;
+}
 
 
 .footer-link:hover {
@@ -299,6 +302,8 @@ html, body {
 .nav-link-translate{
     padding: 10px 0px 10px 30px !important;
 }
+
+
 
 @media (max-width: 1199px) {
     .nav-link-translate{
