@@ -46,46 +46,54 @@ html, body {
   align-items: center;
   justify-content: center;
   text-align: center;
+  overflow: hidden;
+}
+
+#fog-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+#fog-animation svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .background-overlay {
-  position: relative; /* mantém o texto posicionado dentro da section */
+  position: relative;
   z-index: 2;
   color: white;
   padding: 2rem;
 }
 
-.background-title{
-    padding-top: 80px;
-    font-size: clamp(2.5rem, 5.5vw, 4.5rem);
-    font-weight: 200;
+.background-title {
+  padding-top: 80px;
+  font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+  font-weight: 200;
 }
 
 .background-txt {
-    font-family: "Instrument Sans", sans-serif;
-    font-size: clamp(1rem, 1.2vw, 1.4rem);
-    text-align: left;
-    margin: 0;
-    text-overflow: ellipsis;
-    max-height: 90%;
+  font-family: "Instrument Sans", sans-serif;
+  font-size: clamp(1rem, 1.2vw, 1.4rem);
+  text-align: center;
+  margin: 0;
 }
 
-.background-title,
-.background-txt {
-    text-align: center !important;
-}
-
-/* Se quiseres escurecer a imagem para dar mais contraste ao texto */
 #sectionBackground::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.4); /* opcional */
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
   z-index: 1;
 }
+
 
 
 

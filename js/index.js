@@ -147,16 +147,28 @@ setTimeout(() => {
 
 // ******************************************************* ANIMAÇÃO ************************************************
 
-/*
+
 let animation = lottie.loadAnimation({
-    container: document.getElementById('lottie-animation'), // O contêiner onde a animação será exibida
+    container: document.getElementById('fog-animation'), // O contêiner onde a animação será exibida
     renderer: 'svg', // Tipo de renderização (svg, canvas, ou html)
-    loop: false, // Defina como true se a animação deve ser repetida
+    loop: true, // Defina como true se a animação deve ser repetida
     autoplay: false, // Defina como true para que a animação comece automaticamente
-    path: './assets/json-files/Homepage-anim.json' // Caminho para o arquivo JSON gerado com o Bodymovin
+    path: './assets/json-files/fog.json' // Caminho para o arquivo JSON gerado com o Bodymovin
 });
 
-const lottieContainer = document.getElementById('lottie-animation');
+const lottieContainer = document.getElementById('fog-animation');
+
+// Este bloco é o extra para garantir que o SVG/canvas ocupa o tamanho total
+animation.addEventListener('DOMLoaded', () => {
+    const svg = document.querySelector('#fog-animation svg');
+    if (svg) {
+        svg.setAttribute('preserveAspectRatio', 'xMidYMid slice'); //xMidYMid é para garantir que a animação se encontra centrada vertical e horizontalmente | slice é equiparável a background-size: cover (mas para as propriedades de svg)
+        svg.style.width = '100%';
+        svg.style.height = '100%';
+    }
+});
+
+
 
 const observer = new IntersectionObserver((entries, observer) => {
   entries.forEach(entry => {
@@ -170,7 +182,7 @@ const observer = new IntersectionObserver((entries, observer) => {
 });
 
 observer.observe(lottieContainer);
-*/
+
 
 
 // ****************************************************** ANIMAÇÃO FIM **********************************************
