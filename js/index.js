@@ -43,6 +43,9 @@ function scrollAnim(e) {
         behavior: 'smooth'
     });
 
+    // Atualiza o hash da URL sem forçar scroll extra
+    history.replaceState(null, '', `#${e}`);
+
     // Atualizar a navbar após o scroll suave (espera 1s como fallback)
     setTimeout(() => {
         updateNavbarShadow();
@@ -129,8 +132,16 @@ setTimeout(() => {
             const target = document.querySelector(window.location.hash);
             if (target) {
                 setTimeout(() => {
-                    target.scrollIntoView({ behavior: "smooth", block: "start" });
-                }, 100); // mais um pequeno atraso para garantir render
+                    const navbar = document.querySelector(".navbar");
+                    const navbarHeight = navbar ? navbar.offsetHeight : 70;
+
+                    const targetTop = target.getBoundingClientRect().top + window.scrollY;
+
+                    window.scrollTo({
+                        top: targetTop - navbarHeight,
+                        behavior: "smooth"
+                    });
+                }, 300); // tempo suficiente para layout e navbar carregarem
             }
         }
 
@@ -1160,5 +1171,7 @@ window.addEventListener('scroll', updateNavbarShadow);
 const collapseEl = document.getElementById('navbarsExample05');
 collapseEl.addEventListener('shown.bs.collapse', updateNavbarShadow);
 collapseEl.addEventListener('hidden.bs.collapse', updateNavbarShadow);
+
+
 
 
