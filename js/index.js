@@ -1135,6 +1135,8 @@ document.getElementById("linkLivroRecl").addEventListener("mouseleave", () => {
 // ************************************************************** FOOTER FIM *******************************************************
 
 
+
+
 function updateNavbarShadow() {
     console.log('updateNavbarShadow — scrollY é', window.scrollY);
 
@@ -1171,7 +1173,3 @@ window.addEventListener('scroll', updateNavbarShadow);
 const collapseEl = document.getElementById('navbarsExample05');
 collapseEl.addEventListener('shown.bs.collapse', updateNavbarShadow);
 collapseEl.addEventListener('hidden.bs.collapse', updateNavbarShadow);
-
-
-
-
