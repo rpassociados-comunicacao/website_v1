@@ -126,6 +126,7 @@ setTimeout(() => {
     
     setTimeout(() => {
         content.style.visibility = "visible";
+        iniciarTextEffect();
 
         // Fazer scroll para o hash depois de o conteúdo estar visível
         if (window.location.hash) {
@@ -150,6 +151,69 @@ setTimeout(() => {
 
 
 
+// ******************************************************* TEXT EFFECT **********************************************
+
+function iniciarTextEffect() {
+  const blocks = Array.from(document.querySelectorAll(".line-reveal"));
+  const blockQueue = [];
+
+  blocks.forEach((block, i) => {
+    new SplitType(block, { types: 'lines' });
+
+    blockQueue.push({
+      el: block,
+      lines: Array.from(block.querySelectorAll(".line")),
+      hasAnimated: false
+    });
+  });
+
+  let isAnimating = false;
+
+  function animateBlock(blockData, onComplete) {
+    const { lines } = blockData;
+    isAnimating = true;
+
+    lines.forEach((line, i) => {
+      setTimeout(() => {
+        line.style.transform = "translateY(0)";
+        line.style.opacity = "1";
+
+        if (i === lines.length - 1) {
+          setTimeout(() => {
+            isAnimating = false;
+            if (typeof onComplete === "function") onComplete();
+          }, 600);
+        }
+      }, i * 150);
+    });
+  }
+
+  function handleScroll() {
+    if (isAnimating) return;
+
+    const nextBlock = blockQueue.find(b => !b.hasAnimated && isInViewport(b.el));
+
+    if (nextBlock) {
+      nextBlock.hasAnimated = true;
+      animateBlock(nextBlock, () => {
+        requestAnimationFrame(handleScroll);
+      });
+    }
+  }
+
+  function isInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    const vh = window.innerHeight || document.documentElement.clientHeight;
+    return rect.top < vh && rect.bottom > 0;
+  }
+
+  window.addEventListener("scroll", handleScroll);
+  window.addEventListener("resize", handleScroll);
+  handleScroll();
+}
+
+
+// ******************************************************* TEXT EFFECT FIM **********************************************
 
 
 

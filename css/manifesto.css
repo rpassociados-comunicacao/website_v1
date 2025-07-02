@@ -1373,3 +1373,13 @@ filter: grayscale(0%);
 
 
 /* ******************************************************** TEXT EFFECT FIM *********************************************************** */
+
+#lottie-animation {
+    height: 300px;
+}
+
+@media (max-width: 700px) {
+    #lottie-animation {
+        height: 150px;
+    }
+}

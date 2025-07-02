@@ -282,6 +282,23 @@ document.addEventListener("DOMContentLoaded", () => {
 //================================================== TEXT EFFECT FIM =================================================
 
 
+//================================================== ANIMATION FIM =================================================
+
+
+
+setTimeout(() => {
+  lottie.loadAnimation({
+    container: document.getElementById('lottie-animation'), // O contêiner onde a animação será exibida
+    renderer: 'svg', // Tipo de renderização (svg, canvas, ou html)
+    loop: true, // Defina como true se a animação deve ser repetida
+    autoplay: true, // Defina como true para que a animação comece automaticamente
+    path: './assets/json-files/manifest-anim.json' // Caminho para o arquivo JSON gerado com o Bodymovin
+  });
+}, 1700);
+
+//================================================== ANIMATION FIM =================================================
+
+
 
 //================================================== EQUIPA FIM =================================================
 
