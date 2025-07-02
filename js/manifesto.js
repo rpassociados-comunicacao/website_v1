@@ -294,12 +294,25 @@ setTimeout(() => {
     renderer: 'svg',
     loop: true,
     autoplay: true,
-    path: './assets/json-files/manifest-anim.json'
+    path: './assets/json-files/tempo.json'
+  });
+
+  const containerZero = document.getElementById('lottie-animation-zero');
+
+  lottie.loadAnimation({
+    container: containerZero,
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: './assets/json-files/mulher.json'
   });
 
   // Ativa o fade-in
   container.classList.add("show");
+  containerZero.classList.add("show");
 }, 1700);
+
+
 
 
 //================================================== ANIMATION FIM =================================================
