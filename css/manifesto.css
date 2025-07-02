@@ -1374,12 +1374,21 @@ filter: grayscale(0%);
 
 /* ******************************************************** TEXT EFFECT FIM *********************************************************** */
 
+
 #lottie-animation {
-    height: 300px;
+    height: 400px;
 }
 
 @media (max-width: 700px) {
     #lottie-animation {
-        height: 150px;
+        height: 200px;
     }
+}
+
+.fade-in {
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+.fade-in.show {
+    opacity: 1;
 }
