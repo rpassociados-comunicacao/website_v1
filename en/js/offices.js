@@ -107,9 +107,6 @@ onScroll(); // Executa na carga inicial
 document.addEventListener("DOMContentLoaded", function () {
     const targetElement = document.getElementById("SectionLeft");
     const mediaQuery = window.matchMedia("(min-width: 768px)");
-    const saoMiguelImg = document.getElementById("saoMiguelImg");
-    const picoImg = document.getElementById("picoImg");
-    const graciosaImg = document.getElementById("graciosaImg");
 
   
     function updateClasses(e) {
@@ -120,17 +117,13 @@ document.addEventListener("DOMContentLoaded", function () {
         targetElement.classList.add("container-left");
         targetElement.classList.remove("container");
         targetElement.classList.remove("px-5");
-        saoMiguelImg.src = "./assets/imgs/offices/sao-miguel-office.webp";
-        picoImg.src = "./assets/imgs/offices/pico-office.webp";
-        graciosaImg.src = "./assets/imgs/offices/graciosa-office.webp";
+        
       } else {
         // Largura < 768px
         targetElement.classList.add("container");
         targetElement.classList.remove("container-left");
         targetElement.classList.add("px-5");
-        saoMiguelImg.src = "./assets/imgs/offices/sao-miguel-office-m.webp";
-        picoImg.src = "./assets/imgs/offices/pico-office-m.webp";
-        graciosaImg.src = "./assets/imgs/offices/graciosa-office-m.webp";
+        
       }
     }
   
@@ -166,8 +159,54 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
+document.addEventListener("DOMContentLoaded", function () {
+    const targetElement = document.getElementById("SectionLeft");
+    const mediaQuery = window.matchMedia("(min-width: 768px)");
+  
+    function updateClasses(e) {
+      if (!targetElement) return;
+  
+      if (e.matches) {
+        // Largura >= 768px
+        targetElement.classList.add("container-left");
+      } else {
+        // Largura < 768px
+        targetElement.classList.remove("container-left");
+        targetElement.classList.remove("container");
+        targetElement.classList.remove("px-5");
+      }
+    }
+  
+    // Executa à carga
+    updateClasses(mediaQuery);
+  
+    // E ao mudar de tamanho
+    mediaQuery.addEventListener("change", updateClasses);
+});
 
 
 
 //================================================== EQUIPA FIM =================================================
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const hash = window.location.hash;
+
+    if (hash) {
+        const target = document.querySelector(hash);
+        if (!target) return;
+
+        // Espera pequeno atraso para garantir que o layout carregou
+        setTimeout(() => {
+            const navbar = document.querySelector(".navbar");
+            const navbarHeight = navbar ? navbar.offsetHeight : 70;
+
+            const targetTop = target.getBoundingClientRect().top + window.scrollY;
+
+            window.scrollTo({
+                top: targetTop - navbarHeight,
+                behavior: "smooth"
+            });
+        }, 300); // tempo suficiente para a navbar existir e o layout estar pronto
+    }
+});
