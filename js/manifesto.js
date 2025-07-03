@@ -288,29 +288,48 @@ document.addEventListener("DOMContentLoaded", () => {
 
 setTimeout(() => {
   const container = document.getElementById('lottie-animation');
+  const containerZero = document.getElementById('lottie-animation-zero');
 
-  lottie.loadAnimation({
+  const anim1 = lottie.loadAnimation({
     container: container,
     renderer: 'svg',
-    loop: true,
+    loop: false, // vamos controlar o loop manualmente
     autoplay: true,
     path: './assets/json-files/tempo.json'
   });
 
-  const containerZero = document.getElementById('lottie-animation-zero');
-
-  lottie.loadAnimation({
+  const anim2 = lottie.loadAnimation({
     container: containerZero,
     renderer: 'svg',
-    loop: true,
+    loop: false,
     autoplay: true,
     path: './assets/json-files/mulher.json'
   });
+
+  // Função para boomerang loop
+  function setupBoomerang(anim) {
+    let isForward = true;
+
+    anim.addEventListener('complete', () => {
+      const totalFrames = anim.totalFrames;
+      if (isForward) {
+        anim.playSegments([totalFrames, 0], true); // volta atrás
+      } else {
+        anim.playSegments([0, totalFrames], true); // vai para frente
+      }
+      isForward = !isForward;
+    });
+  }
+
+  // Aplica o boomerang
+  setupBoomerang(anim1);
+  setupBoomerang(anim2);
 
   // Ativa o fade-in
   container.classList.add("show");
   containerZero.classList.add("show");
 }, 1700);
+
 
 
 
