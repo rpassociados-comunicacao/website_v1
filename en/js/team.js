@@ -185,7 +185,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-    const targetElement = document.getElementById("SectionManifesto");
+    const targetElement = document.getElementById("SectionLeft");
     const mediaQuery = window.matchMedia("(min-width: 768px)");
   
     function updateClasses(e) {
@@ -193,9 +193,10 @@ document.addEventListener("DOMContentLoaded", function () {
   
       if (e.matches) {
         // Largura >= 768px
-        targetElement.classList.add("container");
+        targetElement.classList.add("container-left");
       } else {
         // Largura < 768px
+        targetElement.classList.remove("container-left");
         targetElement.classList.remove("container");
         targetElement.classList.remove("px-5");
       }
@@ -208,147 +209,6 @@ document.addEventListener("DOMContentLoaded", function () {
     mediaQuery.addEventListener("change", updateClasses);
 });
 
-
-
-//================================================== TEXT EFFECT =====================================================
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  const blocks = Array.from(document.querySelectorAll(".line-reveal"));
-  const blockQueue = [];
-
-  blocks.forEach((block, i) => {
-    // Split em linhas
-    new SplitType(block, { types: 'lines' });
-
-    // Guarda referência ao bloco e respetivas linhas
-    blockQueue.push({
-      el: block,
-      lines: Array.from(block.querySelectorAll(".line")),
-      hasAnimated: false
-    });
-  });
-
-  let isAnimating = false;
-
-  function animateBlock(blockData, onComplete) {
-    const { lines } = blockData;
-    isAnimating = true;
-
-    lines.forEach((line, i) => {
-      setTimeout(() => {
-        line.style.transform = "translateY(0)";
-        line.style.opacity = "1";
-
-        // Última linha termina animação
-        if (i === lines.length - 1) {
-          setTimeout(() => {
-            isAnimating = false;
-            if (typeof onComplete === "function") onComplete();
-          }, 600); // espera a última linha terminar
-        }
-      }, i * 150); // delay entre linhas
-    });
-  }
-
-  function handleScroll() {
-    if (isAnimating) return;
-
-    const nextBlock = blockQueue.find(b => !b.hasAnimated && isInViewport(b.el));
-
-    if (nextBlock) {
-      nextBlock.hasAnimated = true;
-      animateBlock(nextBlock, () => {
-        requestAnimationFrame(handleScroll); // tenta animar o seguinte
-      });
-    }
-  }
-
-  function isInViewport(el) {
-    const rect = el.getBoundingClientRect();
-    const vh = window.innerHeight || document.documentElement.clientHeight;
-    return rect.top < vh && rect.bottom > 0; // está visível (mesmo que parcialmente)
-  }
-
-  window.addEventListener("scroll", handleScroll);
-  window.addEventListener("resize", handleScroll);
-  handleScroll(); // run on load
-});
-
-
-
-
-
-//================================================== TEXT EFFECT FIM =================================================
-
-
-//================================================== ANIMATION FIM =================================================
-
-
-
-setTimeout(() => {
-  const containerZero = document.getElementById('lottie-animation-zero');
-  //const containerOne = document.getElementById('lottie-animation-one');
-  const containerTwo = document.getElementById('lottie-animation-two');
-  
-
-  const anim0 = lottie.loadAnimation({
-    container: containerZero,
-    renderer: 'svg',
-    loop: false,
-    autoplay: true,
-    path: './assets/json-files/mulher.json'
-  });
-
-  /*const anim1 = lottie.loadAnimation({
-    container: containerOne,
-    renderer: 'svg',
-    loop: false, // vamos controlar o loop manualmente
-    autoplay: true,
-    path: './assets/json-files/mulher-2.json'
-  });*/
-  
-  const anim2 = lottie.loadAnimation({
-    container: containerTwo,
-    renderer: 'svg',
-    loop: false, // vamos controlar o loop manualmente
-    autoplay: true,
-    path: './assets/json-files/tempo.json'
-  });
-
-  
-
-  // Função para boomerang loop
-  function setupBoomerang(anim) {
-    let isForward = true;
-
-    anim.addEventListener('complete', () => {
-      const totalFrames = anim.totalFrames;
-      if (isForward) {
-        anim.playSegments([totalFrames, 0], true); // volta atrás
-      } else {
-        anim.playSegments([0, totalFrames], true); // vai para frente
-      }
-      isForward = !isForward;
-    });
-  }
-
-  // Aplica o boomerang
-  setupBoomerang(anim0);
-  //setupBoomerang(anim1);
-  setupBoomerang(anim2);
-
-  // Ativa o fade-in
-  containerZero.classList.add("show");
-  //containerOne.classList.add("show");
-  containerTwo.classList.add("show");
-}, 1700);
-
-
-
-
-
-//================================================== ANIMATION FIM =================================================
 
 
 

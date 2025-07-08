@@ -1375,14 +1375,14 @@ filter: grayscale(0%);
 /* ******************************************************** TEXT EFFECT FIM *********************************************************** */
 
 
-#lottie-animation,
-#lottie-animation-zero {
+#lottie-animation-zero,
+#lottie-animation-two {
     height: 400px;
 }
 
 @media (max-width: 700px) {
-    #lottie-animation,
-    #lottie-animation-zero {
+    #lottie-animation-zero,
+    #lottie-animation-two {
         height: 200px;
     }
 }
