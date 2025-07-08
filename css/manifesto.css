@@ -958,7 +958,8 @@ body.scroll-locked {
 /* Smartphones */
 @media (max-width: 576px) {
     .office {
-        aspect-ratio: 1 / 1 !important;
+        height: 200px;
+        width: 100%;
     }
 }
 
