@@ -913,9 +913,9 @@ body.scroll-locked {
 /* **************************************************** ESCRITÓRIOS ****************************************************** */
 
 .office {
-  height: 600px;
   position: relative;
   overflow: hidden;
+  aspect-ratio: 1 / 1 !important;
 }
 
 .office-bg {
@@ -941,15 +941,6 @@ body.scroll-locked {
   filter: grayscale(0%);
 }
 
-/* Gradiente escuro na parte inferior */
-.office::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0));
-  z-index: 1;
-}
-
 /* Conteúdo sempre acima da imagem e overlay */
 .office > *:not(.office-bg) {
   position: relative;
@@ -967,7 +958,7 @@ body.scroll-locked {
 /* Smartphones */
 @media (max-width: 576px) {
     .office {
-        height: 300px;
+        aspect-ratio: 1 / 1 !important;
     }
 }
 
@@ -975,28 +966,28 @@ body.scroll-locked {
 /* Tablets */
 @media (min-width: 768px) {
     .office {
-        height: 400px;
+        aspect-ratio: 1 / 1 !important;
     }
 }
 
 /* Laptops e desktops médios */
 @media (min-width: 1024px) {
     .office {
-        height: 500px;
+        aspect-ratio: 1 / 1 !important;
     }
 }
 
 /* Desktops grandes */
 @media (min-width: 1400px) {
     .office {
-        height: 600px;
+        aspect-ratio: 1 / 1 !important;
     }
 }
 
 /* Monitores ultra-wide */
 @media (min-width: 1800px) {
     .office {
-        height: 700px;
+        aspect-ratio: 1 / 1 !important;
     }
 }
 
