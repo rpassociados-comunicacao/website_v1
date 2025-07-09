@@ -915,7 +915,6 @@ body.scroll-locked {
 .office {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 1 / 1 !important;
 }
 
 .office-bg {
@@ -955,42 +954,16 @@ body.scroll-locked {
     text-decoration: none;
 }
 
-/* Smartphones */
-@media (max-width: 576px) {
+
+/* Tablets */
+@media (min-width: 992px) {
     .office {
-        height: 200px;
+        height: 350px !important;
         width: 100%;
     }
 }
 
 
-/* Tablets */
-@media (min-width: 768px) {
-    .office {
-        aspect-ratio: 1 / 1 !important;
-    }
-}
-
-/* Laptops e desktops médios */
-@media (min-width: 1024px) {
-    .office {
-        aspect-ratio: 1 / 1 !important;
-    }
-}
-
-/* Desktops grandes */
-@media (min-width: 1400px) {
-    .office {
-        aspect-ratio: 1 / 1 !important;
-    }
-}
-
-/* Monitores ultra-wide */
-@media (min-width: 1800px) {
-    .office {
-        aspect-ratio: 1 / 1 !important;
-    }
-}
 
 /* **************************************************** ESCRITÓRIOS FIM ****************************************************** */
 
