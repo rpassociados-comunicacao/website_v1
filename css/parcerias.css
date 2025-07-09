@@ -1398,7 +1398,9 @@ filter: grayscale(0%);
 
 /* *************************************************** UP BUTTON *********************************************** */
 
+
 #upButton {
+    display: none; /* <- esconder o botão no carregamento */
     background-color: #efefef;
 }
 
@@ -1406,10 +1408,10 @@ filter: grayscale(0%);
     background-color: #A6151F;
 }
 
-
 #upButton:hover > svg {
     color: #efefef;
 }
+
 
 
 /* *************************************************** UP BUTTON FIM ******************************************* */ 

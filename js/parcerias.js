@@ -294,4 +294,5 @@ const scrollButtons = [
 // Aplica a todos os botões
 scrollButtons.forEach(({ id, section }) => addScrollHandler(id, section));
 
+
 /* ****************************************** SCROLL ANIM FIM ***************************************** */
