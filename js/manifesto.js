@@ -379,7 +379,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /* ****************************************** SCROLL ANIM ***************************************** */
 
-//Ao adicionar o scroll anim não esquecer de adicionar o ID no body da página correspondente
+//Ao adicionar o scroll anim não esquecer de adicionar o ID no body da página correspondente --id="indexPage"
 
 
 function scrollAnim(e) {

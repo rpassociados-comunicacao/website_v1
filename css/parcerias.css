@@ -1394,3 +1394,22 @@ filter: grayscale(0%);
 .fade-in.show {
     opacity: 1;
 }
+
+
+/* *************************************************** UP BUTTON *********************************************** */
+
+#upButton {
+    background-color: #efefef;
+}
+
+#upButton:hover {
+    background-color: #A6151F;
+}
+
+
+#upButton:hover > svg {
+    color: #efefef;
+}
+
+
+/* *************************************************** UP BUTTON FIM ******************************************* */ 
