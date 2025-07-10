@@ -93,7 +93,8 @@ const scrollButtons = [
     { id: "FooterBtnBlog", section: "Destaques" },
     { id: "valuesContactBtn", section: "Contacto" },
     { id: "valuesContactBtnMobile", section: "Contacto" },
-    { id: "equipaContactBtn", section: "Contacto" }
+    { id: "equipaContactBtn", section: "Contacto" },
+    { id: "upButton", section: "indexPage" },
 ];
 
 // Aplica a todos os botões
@@ -110,6 +111,25 @@ if (roundBtn) {
         }
     });
 }
+
+function toggleFixedButtonVisibility() {
+  const fixedButton = document.getElementById("fixed-button");
+  if (!fixedButton) return;
+
+  if (window.scrollY > 1) {
+    fixedButton.classList.remove("disp-none");
+  } else {
+    fixedButton.classList.add("disp-none");
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Aplica visibilidade correta ao carregar
+  toggleFixedButtonVisibility();
+
+  // Atualiza visibilidade em scroll
+  window.addEventListener("scroll", toggleFixedButtonVisibility);
+});
 
 
 
