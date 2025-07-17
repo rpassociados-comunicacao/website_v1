@@ -649,36 +649,9 @@ body.scroll-locked {
     }
 }
 
-.container-left {
-    margin-left: calc((100% - 1140px) / 2); /* ou o valor do breakpoint atual */
-  }
-  
-  @media (min-width: 576px) {
-    .container-left {
-      margin-left: calc((100vw - 540px) / 2);
-    }
-  }
-  @media (min-width: 768px) {
-    .container-left {
-      margin-left: calc((100vw - 720px) / 2);
-    }
-  }
-  @media (min-width: 992px) {
-    .container-left {
-      margin-left: calc((100vw - 960px) / 2);
-    }
-  }
-  @media (min-width: 1200px) {
-    .container-left {
-      margin-left: calc((100vw - 1140px) / 2);
-    }
-  }
-  @media (min-width: 1400px) {
-    .container-left {
-      margin-left: calc((100vw - 1320px) / 2);
-    }
-  }
-  
+
+
+
 
 
 
@@ -1370,4 +1343,4 @@ filter: grayscale(0%);
 }
 
 
-/* *************************************************** UP BUTTON FIM ******************************************* */ 
+/* *************************************************** UP BUTTON FIM ******************************************* */
