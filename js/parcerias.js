@@ -245,9 +245,9 @@ document.addEventListener("DOMContentLoaded", () => {
           setTimeout(() => {
             isAnimating = false;
             if (typeof onComplete === "function") onComplete();
-          }, 600); // espera a última linha terminar
+          }, 300); // espera a última linha terminar
         }
-      }, i * 150); // delay entre linhas
+      }, i * 100); // delay entre linhas
     });
   }
 
@@ -284,7 +284,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //================================================== ANIMATION FIM =================================================
 
-const delay = window.innerWidth <= 768 ? 3000 : 0;
+const delay = window.innerWidth <= 768 ? 1700 : 0;
 
 setTimeout(() => {
   const containerZero = document.getElementById('lottie-animation-zero');
