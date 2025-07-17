@@ -65,6 +65,149 @@ document.getElementById("ham-btn").addEventListener("click", () => {
 
 // *************************************************** NAVBAR FIM ********************************************************
 
+//================================================== EQUIPA =================================================
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+function handleStickyBlock(wrapper, content, scrollCol) {
+    const stickyHeight = content.offsetHeight;
+    const offsetTop = wrapper.offsetTop;
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const end = offsetTop + scrollCol.offsetHeight - stickyHeight - 100;
+    const start = offsetTop - 100;
+
+    if (scrollTop > start && scrollTop < end) {
+    content.classList.add("fixed");
+    content.classList.remove("bottom");
+    } else if (scrollTop >= end) {
+    content.classList.remove("fixed");
+    content.classList.add("bottom");
+    } else {
+    content.classList.remove("fixed", "bottom");
+    }
+}
+
+const wrappers = document.querySelectorAll(".sticky-wrapper");
+
+function onScroll() {
+    wrappers.forEach(wrapper => {
+    const content = wrapper.querySelector(".sticky-content");
+    const scrollCol = wrapper.querySelector(".scrolling-column");
+    handleStickyBlock(wrapper, content, scrollCol);
+    });
+}
+
+window.addEventListener("scroll", onScroll);
+window.addEventListener("resize", onScroll);
+onScroll(); // Executa na carga inicial
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const targetElement = document.getElementById("SectionLeft");
+    const mediaQuery = window.matchMedia("(min-width: 768px)");
+    const juliaImg = document.getElementById("juliaImg");
+    const carolinaImg = document.getElementById("carolinaImg");
+    const joanaImg = document.getElementById("joanaImg");
+    const joaoImg = document.getElementById("joaoImg");
+    const veronicaImg = document.getElementById("veronicaImg");
+    const britoImg = document.getElementById("britoImg");
+    const ricardoImg = document.getElementById("ricardoImg");
+    const joaomImg = document.getElementById("joaomImg");
+    const biancaImg = document.getElementById("biancaImg");
+    
+  
+    function updateClasses(e) {
+      if (!targetElement) return;
+  
+      if (e.matches) {
+        // Largura >= 768px
+        targetElement.classList.add("container-left");
+        targetElement.classList.remove("container");
+        targetElement.classList.remove("px-5");
+        juliaImg.src = "./assets/imgs/team/julia-bg.webp";
+        carolinaImg.src = "./assets/imgs/team/carolina-bg.webp";
+        joanaImg.src = "./assets/imgs/team/joana-bg.webp";
+        veronicaImg.src = "./assets/imgs/team/veronica-bg.webp";
+        britoImg.src = "./assets/imgs/team/brito-bg.webp";
+        ricardoImg.src = "./assets/imgs/team/ricardo-bg.webp";
+        joaomImg.src = "./assets/imgs/team/joaom-bg.webp";
+        biancaImg.src = "./assets/imgs/team/bianca-bg.webp";
+        
+      } else {
+        // Largura < 768px
+        targetElement.classList.add("container");
+        targetElement.classList.remove("container-left");
+        targetElement.classList.add("px-5");
+        juliaImg.src = "./assets/imgs/team/julia-bg.webp";
+        carolinaImg.src = "./assets/imgs/team/carolina-bg.webp";
+        joanaImg.src = "./assets/imgs/team/joana-bg.webp";
+        joaoImg.src = "./assets/imgs/team/joao-bg.webp";
+        veronicaImg.src = "./assets/imgs/team/veronica-bg.webp";
+        britoImg.src = "./assets/imgs/team/brito-bg.webp";
+        ricardoImg.src = "./assets/imgs/team/ricardo-bg.webp";
+        joaomImg.src = "./assets/imgs/team/joaom-bg.webp";
+        biancaImg.src = "./assets/imgs/team/bianca-bg.webp";
+        
+      }
+    }
+  
+    // Executa à carga
+    updateClasses(mediaQuery);
+  
+    // E ao mudar de tamanho
+    mediaQuery.addEventListener("change", updateClasses);
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const employeeImages = document.querySelectorAll(".employee-picture");
+
+    const observerOptions = {
+        root: null, // viewport
+        rootMargin: "0px",
+        threshold: [0.45, 0.5, 0.55] // 50% visível já ativa o efeito
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("in-view");
+            } else {
+                entry.target.classList.remove("in-view");
+            }
+        });
+    }, observerOptions);
+
+    employeeImages.forEach(img => observer.observe(img));
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const targetElement = document.getElementById("SectionManifesto");
+    const mediaQuery = window.matchMedia("(min-width: 768px)");
+  
+    function updateClasses(e) {
+      if (!targetElement) return;
+  
+      if (e.matches) {
+        // Largura >= 768px
+        
+      } else {
+        // Largura < 768px
+        
+        targetElement.classList.remove("px-5");
+      }
+    }
+  
+    // Executa à carga
+    updateClasses(mediaQuery);
+  
+    // E ao mudar de tamanho
+    mediaQuery.addEventListener("change", updateClasses);
+});
+
 
 
 //================================================== TEXT EFFECT =====================================================
@@ -141,7 +284,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //================================================== ANIMATION FIM =================================================
 
-
+const delay = window.innerWidth <= 768 ? 3000 : 0;
 
 setTimeout(() => {
   const containerZero = document.getElementById('lottie-animation-zero');
@@ -154,7 +297,7 @@ setTimeout(() => {
     renderer: 'svg',
     loop: false,
     autoplay: true,
-    path: './assets/json-files/mulher-2.json'
+    path: './assets/json-files/mulher.json'
   });
 
   /*const anim1 = lottie.loadAnimation({
@@ -199,7 +342,7 @@ setTimeout(() => {
   containerZero.classList.add("show");
   //containerOne.classList.add("show");
   containerTwo.classList.add("show");
-}, 1700);
+}, delay);
 
 
 
@@ -208,6 +351,8 @@ setTimeout(() => {
 //================================================== ANIMATION FIM =================================================
 
 
+
+//================================================== EQUIPA FIM =================================================
 
 document.addEventListener("DOMContentLoaded", () => {
     const hash = window.location.hash;
@@ -232,10 +377,9 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-
 /* ****************************************** SCROLL ANIM ***************************************** */
 
-//Ao adicionar o scroll anim não esquecer de adicionar o ID no body da página correspondente -- id="indexPage"
+//Ao adicionar o scroll anim não esquecer de adicionar o ID no body da página correspondente --id="indexPage"
 
 
 function scrollAnim(e) {
@@ -294,8 +438,6 @@ const scrollButtons = [
 // Aplica a todos os botões
 scrollButtons.forEach(({ id, section }) => addScrollHandler(id, section));
 
-
-
 function toggleFixedButtonVisibility() {
   const fixedButton = document.getElementById("fixed-button");
   if (!fixedButton) return;
@@ -315,7 +457,6 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", toggleFixedButtonVisibility);
 });
 
-
 /* ****************************************** SCROLL ANIM FIM ***************************************** */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -324,3 +465,29 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("Estamos no ano " + year);
     document.getElementById("currentYear").innerHTML = year;
 });
+
+/* *************************************** ESCONDER COLUNAS VAZIAS EM MOBILE **************************** */
+
+const voidColOne = document.getElementById("voidColOne");
+const voidColTwo = document.getElementById("voidColTwo");
+
+function toggleVoidColumns() {
+  if (window.innerWidth < 768) {
+    voidColOne.classList.add("disp-none");
+    voidColTwo.classList.add("disp-none");
+    console.log("Divs azuis desaparecem");
+  } else {
+    voidColOne.classList.remove("disp-none");
+    voidColTwo.classList.remove("disp-none");
+    console.log("Divs azuis aparecem");
+  }
+}
+
+// Executa ao carregar a página
+window.addEventListener("DOMContentLoaded", toggleVoidColumns);
+
+// Executa ao redimensionar
+window.addEventListener("resize", toggleVoidColumns);
+
+
+/* *************************************** ESCONDER COLUNAS VAZIAS EM MOBILE FIM **************************** */

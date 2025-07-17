@@ -543,6 +543,24 @@ html, body {
     max-height: 90%;
 }
 
+.general-txt-adapt {
+    font-family: "Instrument Sans", sans-serif;
+    font-size: clamp(1rem, 1.3vw, 1.7rem);
+    text-align: left;
+    margin: 0;
+    text-overflow: ellipsis;
+    max-height: 90%;
+}
+
+.general-txt-box {
+    font-family: "Instrument Sans", sans-serif;
+    font-size: clamp(0.8rem, 1vw, 1.2rem);
+    text-align: left;
+    margin: 0;
+    text-overflow: ellipsis;
+    max-height: 90%;
+}
+
 .regular {
     font-weight: 200;
 }
@@ -913,7 +931,6 @@ body.scroll-locked {
 /* **************************************************** ESCRITÓRIOS ****************************************************** */
 
 .office {
-  height: 600px;
   position: relative;
   overflow: hidden;
 }
@@ -941,15 +958,6 @@ body.scroll-locked {
   filter: grayscale(0%);
 }
 
-/* Gradiente escuro na parte inferior */
-.office::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0));
-  z-index: 1;
-}
-
 /* Conteúdo sempre acima da imagem e overlay */
 .office > *:not(.office-bg) {
   position: relative;
@@ -964,41 +972,16 @@ body.scroll-locked {
     text-decoration: none;
 }
 
-/* Smartphones */
-@media (max-width: 576px) {
-    .office {
-        height: 300px;
-    }
-}
-
 
 /* Tablets */
-@media (min-width: 768px) {
+@media (min-width: 992px) {
     .office {
-        height: 400px;
+        height: 350px !important;
+        width: 100%;
     }
 }
 
-/* Laptops e desktops médios */
-@media (min-width: 1024px) {
-    .office {
-        height: 500px;
-    }
-}
 
-/* Desktops grandes */
-@media (min-width: 1400px) {
-    .office {
-        height: 600px;
-    }
-}
-
-/* Monitores ultra-wide */
-@media (min-width: 1800px) {
-    .office {
-        height: 700px;
-    }
-}
 
 /* **************************************************** ESCRITÓRIOS FIM ****************************************************** */
 
@@ -1377,8 +1360,10 @@ filter: grayscale(0%);
 
 #lottie-animation-zero,
 #lottie-animation-two {
-    height: 400px;
+    height: 500px;
 }
+
+
 
 @media (max-width: 700px) {
     #lottie-animation-zero,
@@ -1395,12 +1380,9 @@ filter: grayscale(0%);
     opacity: 1;
 }
 
-
 /* *************************************************** UP BUTTON *********************************************** */
 
-
 #upButton {
-    display: none; /* <- esconder o botão no carregamento */
     background-color: #efefef;
 }
 
@@ -1408,10 +1390,12 @@ filter: grayscale(0%);
     background-color: #A6151F;
 }
 
+
 #upButton:hover > svg {
     color: #efefef;
 }
 
 
-
 /* *************************************************** UP BUTTON FIM ******************************************* */ 
+
+
