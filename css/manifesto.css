@@ -543,6 +543,24 @@ html, body {
     max-height: 90%;
 }
 
+.general-txt-adapt {
+    font-family: "Instrument Sans", sans-serif;
+    font-size: clamp(1rem, 1.3vw, 1.7rem);
+    text-align: left;
+    margin: 0;
+    text-overflow: ellipsis;
+    max-height: 90%;
+}
+
+.general-txt-box {
+    font-family: "Instrument Sans", sans-serif;
+    font-size: clamp(0.8rem, 1vw, 1.2rem);
+    text-align: left;
+    margin: 0;
+    text-overflow: ellipsis;
+    max-height: 90%;
+}
+
 .regular {
     font-weight: 200;
 }
@@ -1342,8 +1360,10 @@ filter: grayscale(0%);
 
 #lottie-animation-zero,
 #lottie-animation-two {
-    height: 400px;
+    height: 500px;
 }
+
+
 
 @media (max-width: 700px) {
     #lottie-animation-zero,

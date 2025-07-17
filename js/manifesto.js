@@ -284,7 +284,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //================================================== ANIMATION FIM =================================================
 
-
+const delay = window.innerWidth <= 768 ? 3000 : 0;
 
 setTimeout(() => {
   const containerZero = document.getElementById('lottie-animation-zero');
@@ -342,7 +342,7 @@ setTimeout(() => {
   containerZero.classList.add("show");
   //containerOne.classList.add("show");
   containerTwo.classList.add("show");
-}, 1700);
+}, delay);
 
 
 
