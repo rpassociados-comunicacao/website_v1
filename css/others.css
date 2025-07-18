@@ -650,6 +650,33 @@ body.scroll-locked {
 }
 
 
+.sticky-btn {
+    font-family: "Instrument Sans", sans-serif;
+    border-radius: 0;
+    border-style: none;
+    text-align: left;
+    white-space: normal;
+    color: #000000;
+}
+
+.sticky-btn:hover {
+    color: #A6151F;
+    text-decoration: underline !important;
+    background-color: #FFFFFF;
+}
+
+.sticky-btn:active {
+    border-style: none !important;
+    background-color: #FFFFFF !important;
+    color: #A6151F !important;
+}
+
+
+@media (max-width: 1084px) {
+    #stickyBtnGroup {
+        display: none !important;
+    }
+}
 
 
 

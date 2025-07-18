@@ -70,38 +70,66 @@ document.getElementById("ham-btn").addEventListener("click", () => {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-function handleStickyBlock(wrapper, content, scrollCol) {
-    const stickyHeight = content.offsetHeight;
-    const offsetTop = wrapper.offsetTop;
+  const stickySections = document.querySelectorAll(".sticky-wrapper");
+
+  function handleStickyContent(wrapper) {
+    const stickyContent = wrapper.querySelector(".sticky-content");
+    const scrollCol = wrapper.querySelector(".scrolling-column");
+
+    if (!stickyContent || !scrollCol) return;
+
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const offsetTop = wrapper.offsetTop;
+    const stickyHeight = stickyContent.offsetHeight;
     const end = offsetTop + scrollCol.offsetHeight - stickyHeight - 100;
     const start = offsetTop - 100;
 
     if (scrollTop > start && scrollTop < end) {
-    content.classList.add("fixed");
-    content.classList.remove("bottom");
+      stickyContent.classList.add("fixed");
+      stickyContent.classList.remove("bottom");
     } else if (scrollTop >= end) {
-    content.classList.remove("fixed");
-    content.classList.add("bottom");
+      stickyContent.classList.remove("fixed");
+      stickyContent.classList.add("bottom");
     } else {
-    content.classList.remove("fixed", "bottom");
+      stickyContent.classList.remove("fixed", "bottom");
     }
-}
+  }
 
-const wrappers = document.querySelectorAll(".sticky-wrapper");
+  function handleStickyGroup() {
+    const stickyEl = document.querySelector(".sticky-content-2");
+    const firstSection = document.getElementById("dAdministrativo");
+    const lastSection = document.getElementById("dNotariado");
 
-function onScroll() {
-    wrappers.forEach(wrapper => {
-    const content = wrapper.querySelector(".sticky-content");
-    const scrollCol = wrapper.querySelector(".scrolling-column");
-    handleStickyBlock(wrapper, content, scrollCol);
-    });
-}
+    if (!stickyEl || !firstSection || !lastSection) return;
 
-window.addEventListener("scroll", onScroll);
-window.addEventListener("resize", onScroll);
-onScroll(); // Executa na carga inicial
+    const scrollY = window.scrollY || window.pageYOffset;
+    const start = firstSection.offsetTop - 100;
+    const end = lastSection.offsetTop + lastSection.offsetHeight - stickyEl.offsetHeight - 100;
+
+    if (scrollY > start && scrollY < end) {
+      stickyEl.style.position = "fixed";
+      stickyEl.style.top = "100px";
+    } else if (scrollY >= end) {
+      stickyEl.style.position = "absolute";
+      stickyEl.style.top = (end - firstSection.offsetTop) + "px";
+    } else {
+      stickyEl.style.position = "static";
+      stickyEl.style.top = "auto";
+    }
+  }
+
+  function onScroll() {
+    stickySections.forEach(handleStickyContent);
+    handleStickyGroup();
+  }
+
+  // Executar na inicialização e em scroll/resize
+  window.addEventListener("scroll", onScroll);
+  window.addEventListener("resize", onScroll);
+  onScroll();
 });
+
+
 
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -292,7 +320,21 @@ function isIndexPage() {
 
 // Lista de botões
 const scrollButtons = [
-    { id: "upButton", section: "top" }
+    { id: "upButton", section: "top" },
+    { id: "btnAdministrativo", section: "dAdministrativo" },
+    { id: "btnFiscal", section: "dFiscal" },
+    { id: "btnComercial", section: "dComercial" },
+    { id: "btnFamilia", section: "dFamilia" },
+    { id: "btnSucessoes", section: "dInventario" },
+    { id: "btnConsumidor", section: "dConsumidor" },
+    { id: "btnCivil", section: "dCivil" },
+    { id: "btnTrabalho", section: "dTrabalho" },
+    { id: "btnPenal", section: "dPenal" },
+    { id: "btnExecutivo", section: "dExecutivo" },
+    { id: "btnImobiliario", section: "dImobiliario" },
+    { id: "btnRodoviario", section: "dRodoviario" },
+    { id: "btnRegistos", section: "dNotariado" }
+
 ];
 
 // Aplica a todos os botões
