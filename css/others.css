@@ -678,6 +678,12 @@ body.scroll-locked {
     }
 }
 
+@media (max-width: 1184px) {
+    #stickyBtnGroupTeam {
+        display: none !important;
+    }
+}
+
 
 
 
