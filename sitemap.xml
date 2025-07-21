@@ -13,43 +13,51 @@
   </url>
 
   <url>
-    <loc>https://www.rpaadvogados.com/escritorios.html</loc>
+    <loc>https://www.rpaadvogados.com/escritorios</loc>
     <lastmod>2024-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.rpaadvogados.com/en/offices.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rpaadvogados.com/en/offices" />
   </url>
 
   <url>
-    <loc>https://www.rpaadvogados.com/equipa.html</loc>
+    <loc>https://www.rpaadvogados.com/equipa</loc>
     <lastmod>2024-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.rpaadvogados.com/en/team.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rpaadvogados.com/en/team" />
   </url>
 
   <url>
-    <loc>https://www.rpaadvogados.com/atividade.html</loc>
+    <loc>https://www.rpaadvogados.com/atividade</loc>
     <lastmod>2024-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.rpaadvogados.com/en/activity.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rpaadvogados.com/en/activity" />
   </url>
 
   <url>
-    <loc>https://www.rpaadvogados.com/manifesto.html</loc>
+    <loc>https://www.rpaadvogados.com/manifesto</loc>
     <lastmod>2024-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.rpaadvogados.com/en/manifest.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rpaadvogados.com/en/manifest" />
   </url>
 
   <url>
-    <loc>https://www.rpaadvogados.com/legal.html</loc>
+    <loc>https://www.rpaadvogados.com/parcerias</loc>
+    <lastmod>2024-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rpaadvogados.com/en/partnerships" />
+  </url>
+
+  <url>
+    <loc>https://www.rpaadvogados.com/legal</loc>
     <lastmod>2024-06-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.rpaadvogados.com/en/legal.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rpaadvogados.com/en/legal" />
   </url>
 
   <!-- Páginas em Inglês -->
@@ -62,43 +70,51 @@
   </url>
 
   <url>
-    <loc>https://www.rpaadvogados.com/en/offices.html</loc>
+    <loc>https://www.rpaadvogados.com/en/offices</loc>
     <lastmod>2024-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://www.rpaadvogados.com/escritorios.html" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.rpaadvogados.com/escritorios" />
   </url>
 
   <url>
-    <loc>https://www.rpaadvogados.com/en/team.html</loc>
+    <loc>https://www.rpaadvogados.com/en/team</loc>
     <lastmod>2024-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://www.rpaadvogados.com/equipa.html" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.rpaadvogados.com/equipa" />
   </url>
 
   <url>
-    <loc>https://www.rpaadvogados.com/en/activity.html</loc>
+    <loc>https://www.rpaadvogados.com/en/activity</loc>
     <lastmod>2024-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://www.rpaadvogados.com/atividade.html" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.rpaadvogados.com/atividade" />
   </url>
 
   <url>
-    <loc>https://www.rpaadvogados.com/en/manifest.html</loc>
+    <loc>https://www.rpaadvogados.com/en/manifest</loc>
     <lastmod>2024-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://www.rpaadvogados.com/manifesto.html" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.rpaadvogados.com/manifesto" />
   </url>
 
   <url>
-    <loc>https://www.rpaadvogados.com/en/legal.html</loc>
+    <loc>https://www.rpaadvogados.com/partnerships</loc>
+    <lastmod>2024-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rpaadvogados.com/parcerias" />
+  </url>
+
+  <url>
+    <loc>https://www.rpaadvogados.com/en/legal</loc>
     <lastmod>2024-06-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://www.rpaadvogados.com/legal.html" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.rpaadvogados.com/legal" />
   </url>
 
 </urlset>
