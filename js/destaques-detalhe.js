@@ -364,7 +364,6 @@ if (id) {
       document.getElementById("writerImg").src = artigo.writerImg;
       document.getElementById("writerName").textContent = artigo.writerName;
       document.getElementById("writerLink").href = artigo.writerLink;
-      document.getElementById("imagem").alt = artigo.titulo;
       document.getElementById("texto").innerHTML = artigo.texto;
     })
     .catch(() => {

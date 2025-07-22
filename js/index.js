@@ -135,39 +135,51 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // ******************************************************* LOADER **********************************************
 
-const loader = document.getElementById("mainLoader");
-const content = document.getElementById("mainContent");
+// Esperar pelo fim do loader e só depois gerar os artigos
+document.addEventListener("DOMContentLoaded", function () {
+  const loader = document.getElementById("mainLoader");
+  const content = document.getElementById("mainContent");
 
-content.style.visibility = "hidden";
+  if (!loader || !content) {
+    console.warn("Loader ou content não encontrados");
+    generateArticles(); // fallback: tentar gerar logo
+    return;
+  }
 
-setTimeout(() => {
+  content.style.visibility = "hidden";
+
+  setTimeout(() => {
     content.classList.remove('disp-none');
     loader.classList.add('disp-none');
-    
+
     setTimeout(() => {
-        content.style.visibility = "visible";
-        iniciarTextEffect();
+      content.style.visibility = "visible";
 
-        // Fazer scroll para o hash depois de o conteúdo estar visível
-        if (window.location.hash) {
-            const target = document.querySelector(window.location.hash);
-            if (target) {
-                setTimeout(() => {
-                    const navbar = document.querySelector(".navbar");
-                    const navbarHeight = navbar ? navbar.offsetHeight : 70;
+      // ✅ Aqui está a chamada correta
+      console.log("✨ Loader terminou — agora gerar artigos");
+      generateArticles();
 
-                    const targetTop = target.getBoundingClientRect().top + window.scrollY;
+      iniciarTextEffect();
 
-                    window.scrollTo({
-                        top: targetTop - navbarHeight,
-                        behavior: "smooth"
-                    });
-                }, 300); // tempo suficiente para layout e navbar carregarem
-            }
+      // Scroll para hash
+      if (window.location.hash) {
+        const target = document.querySelector(window.location.hash);
+        if (target) {
+          setTimeout(() => {
+            const navbar = document.querySelector(".navbar");
+            const navbarHeight = navbar ? navbar.offsetHeight : 70;
+            const targetTop = target.getBoundingClientRect().top + window.scrollY;
+
+            window.scrollTo({
+              top: targetTop - navbarHeight,
+              behavior: "smooth"
+            });
+          }, 300);
         }
-
+      }
     }, 200);
-}, 1000);
+  }, 1000);
+});
 
 
 
@@ -617,7 +629,7 @@ function showLastNewsItemsMobileOnly() {
 }
 
 // Chamada inicial
-document.addEventListener("DOMContentLoaded", showLastNewsItemsMobileOnly);
+
 
 // Atualizar se o user redimensionar
 window.addEventListener("resize", showLastNewsItemsMobileOnly);
@@ -1222,7 +1234,7 @@ document.getElementById("linkLivroRecl").addEventListener("mouseleave", () => {
 
 
 function updateNavbarShadow() {
-    console.log('updateNavbarShadow — scrollY é', window.scrollY);
+    //console.log('updateNavbarShadow — scrollY é', window.scrollY);
 
     const navbar = document.querySelector('.navbar');
     const collapse = document.querySelector('.navbar-collapse');
@@ -1237,7 +1249,7 @@ function updateNavbarShadow() {
         navbarLogo.src = "./assets/imgs/website_logo.svg";
         navLinks.forEach(link => link.classList.add("black-nav-link"));
         menuIconSpans.forEach(span => span.style.backgroundColor = "#000");
-        console.log("Entrou no IF do updateNavbarShadow");
+        //console.log("Entrou no IF do updateNavbarShadow");
 
     } else {
         navbar.classList.remove('navbar-scroll');
@@ -1246,7 +1258,7 @@ function updateNavbarShadow() {
         navbarLogo.src = "./assets/imgs/white_logo.svg";
         navLinks.forEach(link => link.classList.remove("black-nav-link"));
         menuIconSpans.forEach(span => span.style.backgroundColor = "#fff");
-        console.log("Entrou no ELSE do updateNavbarShadow");
+        //console.log("Entrou no ELSE do updateNavbarShadow");
     }
 }
 
@@ -1257,3 +1269,84 @@ window.addEventListener('scroll', updateNavbarShadow);
 const collapseEl = document.getElementById('navbarsExample05');
 collapseEl.addEventListener('shown.bs.collapse', updateNavbarShadow);
 collapseEl.addEventListener('hidden.bs.collapse', updateNavbarShadow);
+
+
+/* ******************************************* gerar dinâmicamente 4 cards simplificados ********************************** */
+
+// 1. Gera os 4 primeiros artigos
+function generateArticles() {
+    console.log("✅ Chamou generateArticles()");
+  fetch("/assets/json-files/articles.json")
+    .then((response) => response.json())
+    .then((data) => {
+      const container = document.getElementById("newsCards");
+      if (!container) {
+        console.warn("Elemento #newsCards não encontrado.");
+        return;
+      }
+
+      // Limita aos 4 primeiros artigos
+      const artigosLimitados = Object.entries(data).slice(0, 4);
+
+      artigosLimitados.forEach(([id, artigo]) => {
+        const div = document.createElement("div");
+        div.className = "news-item";
+        div.innerHTML = `
+          <a href="/destaques/detalhe/?id=${id}" target="_blank" class="news-detail-link">
+            <div class="news-img-wrapper">
+              <img src="${artigo.thumbnail}" alt="Thumbnail notícia">
+            </div>
+          </a>
+        `;
+        container.appendChild(div);
+      });
+
+      // Agora que os artigos existem, aplicar visibilidade condicional em mobile
+      showLastNewsItemsMobileOnly();
+    })
+    .catch((error) => {
+      console.error("Erro ao carregar artigos:", error);
+    });
+}
+
+// 2. Controla a visibilidade dos artigos em mobile (mostra só os últimos 3)
+function showLastNewsItemsMobileOnly() {
+  const isMobile = window.innerWidth < 576;
+  const items = Array.from(document.querySelectorAll(".news-item"));
+
+  if (isMobile) {
+    items.forEach((item, index) => {
+      item.style.display = index < items.length - 3 ? "none" : "flex";
+    });
+  } else {
+    items.forEach(item => item.style.display = "flex");
+  }
+}
+
+// 3. Espera até que o loader termine, e só depois gera os artigos
+document.addEventListener("DOMContentLoaded", function () {
+  const loader = document.getElementById("mainLoader");
+
+  if (!loader) {
+    // Se não houver loader, gera imediatamente
+    generateArticles();
+    return;
+  }
+
+  const checkLoaderInterval = setInterval(() => {
+    if (loader.classList.contains("disp-none")) {
+      clearInterval(checkLoaderInterval);
+      generateArticles();
+    }
+  }, 100); // verifica a cada 100ms
+});
+
+// 4. Atualiza visibilidade dos artigos ao redimensionar janela
+window.addEventListener("resize", showLastNewsItemsMobileOnly);
+
+
+
+/* ******************************************* gerar dinâmicamente 4 cards simplificados FIM ********************************** */
+
+
+
