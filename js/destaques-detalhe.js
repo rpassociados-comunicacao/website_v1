@@ -346,7 +346,7 @@ const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
 
 if (id) {
-  fetch("https://raw.githubusercontent.com/rpassociados-comunicacao/website_v1/main/assets/json-files/articles.json")  // ajusta o path conforme a tua estrutura
+  fetch("https://www.rpaadvogados.com/assets/json-files/articles.json")  // ajusta o path conforme a tua estrutura
     .then(response => response.json())
     .then(data => {
       const artigo = data[id];
