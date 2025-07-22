@@ -405,8 +405,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const currentScrollLeft = scrollContainer.scrollLeft;
 
         if (maxScrollLeft <= 0) {
-            arrowLeft.style.display = "none";
-            arrowRight.style.display = "none";
             return;
         }
 
@@ -1300,6 +1298,28 @@ function generateArticles() {
         `;
         container.appendChild(div);
       });
+
+    document.querySelectorAll('.news-item a').forEach(link => {
+        let isDragging = false;
+        let startX;
+
+        link.addEventListener('mousedown', (e) => {
+            isDragging = false;
+            startX = e.pageX;
+        });
+
+        link.addEventListener('mousemove', (e) => {
+            if (Math.abs(e.pageX - startX) > 5) {
+                isDragging = true;
+            }
+        });
+
+        link.addEventListener('click', (e) => {
+            if (isDragging) {
+                e.preventDefault();
+            }
+        });
+    });
 
       // Agora que os artigos existem, aplicar visibilidade condicional em mobile
       showLastNewsItemsMobileOnly();
