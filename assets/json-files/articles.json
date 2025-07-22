@@ -11,6 +11,18 @@
     "writerLink": "/equipa/#veronica",
     "texto": "Existem dois tipos de divórcio em Portugal — com e sem consentimento do cônjuge..."
   },
+  "ferias": {
+    "titulo": "A Marcação do Período de Férias: Um Equilíbrio entre Direito e Organização",
+    "data": "13/05/2025",
+    "fonte": "Jornal Açores 9",
+    "fonteURL": "https://jornalacores9.pt/2025/05/09/clinica-juridica-joao-baptista-a-marcacao-do-periodo-de-ferias-um-equilibrio-entre-direito-e-organizacao/",
+    "thumbnail": "/assets/imgs/news/thumbnails/ferias.png",
+    "imagem": "/assets/imgs/news/ferias-raw.jpg",
+    "writerImg": "/assets/imgs/team/joao-article.png",
+    "writerName": "João Baptista",
+    "writerLink": "/equipa/#joao",
+    "texto": "<p>Em cada ano, o período de férias representa não apenas um direito consagrado ao trabalhador, mas também um exercício de equilíbrio entre a autonomia individual e as exigências da organização laboral. À luz do ordenamento jurídico português, a marcação das férias deve, em primeira linha, resultar de um acordo entre empregador e trabalhador, numa lógica de concertação que respeite simultaneamente as necessidades da empresa e o direito ao repouso do trabalhador.</p><p>Quando se verifica sobreposição nos períodos mais pretendidos, frequentemente os meses de verão, impõe-se uma distribuição equitativa, designadamente com recurso ao critério da alternância. Tal significa que deve ser dada prioridade àqueles que, nos dois anos anteriores, não beneficiaram dos períodos mais desejados, promovendo-se, assim, uma justiça prática entre colegas.</p><p>O legislador consagrou ainda uma prerrogativa de especial relevância social: cônjuges, unidos de facto ou que vivam em economia comum, quando laboram na mesma entidade, têm direito a gozar férias simultaneamente, salvo se disso resultar um prejuízo grave para a empresa. Este dispositivo visa proteger a vida familiar, promovendo o equilíbrio entre trabalho e vida pessoal.</p><p>É ainda admissível, por mútuo acordo, o gozo interpolado das férias, desde que se salvaguarde um mínimo de 10 dias úteis consecutivos, preservando o seu fim essencial, o descanso contínuo e efetivo.</p><p>A responsabilidade pela organização destes períodos cabe ao empregador, que deve elaborar um mapa de férias até 15 de abril, afixando-o no local de trabalho até 31 de outubro. Este mapa não é um mero formalismo, mas um instrumento que garante transparência e previsibilidade na vida dos trabalhadores.</p><p>Em suma, a marcação de férias é mais do que um agendamento: é um reflexo do respeito mútuo entre as partes que compõem o tecido laboral.</p>"
+  },
   "ivg": {
     "titulo": "Interrupção Voluntária da Gravidez e o Certificado de Incapacidade",
     "data": "12/05/2025",
