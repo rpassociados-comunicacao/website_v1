@@ -359,7 +359,7 @@ if (id) {
       document.getElementById("titulo").textContent = artigo.titulo;
       document.getElementById("data").textContent = artigo.data;
       document.getElementById("fonte").textContent = artigo.fonte;
-      document.getElementById("fonte").href = artigo.fonteURL;
+      document.getElementById("fonteURL").href = artigo.fonteURL;
       document.getElementById("imagem").src = artigo.imagem;
       document.getElementById("writerImg").src = artigo.writerImg;
       document.getElementById("writerName").textContent = artigo.writerName;
