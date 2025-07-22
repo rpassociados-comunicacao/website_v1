@@ -338,7 +338,7 @@ document.addEventListener("DOMContentLoaded", function () {
 /* ******************************************* gerar dinâmicamente cards das notícias ********************************** */
 
 document.addEventListener("DOMContentLoaded", function () {
-  fetch("/assets/json-files/articles.json")
+  fetch("https://raw.githubusercontent.com/rpassociados-comunicacao/website_v1/main/assets/json-files/articles.json")
     .then(response => response.json())
     .then(data => {
       const container = document.getElementById("newsCards");

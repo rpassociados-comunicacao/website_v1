@@ -1276,7 +1276,7 @@ collapseEl.addEventListener('hidden.bs.collapse', updateNavbarShadow);
 // 1. Gera os 4 primeiros artigos
 function generateArticles() {
     console.log("✅ Chamou generateArticles()");
-  fetch("/assets/json-files/articles.json")
+  fetch("https://raw.githubusercontent.com/rpassociados-comunicacao/website_v1/main/assets/json-files/articles.json")
     .then((response) => response.json())
     .then((data) => {
       const container = document.getElementById("newsCards");
