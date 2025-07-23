@@ -338,6 +338,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 /* ********************************************* FETCH DETALHES ARTIGO ****************************************** */
 
+/*
 
 // js/destaques-detalhe.js
 
@@ -346,7 +347,7 @@ const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
 
 if (id) {
-  fetch("https://www.rpaadvogados.com/assets/json-files/articles.json")  // https://www.rpaadvogados.com/assets/json-files/articles.json
+  fetch("/assets/json-files/articles.json")  // https://www.rpaadvogados.com/assets/json-files/articles.json
     .then(response => response.json())
     .then(data => {
       const artigo = data[id];
@@ -373,6 +374,75 @@ if (id) {
 } else {
   document.body.innerHTML = "<p>Artigo não especificado.</p>";
 }
+
+*/
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("id");
+  const loader = document.getElementById("mainLoader");
+  const container = document.getElementById("articleContent");
+
+  function hideLoader() {
+    if (loader) loader.style.display = "none";
+  }
+
+  if (!id) {
+    hideLoader();
+    container.innerHTML = "<p>Artigo não especificado.</p>";
+    return;
+  }
+
+  fetch("https://www.rpaadvogados.com/assets/json-files/articles.json")
+    .then(response => response.json())
+    .then(data => {
+      const artigo = data[id];
+
+      hideLoader();
+
+      if (!artigo) {
+        container.innerHTML = "<p>Artigo não encontrado.</p>";
+        return;
+      }
+
+      container.innerHTML = `
+        <div class="col">
+          <div class="text-center">
+            <img src="${artigo.imagem}" class="news-img img-fluid w-100" alt="${artigo.titulo}">
+            ${artigo.imageSource ? `
+              <p class="text-muted mb-4 mb-lg-5 mt-1 mt-lg-2">
+                <small class="general-font">${artigo.imageSource}</small>
+              </p>` : ''
+            }
+          </div>
+
+          <h1 class="general-font mb-3 mb-lg-5">${artigo.titulo}</h1>
+
+          <div class="writer-id d-flex align-items-center mb-3 mb-lg-5">
+            <a href="${artigo.writerLink}" class="text-center text-decoration-none d-flex align-items-center">
+              <img src="${artigo.writerImg}" class="rounded-circle me-2 mb-lg-2" alt="${artigo.writerName}" style="width: 133px; height: 133px;">
+              <p class="general-txt mb-0 ms-3" style="color: #000000">${artigo.writerName}</p>
+            </a>
+          </div>
+
+          <div class="general-font lead">${artigo.texto}</div>
+
+          <p class="text-muted mb-4 mb-lg-5">
+            <small><span class="general-font">${artigo.data}</span> | 
+              <a href="${artigo.fonteURL}" target="_blank" rel="noopener noreferrer" class="general-font">${artigo.fonte}</a>
+            </small>
+          </p>
+        </div>
+      `;
+    })
+    .catch(() => {
+      hideLoader();
+      container.innerHTML = "<p>Erro ao carregar o artigo.</p>";
+    });
+});
+
 
 
 

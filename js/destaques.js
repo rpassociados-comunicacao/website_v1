@@ -338,11 +338,16 @@ document.addEventListener("DOMContentLoaded", function () {
 /* ******************************************* gerar dinâmicamente cards das notícias ********************************** */
 
 document.addEventListener("DOMContentLoaded", function () {
+  const loader = document.getElementById("mainLoader");
+  const container = document.getElementById("newsCards");
+
+  function hideLoader() {
+    if (loader) loader.style.display = "none";
+  }
+
   fetch("https://www.rpaadvogados.com/assets/json-files/articles.json")
     .then(response => response.json())
     .then(data => {
-      const container = document.getElementById("newsCards");
-
       Object.entries(data).forEach(([id, artigo]) => {
         const card = document.createElement("div");
         card.className = "col";
@@ -363,11 +368,16 @@ document.addEventListener("DOMContentLoaded", function () {
         `;
         container.appendChild(card);
       });
+
+      hideLoader(); // Só esconde o loader após gerar todas as cards
     })
     .catch(error => {
+      hideLoader();
       console.error("Erro ao carregar artigos:", error);
+      container.innerHTML = `<p>Erro ao carregar os destaques.</p>`;
     });
 });
+
 
 
 

@@ -1450,3 +1450,14 @@ filter: grayscale(0%);
 
 /* *************************************************** NEWS CARDS FIM ******************************************* */
 
+/* ****************************************************** LOADER ******************************************************* */
+
+.loader-container {
+    background-color: #ffffff;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000000;
+}
