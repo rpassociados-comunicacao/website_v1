@@ -1,4 +1,16 @@
 {
+  "protecao-testemunhas": {
+    "titulo": "Testemunhas sob proteção: entre o dever cívico e a salvaguarda da vida",
+    "data": "21/07/2025",
+    "fonte": "Jornal Açores 9",
+    "fonteURL": "https://jornalacores9.pt/2025/07/18/clinica-juridica-joao-baptista-testemunhas-sob-protecao-entre-o-dever-civico-e-a-salvaguarda-da-vida/",
+    "thumbnail": "/assets/imgs/news/thumbnails/protecao-testemunhas.png",
+    "imagem": "/assets/imgs/news/protecao-testemunhas-raw.jpg",
+    "writerImg": "/assets/imgs/news/author/joao.png",
+    "writerName": "João Baptista",
+    "writerLink": "/equipa/#joao",
+    "texto": "<p>Num Estado de Direito, a justiça depende, muitas vezes, da coragem de quem se dispõe a dizer a verdade. Contudo, essa coragem nem sempre é isenta de riscos. Há contextos criminais tão delicados, como o tráfico de droga, o crime organizado, ou a corrupção sistémica, em que testemunhar pode significar colocar em perigo a própria vida, a liberdade ou o património. É neste cenário que se impõe falar da proteção de testemunhas.</p><p>Nos termos da Lei n.º 93/99, de 14 de julho, é considerada testemunha qualquer pessoa que possua informação relevante para um processo penal e cuja colaboração possa, pela sua natureza, colocá-la em perigo. A lei reconhece que há situações em que, pela simples partilha de conhecimento sobre os factos, se corre o risco real de represálias.</p><p>O ordenamento jurídico português, sensível à gravidade destas situações, prevê um regime especial de proteção de testemunhas, cujas medidas podem incluir desde o anonimato no processo, até à mudança de identidade ou de residência. Estas medidas aplicam-se sempre que estejam em causa a vida, a integridade física ou psíquica, a liberdade ou o património de valor considerável da testemunha. A proteção pode, inclusive, abranger familiares, cônjuges ou pessoas com quem a testemunha viva em condições análogas.</p><p>Este regime representa um avanço notável na proteção dos direitos fundamentais e na eficácia do processo penal. Sem testemunhas protegidas, muitos crimes graves nunca chegariam a ser julgados. Ainda assim, a sua aplicação deve ser feita com rigor e ponderação, pois está em causa o equilíbrio entre dois valores essenciais: a segurança da testemunha e o direito de defesa do arguido.</p>"
+  },
   "residencia": {
     "titulo": "A Prorrogação das Autorizações de Residência em Portugal",
     "data": "07/07/2025",
