@@ -1,4 +1,16 @@
 {
+  "teletrabalho": {
+    "titulo": "Deve o empregador comprar o material para Teletrabalho?",
+    "data": "23/06/2025",
+    "fonte": "Jornal Açores 9",
+    "fonteURL": "https://jornalacores9.pt/2025/06/20/clinica-juridica-julia-filipe-deve-o-empregador-comprar-o-material-para-teletrabalho/",
+    "thumbnail": "/assets/imgs/news/thumbnails/teletrabalho.png",
+    "imagem": "/assets/imgs/news/teletrabalho-raw.jpg",
+    "writerImg": "/assets/imgs/news/author/julia.png",
+    "writerName": "Júlia Filipe",
+    "writerLink": "/equipa/#julia",
+    "texto": "<p>Impulsionado pela Pandemia, que se fez sentir num passado recente, o teletrabalho é, cada vez mais, uma realidade para muitos portugueses, tendo em muitos casos se transformado numa forma de trabalho permanente. Ora, é normal que surjam questões, para as quais a legislação ainda não ofereça respostas devidamente claras. Como por exemplo: deve o empregador ser responsável por comprar o material de escritório para o trabalhador que trabalha a partir de casa?</p><p>Foi introduzida na lei portuguesa a obrigação de o empregador fornecer ao trabalhador os equipamentos e sistemas necessários ao desempenho das suas funções. Através da disponibilização de, por exemplo, de um computador, software, e outros sistemas essenciais. Assim, em termos tecnológicos, a lei é clara: o empregador deve assumir a responsabilidade por garantir que o trabalhador tem à sua disposição as ferramentas necessárias para o exercício da sua atividade.</p><p>Contudo, a questão dos materiais de escritório convencionais, como cadeiras, secretárias, papel, e outros acessórios de escritório, não é abordada de forma tão explícita na legislação. A referência a equipamentos e sistemas afigura-se numa limitação aos meios tecnológicos, deixando um vazio quanto à responsabilidade de garantir o conforto e a adequação do espaço de trabalho no domicílio do trabalhador.</p><p>Esta lacuna tem gerado diferentes interpretações. De um lado, defende-se que, tal como o empregador é responsável por proporcionar todos os recursos necessários num escritório, deveria também garantir esses materiais quando o trabalho é realizado em regime de teletrabalho.</p><p>Por outro lado, há quem entenda que, sendo o teletrabalho uma opção negociada ou até uma escolha do trabalhador, os custos associados a materiais de escritório devem ser suportados pelo próprio. Nesta linha de pensamento, o empregador apenas deve assegurar os meios estritamente necessários à realização do trabalho, ficando o restante a cargo do trabalhador.</p><p>Certo é que, a incerteza nesta matéria pode resultar em desigualdades de tratamento. Visto que, num escritório é o empregador quem assume todos os custos com material e equipamento de trabalho. Enquanto que, no teletrabalho, essa responsabilidade tende, por vezes, a ser diluída, o que pode gerar perceções de injustiça.</p><p>Pelo que, a legislação portuguesa deixa em aberto a questão da responsabilidade pela aquisição de material de escritório, podendo este vazio legal ser preenchido por acordos individuais entre trabalhador e empresa, sendo aconselhável que as partes discutam e definam estas questões de forma clara.</p>"
+  },
   "divida-ss": {
     "titulo": "Da prescrição das dívidas à Segurança Social",
     "data": "09/06/2025",
