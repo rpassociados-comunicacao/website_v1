@@ -359,6 +359,21 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", toggleFixedButtonVisibility);
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  const btns = document.querySelectorAll("#stickyBtnGroup .sticky-btn");
+
+  btns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      // Remove 'red' de todos os botões
+      btns.forEach(b => b.classList.remove("red"));
+
+      // Adiciona 'red' ao botão clicado
+      btn.classList.add("red");
+    });
+  });
+});
+
+
 /* ****************************************** SCROLL ANIM FIM ***************************************** */
 
 document.addEventListener("DOMContentLoaded", function () {

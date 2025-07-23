@@ -74,7 +74,8 @@ html, body {
 /* Alterar a cor dos textos e ícones para preto */
 .navbar .navbar-brand,
 .navbar .nav-link,
-.navbar-toggler-icon {
+.navbar-toggler-icon,
+.bosses-link {
     color: black !important;
 }
 
@@ -147,7 +148,8 @@ html, body {
 }
 
 .nav-link:hover,
-.footer-link:hover {
+.footer-link:hover,
+.bosses-link:hover {
     text-decoration: underline !important;
     color: #A6151F !important;
     cursor: pointer;
