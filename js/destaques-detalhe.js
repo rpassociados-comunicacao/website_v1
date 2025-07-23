@@ -346,7 +346,7 @@ const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
 
 if (id) {
-  fetch("https://www.rpaadvogados.com/assets/json-files/articles.json")  // ajusta o path conforme a tua estrutura
+  fetch("https://www.rpaadvogados.com/assets/json-files/articles.json")  // https://www.rpaadvogados.com/assets/json-files/articles.json
     .then(response => response.json())
     .then(data => {
       const artigo = data[id];
@@ -361,6 +361,7 @@ if (id) {
       document.getElementById("fonte").textContent = artigo.fonte;
       document.getElementById("fonteURL").href = artigo.fonteURL;
       document.getElementById("imagem").src = artigo.imagem;
+      document.getElementById("imageSource").textContent = artigo.imageSource;
       document.getElementById("writerImg").src = artigo.writerImg;
       document.getElementById("writerName").textContent = artigo.writerName;
       document.getElementById("writerLink").href = artigo.writerLink;
