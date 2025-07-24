@@ -300,15 +300,15 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
           bossImg2.classList.add("visible");
         }, 600);
-      }, 2000); // pequeno atraso inicial para boss-img-1
+      }, 3500); // pequeno atraso inicial para boss-img-1
     } else {
       // Em ecrãs grandes: sem atraso para boss-img-1, e depois para boss-img-2
+      
+      bossImg1.classList.add("visible");
       setTimeout(() => {
-        bossImg1.classList.add("visible");
-        setTimeout(() => {
-          bossImg2.classList.add("visible");
-        }, 600);
-      }, 1000);
+        bossImg2.classList.add("visible");
+      }, 600);
+      
     }
 
     window.removeEventListener("scroll", handleScroll);
@@ -316,6 +316,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.addEventListener("scroll", handleScroll);
   handleScroll();
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const revealElements = document.querySelectorAll(".reveal-on-scroll");
+
+  function isInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return rect.top < window.innerHeight && rect.bottom > 0;
+  }
+
+  function handleScroll() {
+    revealElements.forEach((el) => {
+      if (isInViewport(el) && !el.classList.contains("visible")) {
+        el.classList.add("visible");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", handleScroll);
+  window.addEventListener("resize", handleScroll);
+  handleScroll(); // Executa logo ao carregar a página
 });
 
 
