@@ -276,6 +276,49 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+document.addEventListener("DOMContentLoaded", () => {
+  const gridContainer = document.querySelector(".grid-container");
+  const bossImg1 = document.querySelector(".boss-img-1");
+  const bossImg2 = document.querySelector(".boss-img-2");
+
+  function isInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return rect.top < window.innerHeight && rect.bottom > 0;
+  }
+
+  function handleScroll() {
+    if (!isInViewport(gridContainer)) return;
+
+    const isSmallScreen = window.innerWidth < 768; // ou < 992 para md
+
+    if (isSmallScreen) {
+      // Em ecrãs pequenos, adiciona atraso antes de mostrar boss-img-1
+      setTimeout(() => {
+        bossImg1.classList.add("visible");
+
+        // Depois ainda mais atraso para a boss-img-2
+        setTimeout(() => {
+          bossImg2.classList.add("visible");
+        }, 600);
+      }, 2000); // pequeno atraso inicial para boss-img-1
+    } else {
+      // Em ecrãs grandes: sem atraso para boss-img-1, e depois para boss-img-2
+      setTimeout(() => {
+        bossImg1.classList.add("visible");
+        setTimeout(() => {
+          bossImg2.classList.add("visible");
+        }, 600);
+      }, 1000);
+    }
+
+    window.removeEventListener("scroll", handleScroll);
+  }
+
+  window.addEventListener("scroll", handleScroll);
+  handleScroll();
+});
+
+
 
 
 
