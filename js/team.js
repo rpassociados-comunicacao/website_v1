@@ -376,3 +376,65 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("Estamos no ano " + year);
     document.getElementById("currentYear").innerHTML = year;
 });
+
+
+/* ************************************* higlight sticky buttns no scroll ************************************/
+
+document.addEventListener("DOMContentLoaded", function () {
+    const sections = [
+        "ricardo",
+        "carolina",
+        "brito",
+        "veronica",
+        "julia",
+        "joaom",
+        "joao",
+        "bianca",
+        "joana"
+    ];
+
+    const buttonMap = sections.reduce((acc, id) => {
+        acc[id] = document.getElementById(`btn${capitalizeFirst(id)}`);
+        return acc;
+    }, {});
+
+    function capitalizeFirst(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
+    let currentActive = null;
+
+    const observerOptions = {
+        root: null,
+        rootMargin: "0px 0px -60% 0px", // dispara antes da secção ocupar o topo
+        threshold: 0.3
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.id;
+
+                // Se já está ativo, não atualiza
+                if (currentActive === id) return;
+                currentActive = id;
+
+                // Atualiza a classe dos botões
+                Object.values(buttonMap).forEach(btn => btn && btn.classList.remove("red"));
+                const matchingBtn = buttonMap[id];
+                if (matchingBtn) matchingBtn.classList.add("red");
+
+                // Atualiza a hash do URL sem scroll extra
+                history.replaceState(null, '', `#${id}`);
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach(id => {
+        const section = document.getElementById(id);
+        if (section) observer.observe(section);
+    });
+});
+
+
+/* ************************************* higlight sticky buttns no scroll FIM ********************************/

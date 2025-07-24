@@ -289,27 +289,11 @@ document.addEventListener("DOMContentLoaded", () => {
   function handleScroll() {
     if (!isInViewport(gridContainer)) return;
 
-    const isSmallScreen = window.innerWidth < 768; // ou < 992 para md
-
-    if (isSmallScreen) {
-      // Em ecrãs pequenos, adiciona atraso antes de mostrar boss-img-1
-      setTimeout(() => {
-        bossImg1.classList.add("visible");
-
-        // Depois ainda mais atraso para a boss-img-2
-        setTimeout(() => {
-          bossImg2.classList.add("visible");
-        }, 600);
-      }, 3500); // pequeno atraso inicial para boss-img-1
-    } else {
-      // Em ecrãs grandes: sem atraso para boss-img-1, e depois para boss-img-2
-      
-      bossImg1.classList.add("visible");
-      setTimeout(() => {
-        bossImg2.classList.add("visible");
-      }, 600);
-      
-    }
+    bossImg1.classList.add("visible");
+    setTimeout(() => {
+      bossImg2.classList.add("visible");
+    }, 600);
+    
 
     window.removeEventListener("scroll", handleScroll);
   }

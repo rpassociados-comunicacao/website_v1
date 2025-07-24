@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function handleStickyGroup() {
     const stickyEl = document.querySelector(".sticky-content-2");
     const firstSection = document.getElementById("dAdministrativo");
-    const lastSection = document.getElementById("dNotariado");
+    const lastSection = document.getElementById("dRegistos");
 
     if (!stickyEl || !firstSection || !lastSection) return;
 
@@ -381,4 +381,60 @@ document.addEventListener("DOMContentLoaded", function () {
     let year = d.getFullYear();
     console.log("Estamos no ano " + year);
     document.getElementById("currentYear").innerHTML = year;
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = [
+    "dAdministrativo",
+    "dFiscal",
+    "dComercial",
+    "dFamilia",
+    "dSucessoes",
+    "dConsumidor",
+    "dCivil",
+    "dTrabalho",
+    "dPenal",
+    "dExecutivo",
+    "dImobiliario",
+    "dRodoviario",
+    "dRegistos"
+  ];
+
+  const buttonMap = sections.reduce((map, id) => {
+    const key = id.replace(/^d/, "btn"); // ex: dFiscal → btnFiscal
+    const btn = document.getElementById(key);
+    if (btn) map[id] = btn;
+    return map;
+  }, {});
+
+  let currentActive = null;
+
+  const observerOptions = {
+    root: null,
+    rootMargin: "0px 0px -60% 0px",
+    threshold: 0.3
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        if (currentActive === id) return;
+
+        currentActive = id;
+
+        // Destaca botão
+        Object.values(buttonMap).forEach(btn => btn.classList.remove("red"));
+        if (buttonMap[id]) buttonMap[id].classList.add("red");
+
+        // Atualiza hash no URL sem scroll adicional
+        history.replaceState(null, "", `#${id}`);
+      }
+    });
+  }, observerOptions);
+
+  sections.forEach(id => {
+    const section = document.getElementById(id);
+    if (section) observer.observe(section);
+  });
 });
