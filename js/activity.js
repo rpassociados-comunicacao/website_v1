@@ -325,7 +325,7 @@ const scrollButtons = [
     { id: "btnFiscal", section: "dFiscal" },
     { id: "btnComercial", section: "dComercial" },
     { id: "btnFamilia", section: "dFamilia" },
-    { id: "btnSucessoes", section: "dInventario" },
+    { id: "btnSucessoes", section: "dSucessoes" },
     { id: "btnConsumidor", section: "dConsumidor" },
     { id: "btnCivil", section: "dCivil" },
     { id: "btnTrabalho", section: "dTrabalho" },
@@ -333,7 +333,7 @@ const scrollButtons = [
     { id: "btnExecutivo", section: "dExecutivo" },
     { id: "btnImobiliario", section: "dImobiliario" },
     { id: "btnRodoviario", section: "dRodoviario" },
-    { id: "btnRegistos", section: "dNotariado" }
+    { id: "btnRegistos", section: "dRegistos" }
 
 ];
 

@@ -1336,7 +1336,7 @@ function showLastNewsItemsMobileOnly() {
 
   if (isMobile) {
     items.forEach((item, index) => {
-      item.style.display = index < items.length - 3 ? "none" : "flex";
+      item.style.display = index < items.length - 4 ? "none" : "flex";
     });
   } else {
     items.forEach(item => item.style.display = "flex");
