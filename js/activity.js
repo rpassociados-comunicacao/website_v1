@@ -383,6 +383,9 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("currentYear").innerHTML = year;
 });
 
+
+/* ************************************* higlight sticky buttns no scroll ************************************/
+
 document.addEventListener("DOMContentLoaded", () => {
   const sections = [
     "dAdministrativo",
@@ -438,3 +441,5 @@ document.addEventListener("DOMContentLoaded", () => {
     if (section) observer.observe(section);
   });
 });
+
+/* ************************************* higlight sticky buttns no scroll FIM ********************************/
