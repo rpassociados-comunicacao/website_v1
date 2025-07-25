@@ -685,8 +685,14 @@ body.scroll-locked {
 
 .sticky-btn:active {
     border-style: none !important;
+    border-width: 0;
     background-color: #FFFFFF !important;
     color: #A6151F !important;
+}
+
+.sticky-btn:focus {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 
