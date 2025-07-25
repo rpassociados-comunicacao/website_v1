@@ -287,7 +287,7 @@ document.addEventListener("DOMContentLoaded", () => {
 const delay = window.innerWidth <= 768 ? 1700 : 0;
 
 setTimeout(() => {
-  const containerZero = document.getElementById('lottie-animation-zero');
+  const containerZero = document.getElementById('lottie-animation');
   //const containerOne = document.getElementById('lottie-animation-one');
   const containerTwo = document.getElementById('lottie-animation-two');
   
@@ -297,7 +297,7 @@ setTimeout(() => {
     renderer: 'svg',
     loop: false,
     autoplay: true,
-    path: './assets/json-files/mulher.json'
+    path: '/assets/json-files/rpa.json'
   });
 
   /*const anim1 = lottie.loadAnimation({
@@ -456,6 +456,49 @@ document.addEventListener("DOMContentLoaded", () => {
   // Atualiza visibilidade em scroll
   window.addEventListener("scroll", toggleFixedButtonVisibility);
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const stupidTxt = document.getElementById("stupidTxt");
+  const values = document.getElementById("values");
+  const subtitulo = document.getElementById("subtitulo");
+
+  stupidTxt.classList.remove("opacity-zero");
+  stupidTxt.classList.add("opacity-visible");
+
+  values.classList.remove("opacity-zero");
+  values.classList.add("opacity-visible");
+
+  subtitulo.classList.remove("opacity-zero");
+  subtitulo.classList.add("opacity-visible");
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const gridContainer = document.querySelector(".grid-container");
+  const bossImg1 = document.querySelector(".boss-img-1");
+  const bossImg2 = document.querySelector(".boss-img-2");
+
+  function isInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return rect.top < window.innerHeight && rect.bottom > 0;
+  }
+
+  function handleScroll() {
+    if (!isInViewport(gridContainer)) return;
+
+    bossImg1.classList.add("visible");
+    setTimeout(() => {
+      bossImg2.classList.add("visible");
+    }, 600);
+    
+
+    window.removeEventListener("scroll", handleScroll);
+  }
+
+  window.addEventListener("scroll", handleScroll);
+  handleScroll();
+});
+
 
 /* ****************************************** SCROLL ANIM FIM ***************************************** */
 
