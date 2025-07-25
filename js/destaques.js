@@ -354,12 +354,12 @@ document.addEventListener("DOMContentLoaded", function () {
         card.innerHTML = `
           <div class="card shadow-sm news-card h-100">
             <a href="/destaques/detalhe/?id=${id}" target="_blank">
-              <img src="${artigo.thumbnail}" class="card-img-top news-card-img" alt="Thumbnail notícia">
+              <img src="${artigo.thumbnail}" class="card-img-top news-card-img" alt="${artigo.titulo}">
             </a>
             <div class="card-body d-flex flex-column justify-content-between">
               <div class="mb-2">
                 <small class="text-body-secondary">
-                  em <b><a class="newspaper-link" href="${artigo.fonteURL}" target="_blank">${artigo.fonte}</a></b>
+                  por <b><a class="newspaper-link" href="${artigo.writerLink}">${artigo.writerName}</a></b>
                 </small>
               </div>
               <small class="text-body-secondary">${artigo.data}</small>
