@@ -269,7 +269,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //Ao adicionar o scroll anim não esquecer de adicionar o ID no body da página correspondente -- id="indexPage"
 
-
+/*
 function scrollAnim(e) {
     console.log(`Clicou em ${e}`);
     const targetSelector = `#${e}`;
@@ -339,7 +339,7 @@ const scrollButtons = [
 
 // Aplica a todos os botões
 scrollButtons.forEach(({ id, section }) => addScrollHandler(id, section));
-
+*/
 
 
 

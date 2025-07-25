@@ -11,7 +11,7 @@ html, body {
     overflow-x: hidden;
     width: 100%;         /* Garante que a largura total seja 100% */
     font-family: 'EB Garamond', serif;
-    background-color: blue;
+    /* background-color: blue; */
     scroll-behavior: smooth;
 }
 
@@ -1099,9 +1099,8 @@ body.scroll-locked {
 }
 
 .arrow-btn {
-    background-color: #FFFFFF;
+    background-color: transparent;
     border: none;
-    border-radius: 50%;
     width: 2.5rem;
     height: 2.5rem;
     font-size: 1.2rem;
