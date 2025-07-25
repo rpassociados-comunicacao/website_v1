@@ -340,6 +340,9 @@ const scrollButtons = [
 // Aplica a todos os botões
 scrollButtons.forEach(({ id, section }) => addScrollHandler(id, section));
 
+
+
+
 function toggleFixedButtonVisibility() {
   const fixedButton = document.getElementById("fixed-button");
   if (!fixedButton) return;
@@ -372,6 +375,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+
 
 
 /* ****************************************** SCROLL ANIM FIM ***************************************** */
