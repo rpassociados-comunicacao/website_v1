@@ -213,7 +213,7 @@ html, body {
 }
 
 .red {
-    color: #A6151F;
+    color: #A6151F !important;
 }
 
 #ButtonContacto,

@@ -382,3 +382,63 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 /* ******************************************* gerar dinâmicamente cards das notícias FIM ********************************** */
+
+document.addEventListener("DOMContentLoaded", function () {
+  const stickySections = document.querySelectorAll(".sticky-wrapper");
+
+  function handleStickyContent(wrapper) {
+    const stickyContent = wrapper.querySelector(".sticky-content");
+    const scrollCol = wrapper.querySelector(".scrolling-column");
+
+    if (!stickyContent || !scrollCol) return;
+
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const offsetTop = wrapper.offsetTop;
+    const stickyHeight = stickyContent.offsetHeight;
+    const end = offsetTop + scrollCol.offsetHeight - stickyHeight - 100;
+    const start = offsetTop - 100;
+
+    if (scrollTop > start && scrollTop < end) {
+      stickyContent.classList.add("fixed");
+      stickyContent.classList.remove("bottom");
+    } else if (scrollTop >= end) {
+      stickyContent.classList.remove("fixed");
+      stickyContent.classList.add("bottom");
+    } else {
+      stickyContent.classList.remove("fixed", "bottom");
+    }
+  }
+
+  function handleStickyGroup() {
+    const stickyEl = document.querySelector(".sticky-content-2");
+    const firstSection = document.getElementById("dAdministrativo");
+    const lastSection = document.getElementById("dRegistos");
+
+    if (!stickyEl || !firstSection || !lastSection) return;
+
+    const scrollY = window.scrollY || window.pageYOffset;
+    const start = firstSection.offsetTop - 100;
+    const end = lastSection.offsetTop + lastSection.offsetHeight - stickyEl.offsetHeight - 100;
+
+    if (scrollY > start && scrollY < end) {
+      stickyEl.style.position = "fixed";
+      stickyEl.style.top = "100px";
+    } else if (scrollY >= end) {
+      stickyEl.style.position = "absolute";
+      stickyEl.style.top = (end - firstSection.offsetTop) + "px";
+    } else {
+      stickyEl.style.position = "static";
+      stickyEl.style.top = "auto";
+    }
+  }
+
+  function onScroll() {
+    stickySections.forEach(handleStickyContent);
+    handleStickyGroup();
+  }
+
+  // Executar na inicialização e em scroll/resize
+  window.addEventListener("scroll", onScroll);
+  window.addEventListener("resize", onScroll);
+  onScroll();
+});
