@@ -337,46 +337,128 @@ document.addEventListener("DOMContentLoaded", function () {
 
 /* ******************************************* gerar dinâmicamente cards das notícias ********************************** */
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
   const loader = document.getElementById("mainLoader");
   const container = document.getElementById("newsCards");
+
+  const sections = [
+    "geral", // especial, para o botão 'btnGeral'
+    "administrativo",
+    "fiscal",
+    "comercial",
+    "familia",
+    "sucessoes",
+    "consumidor",
+    "civil",
+    "trabalho",
+    "penal",
+    "executivo",
+    "imobiliario",
+    "rodoviario",
+    "registos"
+  ];
+
+  const buttons = {};
+  sections.forEach(area => {
+    const btn = document.getElementById("btn" + capitalize(area));
+    if (btn) {
+      buttons[area] = btn;
+      btn.addEventListener("click", () => {
+        handleFilter(area);
+        console.log(area);
+      });
+    }
+  });
+
+  let allArticles = {};
+
+  function capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
 
   function hideLoader() {
     if (loader) loader.style.display = "none";
   }
 
-  fetch("https://www.rpaadvogados.com/assets/json-files/articles.json")
+  function showLoader() {
+    if (loader) loader.style.display = "flex";
+  }
+
+  function renderArticles(filteredArticles) {
+    container.innerHTML = "";
+
+    if (Object.keys(filteredArticles).length === 0) {
+      container.innerHTML = `<div class="no-articles-message d-flex text-center" style="height: 100vh;">
+                                <div class="text-muted">
+                                  <i class="bi bi-folder-x fs-1 mb-3"></i>
+                                  <p class="general-txt mb-0 fs-5">Sem artigos disponíveis para esta área.</p>
+                                  <p class="general-font small">Por favor, tente outra categoria.</p>
+                                </div>
+                              </div>
+                            `;
+
+      return;
+    }
+
+    Object.entries(filteredArticles).forEach(([id, artigo]) => {
+      const card = document.createElement("div");
+      card.className = "col";
+      card.innerHTML = `
+        <div class="card shadow-sm news-card h-100">
+          <a href="/destaques/detalhe/?id=${id}" target="_blank">
+            <img src="${artigo.thumbnail}" class="card-img-top news-card-img" alt="${artigo.titulo}">
+          </a>
+          <div class="card-body d-flex flex-column justify-content-between">
+            <div class="mb-2">
+              <small class="text-body-secondary">
+                por <b><a class="newspaper-link" href="${artigo.writerLink}">${artigo.writerName}</a></b>
+              </small>
+            </div>
+            <small class="text-body-secondary">${artigo.data}</small>
+          </div>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+  }
+
+  function handleFilter(area) {
+    const normalizedArea = area.toLowerCase().trim();
+
+    // Atualiza classe dos botões
+    Object.values(buttons).forEach(btn => btn.classList.remove("red"));
+    if (buttons[normalizedArea]) buttons[normalizedArea].classList.add("red");
+
+    if (normalizedArea === "geral") {
+      renderArticles(allArticles);
+      return;
+    }
+
+    const filtered = Object.fromEntries(
+      Object.entries(allArticles).filter(([_, artigo]) => {
+        const areas = Array.isArray(artigo.area) ? artigo.area : [artigo.area];
+        return areas.some(a => a.toLowerCase().trim() === normalizedArea);
+      })
+    );
+
+    renderArticles(filtered);
+  }
+
+
+  fetch("/assets/json-files/articles.json") //https://www.rpaadvogados.com/assets/json-files/articles.json
     .then(response => response.json())
     .then(data => {
-      Object.entries(data).forEach(([id, artigo]) => {
-        const card = document.createElement("div");
-        card.className = "col";
-        card.innerHTML = `
-          <div class="card shadow-sm news-card h-100">
-            <a href="/destaques/detalhe/?id=${id}" target="_blank">
-              <img src="${artigo.thumbnail}" class="card-img-top news-card-img" alt="${artigo.titulo}">
-            </a>
-            <div class="card-body d-flex flex-column justify-content-between">
-              <div class="mb-2">
-                <small class="text-body-secondary">
-                  por <b><a class="newspaper-link" href="${artigo.writerLink}">${artigo.writerName}</a></b>
-                </small>
-              </div>
-              <small class="text-body-secondary">${artigo.data}</small>
-            </div>
-          </div>
-        `;
-        container.appendChild(card);
-      });
-
-      hideLoader(); // Só esconde o loader após gerar todas as cards
+      allArticles = data;
+      renderArticles(allArticles); // mostra todos por defeito
+      hideLoader();
     })
     .catch(error => {
-      hideLoader();
       console.error("Erro ao carregar artigos:", error);
       container.innerHTML = `<p>Erro ao carregar os destaques.</p>`;
+      hideLoader();
     });
 });
+
 
 
 

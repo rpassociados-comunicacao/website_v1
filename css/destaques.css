@@ -216,6 +216,10 @@ html, body {
     color: #A6151F !important;
 }
 
+#newsCards {
+  scroll-margin-top: 120px; /* ou o valor da altura da tua navbar */
+}
+
 #ButtonContacto,
 #ButtonSubscricao {
     outline: none;

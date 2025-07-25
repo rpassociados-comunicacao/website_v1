@@ -1,6 +1,7 @@
 {
   "protecao-testemunhas": {
     "titulo": "Testemunhas sob proteção: entre o dever cívico e a salvaguarda da vida",
+    "area": ["penal"],
     "data": "21/07/2025",
     "fonte": "Jornal Açores 9",
     "fonteURL": "https://jornalacores9.pt/2025/07/18/clinica-juridica-joao-baptista-testemunhas-sob-protecao-entre-o-dever-civico-e-a-salvaguarda-da-vida/",
@@ -14,6 +15,7 @@
   },
   "residencia": {
     "titulo": "A Prorrogação das Autorizações de Residência em Portugal",
+    "area": ["administrativo"],
     "data": "07/07/2025",
     "fonte": "Jornal Açores 9",
     "fonteURL": "https://jornalacores9.pt/2025/07/04/clinica-juridica-bianca-pereira-a-prorrogacao-das-autorizacoes-de-residencia-em-portugal/",
@@ -27,6 +29,7 @@
   },
   "teletrabalho": {
     "titulo": "Deve o empregador comprar o material para Teletrabalho?",
+    "area": ["trabalho"],
     "data": "23/06/2025",
     "fonte": "Jornal Açores 9",
     "fonteURL": "https://jornalacores9.pt/2025/06/20/clinica-juridica-julia-filipe-deve-o-empregador-comprar-o-material-para-teletrabalho/",
@@ -40,6 +43,7 @@
   },
   "divida-ss": {
     "titulo": "Da prescrição das dívidas à Segurança Social",
+    "area": ["administrativo", "fiscal"],
     "data": "09/06/2025",
     "fonte": "Jornal Açores 9",
     "fonteURL": "https://jornalacores9.pt/2025/06/06/clinica-juridica-joana-rosa-da-prescricao-das-dividas-a-seguranca-social/",
@@ -53,6 +57,7 @@
   },
   "divorcio": {
     "titulo": "Tipos de divórcio em Portugal: conheça os seus direitos e opções",
+    "area": ["civil", "familia"],
     "data": "28/05/2025",
     "fonte": "Jornal Açoriano Oriental",
     "fonteURL": "https://www.acorianooriental.pt/artigo/tipos-de-divorcio-em-portugal-conheca-os-seus-direitos-e-opcoes-31804",
@@ -66,6 +71,7 @@
   },
   "regimes-casamento": {
     "titulo": "Regimes de Casamento em Portugal: uma análise segundo a legislação portuguesa",
+    "area": ["civil", "familia"],
     "data": "23/05/2025",
     "fonte": "Jornal Açores 9",
     "fonteURL": "https://jornalacores9.pt/2025/05/23/clinica-juridica-veronica-casimiro-regimes-de-casamento-em-portugal-uma-analise-segundo-a-legislacao-portuguesa/",
@@ -79,6 +85,7 @@
   },
   "assedio-laboral": {
     "titulo": "É só uma “brincadeira” do meu patrão!",
+    "area": ["administrativo", "trabalho", "penal"],
     "data": "20/05/2025",
     "fonte": "Jornal Açoriano Oriental",
     "fonteURL": "https://www.acorianooriental.pt/artigo/e-so-uma-brincadeira-do-meu-patrao-31715",
@@ -92,6 +99,7 @@
   },
   "pensao-alim": {
     "titulo": "O meu filho tem más notas na universidade, tenho de pagar pensão de alimentos?",
+    "area": ["civil", "familia"],
     "data": "14/05/2025",
     "fonte": "Jornal Açores 9",
     "fonteURL": "https://jornalacores9.pt/2025/04/11/clinica-juridica-julia-filipe-o-meu-filho-tem-mas-notas-na-universidade-tenho-de-pagar-pensao-de-alimentos/",
@@ -105,6 +113,7 @@
   },
   "ferias": {
     "titulo": "A Marcação do Período de Férias: Um Equilíbrio entre Direito e Organização",
+    "area": ["trabalho"],
     "data": "13/05/2025",
     "fonte": "Jornal Açores 9",
     "fonteURL": "https://jornalacores9.pt/2025/05/09/clinica-juridica-joao-baptista-a-marcacao-do-periodo-de-ferias-um-equilibrio-entre-direito-e-organizacao/",
@@ -118,6 +127,7 @@
   },
   "ivg": {
     "titulo": "Interrupção Voluntária da Gravidez e o Certificado de Incapacidade",
+    "area": ["administrativo", "familia", "trabalho"],
     "data": "12/05/2025",
     "fonte": "Jornal Açores 9",
     "fonteURL": "https://jornalacores9.pt/2025/04/25/clinica-juridica-bianca-pereira-interrupcao-da-gravidez-e-o-certificado-de-incapacidade-temporaria-para-o-trabalho/",
