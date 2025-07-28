@@ -1001,7 +1001,7 @@ filter: grayscale(0%);
 
 .partnership-picture.in-view,
 .employee-picture.in-view {
-    transform: scale(1.001);
+    transform: scale(1.01);
     filter: grayscale(0%);
 }
 
@@ -1411,6 +1411,17 @@ filter: grayscale(0%);
   background: linear-gradient(to top, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0));
   z-index: 1;
 }
+
+.bosses-link {
+    color: black !important;
+}
+
+.bosses-link:hover {
+    text-decoration: underline !important;
+    color: #A6151F !important;
+    cursor: pointer;
+}
+
 
 /* Conteúdo sempre acima da imagem e overlay */
 .office > *:not(.office-bg) {
