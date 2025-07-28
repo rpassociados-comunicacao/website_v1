@@ -335,11 +335,13 @@ html, body {
     text-transform: capitalize !important;
     font-family: 'Instrument Sans' !important;
     /*font-weight: bold !important;*/
-    color: #000000;
     padding: 10px 40px !important; /* Ajuste o padding conforme necessário */
     border-radius: 50px; 
-    background-color: #efefef;
     margin-left: 30px;
+    
+    background-color: #efefef;
+    color: #000000;
+    
 }
 
 .round-btn-footer {

@@ -299,3 +299,4 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("Estamos no ano " + year);
     document.getElementById("currentYear").innerHTML = year;
 });
+

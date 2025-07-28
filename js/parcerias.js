@@ -107,51 +107,7 @@ onScroll(); // Executa na carga inicial
 document.addEventListener("DOMContentLoaded", function () {
     const targetElement = document.getElementById("SectionLeft");
     const mediaQuery = window.matchMedia("(min-width: 768px)");
-    const juliaImg = document.getElementById("juliaImg");
-    const carolinaImg = document.getElementById("carolinaImg");
-    const joanaImg = document.getElementById("joanaImg");
-    const joaoImg = document.getElementById("joaoImg");
-    const veronicaImg = document.getElementById("veronicaImg");
-    const britoImg = document.getElementById("britoImg");
-    const ricardoImg = document.getElementById("ricardoImg");
-    const joaomImg = document.getElementById("joaomImg");
-    const biancaImg = document.getElementById("biancaImg");
     
-  
-    function updateClasses(e) {
-      if (!targetElement) return;
-  
-      if (e.matches) {
-        // Largura >= 768px
-        targetElement.classList.add("container-left");
-        targetElement.classList.remove("container");
-        targetElement.classList.remove("px-5");
-        juliaImg.src = "./assets/imgs/team/julia-bg.webp";
-        carolinaImg.src = "./assets/imgs/team/carolina-bg.webp";
-        joanaImg.src = "./assets/imgs/team/joana-bg.webp";
-        veronicaImg.src = "./assets/imgs/team/veronica-bg.webp";
-        britoImg.src = "./assets/imgs/team/brito-bg.webp";
-        ricardoImg.src = "./assets/imgs/team/ricardo-bg.webp";
-        joaomImg.src = "./assets/imgs/team/joaom-bg.webp";
-        biancaImg.src = "./assets/imgs/team/bianca-bg.webp";
-        
-      } else {
-        // Largura < 768px
-        targetElement.classList.add("container");
-        targetElement.classList.remove("container-left");
-        targetElement.classList.add("px-5");
-        juliaImg.src = "./assets/imgs/team/julia-bg.webp";
-        carolinaImg.src = "./assets/imgs/team/carolina-bg.webp";
-        joanaImg.src = "./assets/imgs/team/joana-bg.webp";
-        joaoImg.src = "./assets/imgs/team/joao-bg.webp";
-        veronicaImg.src = "./assets/imgs/team/veronica-bg.webp";
-        britoImg.src = "./assets/imgs/team/brito-bg.webp";
-        ricardoImg.src = "./assets/imgs/team/ricardo-bg.webp";
-        joaomImg.src = "./assets/imgs/team/joaom-bg.webp";
-        biancaImg.src = "./assets/imgs/team/bianca-bg.webp";
-        
-      }
-    }
   
     // Executa à carga
     updateClasses(mediaQuery);
@@ -193,6 +149,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
       if (e.matches) {
         // Largura >= 768px
+        
         
       } else {
         // Largura < 768px
@@ -534,3 +491,30 @@ window.addEventListener("resize", toggleVoidColumns);
 
 
 /* *************************************** ESCONDER COLUNAS VAZIAS EM MOBILE FIM **************************** */
+
+
+// =============================================== ESCRITÓRIOS ===========================================================
+
+function updateOfficeBackgroundClass() {
+    const officeBackgrounds = document.querySelectorAll('.office-bg');
+    const isMobile = window.innerWidth < 992;
+
+    officeBackgrounds.forEach(bg => {
+        if (isMobile) {
+            bg.classList.add('partnership-picture');
+        } else {
+            bg.classList.remove('partnership-picture');
+        }
+    });
+}
+
+// Executa ao carregar a página
+document.addEventListener('DOMContentLoaded', updateOfficeBackgroundClass);
+
+// Executa ao redimensionar a janela
+window.addEventListener('resize', updateOfficeBackgroundClass);
+
+
+
+
+// =============================================== ESCRITÓRIOS FIM ===========================================================
