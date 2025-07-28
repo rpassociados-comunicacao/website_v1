@@ -216,6 +216,10 @@ html, body {
     color: #A6151F !important;
 }
 
+.black {
+    color: black !important;
+}
+
 #ButtonContacto,
 #ButtonSubscricao {
     outline: none;
@@ -657,6 +661,7 @@ body.scroll-locked {
     text-align: left;
     white-space: normal;
     color: #000000;
+    background-color: transparent !important;
 }
 
 .sticky-btn:hover {

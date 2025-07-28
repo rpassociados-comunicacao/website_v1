@@ -361,9 +361,11 @@ document.addEventListener("DOMContentLoaded", function () {
     btn.addEventListener("click", () => {
       // Remove 'red' de todos os botões
       btns.forEach(b => b.classList.remove("red"));
+      btns.forEach(b => b.classList.add("black"));
 
       // Adiciona 'red' ao botão clicado
       btn.classList.add("red");
+      btn.classList.remove("black");
     });
   });
 });
@@ -420,9 +422,19 @@ document.addEventListener("DOMContentLoaded", function () {
                 currentActive = id;
 
                 // Atualiza a classe dos botões
-                Object.values(buttonMap).forEach(btn => btn && btn.classList.remove("red"));
+                Object.values(buttonMap).forEach(btn => {
+                  if (btn) {
+                    btn.classList.remove("red");
+                    btn.classList.add("black");
+                  }
+                });
+
                 const matchingBtn = buttonMap[id];
-                if (matchingBtn) matchingBtn.classList.add("red");
+                if (matchingBtn) {
+                  matchingBtn.classList.add("red");
+                  matchingBtn.classList.remove("black");
+                }
+
 
                 // Atualiza a hash do URL sem scroll extra
                 history.replaceState(null, '', `#${id}`);

@@ -431,11 +431,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
         currentActive = id;
 
-        // Destaca botão
-        Object.values(buttonMap).forEach(btn => btn.classList.remove("red"));
-        if (buttonMap[id]) buttonMap[id].classList.add("red");
+        // Atualiza os estilos dos botões
+        Object.values(buttonMap).forEach(btn => {
+          if (btn) {
+            btn.classList.remove("red");
+            btn.classList.add("black");
+          }
+        });
 
-        // Atualiza hash no URL sem scroll adicional
+        const activeBtn = buttonMap[id];
+        if (activeBtn) {
+          activeBtn.classList.add("red");
+          activeBtn.classList.remove("black");
+        }
+
+        // Atualiza a hash do URL
         history.replaceState(null, "", `#${id}`);
       }
     });
