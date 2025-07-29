@@ -297,21 +297,38 @@ function scrollAnim(e) {
 }
 
 function addScrollHandler(buttonId, sectionId) {
-    const button = document.getElementById(buttonId);
-    if (!button) return;
+  const button = document.getElementById(buttonId);
+  if (!button) return;
 
-    button.addEventListener("click", (event) => {
-      console.log("Clicou no botão para navegar para o topo");
-        if (isIndexPage()) {
-            // Estás na index — impede comportamento padrão e faz scroll
-            event.preventDefault();
-            scrollAnim(sectionId);
-        } else {
-            // Estás noutra página — deixa o link funcionar para navegar
-            // nada a fazer aqui, deixar o comportamento normal do <a href> seguir
-        }
-    });
+  button.addEventListener("click", (event) => {
+    console.log("Clicou no botão para navegar para o topo");
+
+    event.preventDefault();
+    scrollAnim(sectionId);
+
+    // Limpa os botões da equipa se for o botão de topo
+    if (buttonId === "upButton") {
+      clearTeamRedClass();
+    }
+  });
 }
+
+function clearTeamRedClass() {
+  const teamButtons = document.querySelectorAll(
+    '#btnRicardo, #btnCarolina, #btnBrito, #btnVeronica, #btnJulia, #btnJoaom, #btnJoao, #btnBianca, #btnJoana'
+  );
+
+  if (teamButtons.length === 0) {
+    console.warn("⚠️ Nenhum botão da equipa encontrado!");
+    return;
+  }
+
+  teamButtons.forEach(btn => {
+    btn.classList.remove("red");
+    btn.classList.add("black"); // opcional: manter estilo consistente
+  });
+}
+
 
 // Detecta se estás na index de forma fiável
 function isIndexPage() {

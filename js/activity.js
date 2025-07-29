@@ -269,7 +269,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //Ao adicionar o scroll anim não esquecer de adicionar o ID no body da página correspondente -- id="indexPage"
 
-/*
+
 function scrollAnim(e) {
     console.log(`Clicou em ${e}`);
     const targetSelector = `#${e}`;
@@ -306,12 +306,30 @@ function addScrollHandler(buttonId, sectionId) {
             // Estás na index — impede comportamento padrão e faz scroll
             event.preventDefault();
             scrollAnim(sectionId);
-        } else {
-            // Estás noutra página — deixa o link funcionar para navegar
-            // nada a fazer aqui, deixar o comportamento normal do <a href> seguir
+
+            if (buttonId === "upButton") {
+                clearActivityRedClass(); // <<<<< chamada aqui
+            }
+
         }
     });
 }
+
+function clearActivityRedClass() {
+  const activityButtons = document.querySelectorAll('#btnAdministrativo, #btnFiscal, #btnComercial, #btnFamilia, #btnSucessoes, #btnConsumidor, #btnCivil, #btnTrabalho, #btnPenal, #btnExecutivo, #btnImobiliario, #btnRodoviario, #btnRegistos');
+
+  if (activityButtons.length === 0) {
+    console.log("Nenhum botão de atividade encontrado — estás na página certa?");
+    return;
+  }
+
+  activityButtons.forEach(btn => {
+    btn.classList.remove("red");
+    btn.classList.add("black"); // opcional
+  });
+}
+
+
 
 // Detecta se estás na index de forma fiável
 function isIndexPage() {
@@ -339,7 +357,7 @@ const scrollButtons = [
 
 // Aplica a todos os botões
 scrollButtons.forEach(({ id, section }) => addScrollHandler(id, section));
-*/
+
 
 
 

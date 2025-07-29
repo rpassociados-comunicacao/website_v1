@@ -313,7 +313,7 @@ html, body {
 
 
 
-@media (max-width: 1199px) {
+@media (max-width: 1399px) {
     .nav-link-translate{
         padding: 10px 30px !important;
     }
@@ -1377,7 +1377,7 @@ filter: grayscale(0%);
 }
 
 
-@media (max-width: 1199px) {
+@media (max-width: 1399px) {
     .logo-image {
         width: 80px;
         height: 47px;
