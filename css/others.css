@@ -676,6 +676,11 @@ body.scroll-locked {
     color: #A6151F !important;
 }
 
+.sticky-btn:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 
 @media (max-width: 1084px) {
     #stickyBtnGroup {
@@ -1019,40 +1024,40 @@ body.scroll-locked {
 
 .sticky-content {
     width: 100%;
-  }
+}
   
-  @media (min-width: 768px) {
+@media (min-width: 768px) {
     .sticky-content.fixed {
-      position: fixed;
-      top: 100px;
-      /* Ajusta para a largura real da coluna (ex: 50% ou 33.33%) */
-      width: calc(45.5%); /* Se a tua coluna é .col-md-6 */
-      z-index: 10;
+        position: fixed;
+        top: 100px;
+        /* Ajusta para a largura real da coluna (ex: 50% ou 33.33%) */
+        width: calc(41.6666%); /* Se a tua coluna é .col-md-6 */
+        z-index: 10;
+
+        padding-right: 10px; /* 10px */
     }
-  
-    .sticky-wrapper .col-md-6 .sticky-content.fixed {
-      width: calc(45.5%);
+
+    .sticky-wrapper .col-md-5 .sticky-content.fixed {
+        width: calc(41.6666%);
     }
-  
-    .sticky-wrapper .col-md-4 .sticky-content.fixed {
-      width: calc(33.3333% - 15px);
-    }
-  
+
     .sticky-content.bottom {
-      position: absolute;
-      top: auto;
-      bottom: 0;
-      width: 100%;
+        position: absolute;
+        top: auto;
+        bottom: 0;
+        width: 100%;
+
+        padding-right: 15px; /* 15px */
     }
-  
+
     .sticky-wrapper {
-      position: relative;
+        position: relative;
     }
-  
+
     .scrolling-column {
-      padding-top: 0 !important;
+        padding-top: 0 !important;
     }
-  }
+}
   
 
 .picture-wrapper {
