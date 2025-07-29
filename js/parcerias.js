@@ -233,6 +233,27 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+document.addEventListener("DOMContentLoaded", () => {
+  const revealElements = document.querySelectorAll(".reveal-on-scroll");
+
+  function isInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return rect.top < window.innerHeight && rect.bottom > 0;
+  }
+
+  function handleScroll() {
+    revealElements.forEach((el) => {
+      if (isInViewport(el) && !el.classList.contains("visible")) {
+        el.classList.add("visible");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", handleScroll);
+  window.addEventListener("resize", handleScroll);
+  handleScroll(); // Executa logo ao carregar a página
+});
+
 
 
 
