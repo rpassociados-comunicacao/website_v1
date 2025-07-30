@@ -1040,64 +1040,6 @@ body.scroll-locked {
 
 
 
-/* **************************************************** ESCRITÓRIOS ****************************************************** */
-
-.office {
-  position: relative;
-  overflow: hidden;
-}
-
-.office-bg {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-
-  transition: transform 0.5s ease;
-  z-index: 0;
-  will-change: transform;
-
-  filter: grayscale(100%);
-}
-
-.office:hover .office-bg {
-  transform: scale(1.1);
-  filter: grayscale(0%);
-}
-
-/* Conteúdo sempre acima da imagem e overlay */
-.office > *:not(.office-bg) {
-  position: relative;
-  z-index: 2;
-}
-
-.office-link {
-    text-decoration: none;
-}
-
-.office-link:hover {
-    text-decoration: none;
-}
-
-
-/* Tablets */
-@media (min-width: 992px) {
-    .office {
-        height: 350px !important;
-        width: 100%;
-    }
-}
-
-
-
-/* **************************************************** ESCRITÓRIOS FIM ****************************************************** */
-
-
 
 /* **************************************************** PARCERIAS ****************************************************** */
 
@@ -1509,3 +1451,120 @@ filter: grayscale(0%);
 /* *************************************************** UP BUTTON FIM ******************************************* */ 
 
 
+/* **************************************************** FOTOS ****************************************************** */
+
+.office {
+  height: 400px !important;
+  width: 1000px !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.office-bg {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  transition: transform 0.5s ease;
+  z-index: 0;
+  will-change: transform;
+
+  filter: grayscale(100%);
+}
+
+.office:hover .office-bg {
+     transform: scale(1.01) !important;
+    filter: grayscale(0%) !important;
+}
+
+/* Gradiente escuro na parte inferior */
+.office::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0));
+  z-index: 1;
+}
+
+.bosses-link {
+    color: black !important;
+}
+
+.bosses-link:hover {
+    text-decoration: underline !important;
+    color: #A6151F !important;
+    cursor: pointer;
+}
+
+
+/* Conteúdo sempre acima da imagem e overlay */
+.office > *:not(.office-bg) {
+  position: relative;
+  z-index: 2;
+}
+
+.office-link {
+    text-decoration: none;
+}
+
+.office-link:hover {
+    text-decoration: none;
+}
+
+/* Smartphones */
+@media (max-width: 576px) {
+    .office {
+        height: 300px !important;
+    }
+}
+
+
+/* Tablets */
+@media (min-width: 768px) {
+    .office {
+        height: 400px !important;
+    }
+}
+
+/* Laptops e desktops médios */
+@media (min-width: 1024px) {
+    .office {
+        height: 500px !important;
+    }
+}
+
+/* Desktops grandes */
+@media (min-width: 1400px) {
+    .office {
+        height: 600px;
+    }
+}
+
+/* Monitores ultra-wide */
+@media (min-width: 1800px) {
+    .office {
+        height: 700px;
+    }
+}
+
+.partnership-picture,
+.employee-picture {
+    filter: grayscale(100%);
+    transition: transform 0.4s ease, filter 0.4s ease;
+    width: 100%;
+    height: auto;
+}
+
+.partnership-picture.in-view,
+.employee-picture.in-view {
+    transform: scale(1.07);
+    filter: grayscale(0%);
+}
+
+/* **************************************************** FOTOS FIM ****************************************************** */
