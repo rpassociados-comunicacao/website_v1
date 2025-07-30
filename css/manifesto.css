@@ -1455,7 +1455,7 @@ filter: grayscale(0%);
 
 .office {
   height: 400px !important;
-  width: 5000px !important;
+  width: 1000px !important;
   position: relative;
   overflow: hidden;
 }
