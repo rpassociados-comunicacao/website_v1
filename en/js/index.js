@@ -91,9 +91,9 @@ const scrollButtons = [
     { id: "FooterBtnParcerias", section: "Parcerias" },
     { id: "ButtonBlog", section: "Destaques" },
     { id: "FooterBtnBlog", section: "Destaques" },
-    { id: "valuesContactBtn", section: "Contacto" },
-    { id: "valuesContactBtnMobile", section: "Contacto" },
-    { id: "equipaContactBtn", section: "Contacto" },
+    { id: "valuesContactBtn", section: "contact" },
+    { id: "valuesContactBtnMobile", section: "contact" },
+    { id: "equipaContactBtn", section: "contact" },
     { id: "upButton", section: "indexPage" },
 ];
 
@@ -107,7 +107,7 @@ if (roundBtn) {
         if (isIndexPage()) {
             event.preventDefault();
             console.log("Clicou no contacto dentro do manifesto");
-            scrollAnim("Contacto");
+            scrollAnim("contact");
         }
     });
 }
@@ -877,7 +877,7 @@ document.querySelectorAll(".team-item").forEach(item => {
                     document.getElementById("descriptionName").classList.add("invisible-txt");
                     document.getElementById("descriptionName").textContent = ".";
                     document.getElementById("descriptionFunction").textContent =
-                        "Equipa jurídica diversificada, com profissionais dedicados a defender os seus direitos.";
+                        "Diverse legal team, with professionals dedicated to defending your rights.";
                 }
             }, 10);
         });
