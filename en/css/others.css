@@ -86,7 +86,7 @@ html, body {
     outline: none !important;
     box-shadow: none !important;
     border: none !important;
-    margin-top: 5px;
+    /*margin-top: 5px;*/
 }
 
 
@@ -157,7 +157,7 @@ html, body {
     padding: 10px 0px 10px 30px !important;
 }
 
-@media (max-width: 1199px) {
+@media (max-width: 1399px) {
     .nav-link-translate{
         padding: 10px 30px !important;
     }
@@ -213,7 +213,11 @@ html, body {
 }
 
 .red {
-    color: #A6151F;
+    color: #A6151F !important;
+}
+
+.black {
+    color: black !important;
 }
 
 #ButtonContacto,
@@ -284,6 +288,8 @@ html, body {
     transform-origin: center;
     z-index: -10;
 }
+
+
 
 
 /* ==================================================== NEWS ====================================================*/
@@ -649,36 +655,48 @@ body.scroll-locked {
     }
 }
 
-.container-left {
-    margin-left: calc((100% - 1140px) / 2); /* ou o valor do breakpoint atual */
-  }
-  
-  @media (min-width: 576px) {
-    .container-left {
-      margin-left: calc((100vw - 540px) / 2);
+
+.sticky-btn {
+    font-family: "Instrument Sans", sans-serif;
+    border-radius: 0;
+    border-style: none;
+    text-align: left;
+    white-space: normal;
+    color: #000000;
+    background-color: transparent !important;
+}
+
+.sticky-btn:hover {
+    color: #A6151F;
+    text-decoration: underline !important;
+    background-color: #FFFFFF;
+}
+
+.sticky-btn:active {
+    border-style: none !important;
+    background-color: #FFFFFF !important;
+    color: #A6151F !important;
+}
+
+.sticky-btn:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+
+@media (max-width: 1084px) {
+    #stickyBtnGroup {
+        display: none !important;
     }
-  }
-  @media (min-width: 768px) {
-    .container-left {
-      margin-left: calc((100vw - 720px) / 2);
+}
+
+@media (max-width: 1184px) {
+    #stickyBtnGroupTeam {
+        display: none !important;
     }
-  }
-  @media (min-width: 992px) {
-    .container-left {
-      margin-left: calc((100vw - 960px) / 2);
-    }
-  }
-  @media (min-width: 1200px) {
-    .container-left {
-      margin-left: calc((100vw - 1140px) / 2);
-    }
-  }
-  @media (min-width: 1400px) {
-    .container-left {
-      margin-left: calc((100vw - 1320px) / 2);
-    }
-  }
-  
+}
+
+
 
 
 
@@ -1008,40 +1026,40 @@ body.scroll-locked {
 
 .sticky-content {
     width: 100%;
-  }
+}
   
-  @media (min-width: 768px) {
+@media (min-width: 768px) {
     .sticky-content.fixed {
-      position: fixed;
-      top: 100px;
-      /* Ajusta para a largura real da coluna (ex: 50% ou 33.33%) */
-      width: calc(45.5%); /* Se a tua coluna é .col-md-6 */
-      z-index: 10;
+        position: fixed;
+        top: 100px;
+        /* Ajusta para a largura real da coluna (ex: 50% ou 33.33%) */
+        width: calc(41.6666%); /* Se a tua coluna é .col-md-6 */
+        z-index: 10;
+
+        padding-right: 10px; /* 10px */
     }
-  
-    .sticky-wrapper .col-md-6 .sticky-content.fixed {
-      width: calc(45.5%);
+
+    .sticky-wrapper .col-md-5 .sticky-content.fixed {
+        width: calc(41.6666%);
     }
-  
-    .sticky-wrapper .col-md-4 .sticky-content.fixed {
-      width: calc(33.3333% - 15px);
-    }
-  
+
     .sticky-content.bottom {
-      position: absolute;
-      top: auto;
-      bottom: 0;
-      width: 100%;
+        position: absolute;
+        top: auto;
+        bottom: 0;
+        width: 100%;
+
+        padding-right: 15px; /* 15px */
     }
-  
+
     .sticky-wrapper {
-      position: relative;
+        position: relative;
     }
-  
+
     .scrolling-column {
-      padding-top: 0 !important;
+        padding-top: 0 !important;
     }
-  }
+}
   
 
 .picture-wrapper {
@@ -1150,7 +1168,7 @@ filter: grayscale(0%);
 }
 
 
-@media (max-width: 1199px) {
+@media (max-width: 1399px) {
     .logo-image {
         width: 80px;
         height: 47px;
@@ -1353,3 +1371,22 @@ filter: grayscale(0%);
 }
 
 /* ******************************************************** SUBFOOTER FIM *********************************************************** */
+
+/* *************************************************** UP BUTTON *********************************************** */
+
+#upButton {
+    background-color: #efefef;
+}
+
+#upButton:hover {
+    background-color: #A6151F;
+}
+
+
+#upButton:hover > svg {
+    color: #efefef;
+}
+
+
+/* *************************************************** UP BUTTON FIM ******************************************* */
+

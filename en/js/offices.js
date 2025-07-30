@@ -210,3 +210,93 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 300); // tempo suficiente para a navbar existir e o layout estar pronto
     }
 });
+
+/* ****************************************** SCROLL ANIM ***************************************** */
+
+//Ao adicionar o scroll anim não esquecer de adicionar o ID no body da página correspondente -- id="indexPage"
+
+
+function scrollAnim(e) {
+    console.log(`Clicou em ${e}`);
+    const targetSelector = `#${e}`;
+    const targetElement = document.querySelector(targetSelector);
+
+    if (!targetElement) return;
+
+    const rect = targetElement.getBoundingClientRect();
+    const absoluteTop = rect.top + window.pageYOffset;
+
+    const offset = window.innerWidth < 992 ? 50 : 0;
+
+    window.scrollTo({
+        top: absoluteTop - offset,
+        behavior: 'smooth'
+    });
+
+    // Atualiza o hash da URL sem forçar scroll extra
+    history.replaceState(null, '', `#${e}`);
+
+    // Atualizar a navbar após o scroll suave (espera 1s como fallback)
+    setTimeout(() => {
+        updateNavbarShadow();
+    }, 1000);
+}
+
+function addScrollHandler(buttonId, sectionId) {
+    const button = document.getElementById(buttonId);
+    if (!button) return;
+
+    button.addEventListener("click", (event) => {
+      console.log("Clicou no botão para navegar para o topo");
+        if (isIndexPage()) {
+            // Estás na index — impede comportamento padrão e faz scroll
+            event.preventDefault();
+            scrollAnim(sectionId);
+        } else {
+            // Estás noutra página — deixa o link funcionar para navegar
+            // nada a fazer aqui, deixar o comportamento normal do <a href> seguir
+        }
+    });
+}
+
+// Detecta se estás na index de forma fiável
+function isIndexPage() {
+    return document.body.id === "indexPage";
+}
+
+// Lista de botões
+const scrollButtons = [
+    { id: "upButton", section: "top" }
+];
+
+// Aplica a todos os botões
+scrollButtons.forEach(({ id, section }) => addScrollHandler(id, section));
+
+function toggleFixedButtonVisibility() {
+  const fixedButton = document.getElementById("fixed-button");
+  if (!fixedButton) return;
+
+  if (window.scrollY > 1) {
+    fixedButton.classList.remove("disp-none");
+  } else {
+    fixedButton.classList.add("disp-none");
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Aplica visibilidade correta ao carregar
+  toggleFixedButtonVisibility();
+
+  // Atualiza visibilidade em scroll
+  window.addEventListener("scroll", toggleFixedButtonVisibility);
+});
+
+/* ****************************************** SCROLL ANIM FIM ***************************************** */
+
+document.addEventListener("DOMContentLoaded", function () {
+    const d = new Date();
+    let year = d.getFullYear();
+    console.log("Estamos no ano " + year);
+    document.getElementById("currentYear").innerHTML = year;
+});
+

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="RPA – Sociedade de Advogados nos Açores, Informação Legal">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+    <link rel="icon" type="image/png" href="/assets/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+    <link rel="shortcut icon" href="/assets/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="MyWebSite" />
+    <link rel="manifest" href="/assets/site.webmanifest" />
+
+    <link href='https://fonts.googleapis.com/css?family=Instrument Sans' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <link rel="alternate" hreflang="pt" href="https://rpaadvogados.com/legal" />
+    <link rel="alternate" hreflang="en" href="https://rpaadvogados.com/en/legal" />
+
+    <link href="/css/destaques-detalhe.css" rel="stylesheet">
+    <title>Escritório de Advogados nos Açores – São Miguel, Pico e Graciosa » Info Legal</title>
+</head>
+<body id="indexPage" data-bs-spy="scroll" data-bs-target="#navbar">
+
+    <div id="mainLoader" class="loader-container">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    
+    <div id="mainContent">
+
+         <!-- ==================================== NAVBAR ======================================= -->
+
+        <nav class="navbar navbar-expand-xxl fixed-top mb-5">
+            <div class="container-fluid nav-white-background">
+                <a class="navbar-brand" href="/">
+                    <img src="/assets/imgs/logo_website.png" class="img-fluid logo-image mt-3" alt="Ricardo Pacheco Advogados Logótipo">
+                </a>
+                <button id="ham-btn" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample05"
+                    aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+                    <div class="menu-icon">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </button>
+
+                <div id="drop-menu" class="collapse navbar-collapse navbar-btn-pack" id="navbarsExample05">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a href="/destaques" class="nav-link" aria-current="page">Destaques</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/atividade" class="nav-link" aria-current="page">Atividade</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/equipa" class="nav-link" aria-current="page">Equipa</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/manifesto" class="nav-link" aria-current="page">Manifesto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/escritorios" class="nav-link" aria-current="page">Escritórios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/parcerias" class="nav-link" aria-current="page">Parcerias</a>
+                        </li>
+                        <a class="nav-item" href="/#Contacto">
+                            <button type="button" class="nav-item btn round-btn"><span class="text-capitalize">Entrar</span> <span class="text-lowercase">em contacto</span></button>
+                        </a>
+                        <li class="nav-item">
+                            <a id="langToggle" class="nav-link nav-link-translate" href="/en/legal"><span id="ptBtn" class="fw-bold red">PT</span> | <span id="enBtn" class="text-body-secondary">en</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+        <!-- ==================================== NAVBAR FIM ======================================= -->
+
+        <!-- ==================================== LISTA DE ARTIGOS RPA ======================================= -->
+
+        <section id="top" class="pt-0 pt-lg-5">
+            <!--
+            <div class="ps-3 ps-lg-5 pt-3 mt-3 mt-lg-5 pb-2 pb-lg-0">
+                <h1 class="general-title">Detalhe do artigo selecionado</h1>
+            </div>
+            -->
+
+            <div class="album container pt-5 mt-5 pt-lg-5 mt-lg-5"> 
+                <div id="articleContent" class="row align-items-start">
+                    
+
+                    <!-- Coluna do Conteúdo -->
+                     <!--
+                    <div class="col">
+                        <div class="text-center">
+                            <img id="imagem" class="news-img img-fluid w-100" alt="Responsive image">
+                            <p class="text-muted mb-4 mb-lg-5 mt-1 mt-lg-2">
+                                <small id="imageSource" class="general-font"></small>
+                            </p>
+                            
+                        </div>
+
+                        <h1 id="titulo" class="general-font mb-3 mb-lg-5"></h1>
+
+                        <div class="writer-id d-flex align-items-center mb-3 mb-lg-5">
+                            <a id="writerLink" class="text-center text-decoration-none d-flex align-items-center">
+                                <img id="writerImg" class="rounded-circle me-2 mb-lg-2" alt="" style="width: 133px; height: 133px;">
+                                <p id="writerName" class="general-txt mb-0 ms-3"></p>
+                            </a>
+                        </div>
+
+                        <div id="texto" class="general-font lead"></div>
+
+                        <p class="text-muted mb-4 mb-lg-5">
+                            <small><span id="data" class="general-font"></span> | <a id="fonteURL" class="general-font" href="#" target="_blank" rel="noopener noreferrer"><span id="fonte" class="general-font"></span></a></small>
+                        </p>
+                    </div>
+                    -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================================== LISTA DE ARTIGOS RPA FIM ======================================= -->
+
+
+        <section id="fixed-button" class="disp-none">
+            <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 ">
+            <button id="upButton" class="btn btn-light py-2 d-flex align-items-center rounded-0" id="bd-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (auto)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5"/>
+                </svg>
+            </button>
+            
+            </div>
+        </section>
+
+        <!-- ========================================== FOOTER =========================================== -->
+
+        <section id="SectionFooter" class="pt-5 ">
+            <hr>
+            <div class="container pt-lg-5">
+                <footer>
+                <div class="row">
+                    <div class="col-12 col-md-5 mb-3">
+                        <p class="footer-title general-txt fat mb-3">RICARDO PACHECO & ASSOCIADOS, SOCIEDADE DE ADVOGADOS, SP, RL</p>
+
+                        <p class="general-font mb-0"><b>NIPC:</b></p>
+                        <p class="general-font">516 504 770</p>
+
+                        <p class="general-font mb-0"><b>Nº Registo OA:</b></p>
+                        <p class="general-font">28/22</p>
+
+                        <p class="general-font mb-0"><b>Morada:</b></p>
+                        <p class="general-font mb-0">Rua Caetano de Andrade, n.º 7 e 11</p>
+                        <p class="general-font mb-0">9500-037 Ponta Delgada</p>
+                        <p class="general-font">São Miguel <b>(Sede)</b></p>
+
+                        <p class="general-font mb-0"><b>Email:</b></p>
+                        <p class="general-font mb-0">ricardopacheco-177a@adv.oa.pt</p>
+                        <p class="general-font">carolinacarreiro-51384a@adv.oa.pt</p>
+
+                        <p class="general-font mb-0"><b>Telefone:</b></p>
+                        <p class="general-font">+351 296 281 574</p>
+                    
+                    </div>
+            
+                    <div class="footer-links col-12 col-md-2 mb-3">
+                        <p class="footer-title general-txt fat">Links Úteis</p>
+
+                        <p id="FooterBtnBlog" class="general-font mt-3 text-body-secondary"><a class="footer-link text-body-secondary" href="/destaques">Destaques</a></p>
+                        <p class="general-font mt-3 text-body-secondary"><a class="footer-link text-body-secondary" href="/atividade">Atividade</a></p>
+                        <p class="general-font mt-3 text-body-secondary"><a class="footer-link text-body-secondary" href="/equipa">Equipa</a></p>
+                        <p class="general-font mt-3 text-body-secondary"><a class="footer-link text-body-secondary" href="/manifesto">Manifesto</a></p>
+                        <p class="general-font mt-3 text-body-secondary"><a class="footer-link text-body-secondary" href="/escritorios">Escritórios</a></p>
+                        <p id="FooterBtnParcerias" class="general-font mt-3 text-body-secondary"><a class="footer-link text-body-secondary" href="/parcerias">Parcerias</a></p>
+                    </div>
+            
+                    <div class="col-md-5 mb-3 d-flex flex-column justify-content-between">
+                        <div>
+                            <!--<p class="footer-title general-txt fat">Subscreva à nossa Newsletter</p>-->
+                            <p class="footer-title general-txt fat">Esteja a par das nossas novidades</p>
+
+                            <!--<p class="general-font mt-3">
+                                Atualizamos regularmente a nossa Newsletter no LinkedIn para que fique sempre a par das nossas novidades.
+                            </p>-->
+
+                            <p class="general-font mt-3">
+                                Atualizamos regularmente a nossa página de LinkedIn para que fique sempre a par das nossas novidades.
+                            </p>
+
+                            <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+                                <!--<a href="https://www.linkedin.com/company/rp-associadoss/posts/?feedView=articles" target="_blank">
+                                    <button id="ButtonSubscricao" type="button" class="btn round-btn-footer">Subscrever</button>
+                                </a>-->
+
+                                <a href="https://www.linkedin.com/company/rp-associadoss/posts/?feedView=articles" target="_blank">
+                                    <button id="ButtonSubscricao" type="button" class="btn round-btn-footer">Seguir</button>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Este bloco será empurrado para o fundo -->
+                        <div class="d-flex flex-column flex-sm-row w-100 gap-2 mt-3 pt-3 mt-md-5 pt-md-5">
+                            <a id="linkLivroRecl" href="https://www.livroreclamacoes.pt/Inicio/" target="_blank">
+                                <img id="imageLinkLivroRecl" src="/assets/imgs/livro_reclamacoes/reclamacoes.webp" alt="Ricardo Pacheco Advogados Logótipo">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            
+                
+                <div class="d-flex flex-column flex-sm-row justify-content-between pt-4 mt-4 pb-2 mb-2 border-top">
+                    <p class="general-txt">© Copyright <span id="currentYear"></span> RPA Advogados</p>
+                    <ul class="list-unstyled d-flex">
+                    <li class="ms-3"><a class="link-body-emphasis" href="https://www.instagram.com/ricardopachecoadvogados/"  target="_blank" aria-label="Instagram"><i class="bi bi-instagram social-network-icon"></i></a></li>
+                    <li class="ms-3"><a class="link-body-emphasis" href="https://www.facebook.com/rpassociados/?locale=pt_PT" target="_blank" aria-label="Facebook"><i class="bi bi-facebook social-network-icon"></i></a></li>
+                    <li class="ms-3"><a class="link-body-emphasis" href="https://www.linkedin.com/company/rp-associadoss/" target="_blank" aria-label="LinkedIn"><i class="bi bi-linkedin social-network-icon"></i></a></li>
+                    </ul>
+                </div>
+
+                <div class="subfooter-container border-top">
+                    <p class="general-font mt-3 me-5"><a class="footer-link text-body-secondary" href="/legal/#termos">Termos e Condições</a></p>
+                    <p class="general-font mt-3 me-5"><a class="footer-link text-body-secondary" href="/legal/#privacidade">Política de Privacidade</a></p>
+                    <p class="general-font mt-3 me-5"><a class="footer-link text-body-secondary" href="/legal/#cookies">Política de Cookies</a></p>
+                    <p class="general-font mt-3 me-5"><a class="footer-link text-body-secondary" href="/legal/#ral">Resolução Alternativa de Litígios</a></p>
+                </div>
+                
+                </footer>
+            </div>
+
+
+        </section>
+
+        <!-- ========================================== FOOTER FIM =========================================== -->
+    </div>
+    
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+    <script src="/js/destaques-detalhe.js"></script>
+</body>
+</html>

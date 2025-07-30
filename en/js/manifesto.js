@@ -193,10 +193,10 @@ document.addEventListener("DOMContentLoaded", function () {
   
       if (e.matches) {
         // Largura >= 768px
-        targetElement.classList.add("container");
+        
       } else {
         // Largura < 768px
-        targetElement.classList.remove("container");
+        
         targetElement.classList.remove("px-5");
       }
     }
@@ -276,6 +276,55 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+document.addEventListener("DOMContentLoaded", () => {
+  const gridContainer = document.querySelector(".grid-container");
+  const bossImg1 = document.querySelector(".boss-img-1");
+  const bossImg2 = document.querySelector(".boss-img-2");
+
+  function isInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return rect.top < window.innerHeight && rect.bottom > 0;
+  }
+
+  function handleScroll() {
+    if (!isInViewport(gridContainer)) return;
+
+    bossImg1.classList.add("visible");
+    setTimeout(() => {
+      bossImg2.classList.add("visible");
+    }, 600);
+    
+
+    window.removeEventListener("scroll", handleScroll);
+  }
+
+  window.addEventListener("scroll", handleScroll);
+  handleScroll();
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const revealElements = document.querySelectorAll(".reveal-on-scroll");
+
+  function isInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return rect.top < window.innerHeight && rect.bottom > 0;
+  }
+
+  function handleScroll() {
+    revealElements.forEach((el) => {
+      if (isInViewport(el) && !el.classList.contains("visible")) {
+        el.classList.add("visible");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", handleScroll);
+  window.addEventListener("resize", handleScroll);
+  handleScroll(); // Executa logo ao carregar a página
+});
+
+
 
 
 
@@ -284,27 +333,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //================================================== ANIMATION FIM =================================================
 
-
+const delay = window.innerWidth <= 768 ? 3000 : 0;
 
 setTimeout(() => {
-  const container = document.getElementById('lottie-animation');
   const containerZero = document.getElementById('lottie-animation-zero');
+  //const containerOne = document.getElementById('lottie-animation-one');
+  const containerTwo = document.getElementById('lottie-animation-two');
+  
 
-  const anim1 = lottie.loadAnimation({
-    container: container,
-    renderer: 'svg',
-    loop: false, // vamos controlar o loop manualmente
-    autoplay: true,
-    path: './assets/json-files/tempo.json'
-  });
-
-  const anim2 = lottie.loadAnimation({
+  const anim0 = lottie.loadAnimation({
     container: containerZero,
     renderer: 'svg',
     loop: false,
     autoplay: true,
     path: './assets/json-files/mulher.json'
   });
+
+  /*const anim1 = lottie.loadAnimation({
+    container: containerOne,
+    renderer: 'svg',
+    loop: false, // vamos controlar o loop manualmente
+    autoplay: true,
+    path: './assets/json-files/mulher-2.json'
+  });*/
+  
+  const anim2 = lottie.loadAnimation({
+    container: containerTwo,
+    renderer: 'svg',
+    loop: false, // vamos controlar o loop manualmente
+    autoplay: true,
+    path: './assets/json-files/tempo.json'
+  });
+
+  
 
   // Função para boomerang loop
   function setupBoomerang(anim) {
@@ -322,13 +383,15 @@ setTimeout(() => {
   }
 
   // Aplica o boomerang
-  setupBoomerang(anim1);
+  setupBoomerang(anim0);
+  //setupBoomerang(anim1);
   setupBoomerang(anim2);
 
   // Ativa o fade-in
-  container.classList.add("show");
   containerZero.classList.add("show");
-}, 1700);
+  //containerOne.classList.add("show");
+  containerTwo.classList.add("show");
+}, delay);
 
 
 
@@ -363,4 +426,91 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+/* ****************************************** SCROLL ANIM ***************************************** */
 
+//Ao adicionar o scroll anim não esquecer de adicionar o ID no body da página correspondente --id="indexPage"
+
+
+function scrollAnim(e) {
+    console.log(`Clicou em ${e}`);
+    const targetSelector = `#${e}`;
+    const targetElement = document.querySelector(targetSelector);
+
+    if (!targetElement) return;
+
+    const rect = targetElement.getBoundingClientRect();
+    const absoluteTop = rect.top + window.pageYOffset;
+
+    const offset = window.innerWidth < 992 ? 50 : 0;
+
+    window.scrollTo({
+        top: absoluteTop - offset,
+        behavior: 'smooth'
+    });
+
+    // Atualiza o hash da URL sem forçar scroll extra
+    history.replaceState(null, '', `#${e}`);
+
+    // Atualizar a navbar após o scroll suave (espera 1s como fallback)
+    setTimeout(() => {
+        updateNavbarShadow();
+    }, 1000);
+}
+
+function addScrollHandler(buttonId, sectionId) {
+    const button = document.getElementById(buttonId);
+    if (!button) return;
+
+    button.addEventListener("click", (event) => {
+      console.log("Clicou no botão para navegar para o topo");
+        if (isIndexPage()) {
+            // Estás na index — impede comportamento padrão e faz scroll
+            event.preventDefault();
+            scrollAnim(sectionId);
+        } else {
+            // Estás noutra página — deixa o link funcionar para navegar
+            // nada a fazer aqui, deixar o comportamento normal do <a href> seguir
+        }
+    });
+}
+
+// Detecta se estás na index de forma fiável
+function isIndexPage() {
+    return document.body.id === "indexPage";
+}
+
+// Lista de botões
+const scrollButtons = [
+    { id: "upButton", section: "top" }
+];
+
+// Aplica a todos os botões
+scrollButtons.forEach(({ id, section }) => addScrollHandler(id, section));
+
+function toggleFixedButtonVisibility() {
+  const fixedButton = document.getElementById("fixed-button");
+  if (!fixedButton) return;
+
+  if (window.scrollY > 1) {
+    fixedButton.classList.remove("disp-none");
+  } else {
+    fixedButton.classList.add("disp-none");
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Aplica visibilidade correta ao carregar
+  toggleFixedButtonVisibility();
+
+  // Atualiza visibilidade em scroll
+  window.addEventListener("scroll", toggleFixedButtonVisibility);
+});
+
+/* ****************************************** SCROLL ANIM FIM ***************************************** */
+
+document.addEventListener("DOMContentLoaded", function () {
+    const d = new Date();
+    let year = d.getFullYear();
+    console.log("Estamos no ano " + year);
+    document.getElementById("currentYear").innerHTML = year;
+});

@@ -74,8 +74,119 @@ html, body {
 /* Alterar a cor dos textos e ícones para preto */
 .navbar .navbar-brand,
 .navbar .nav-link,
-.navbar-toggler-icon {
+.navbar-toggler-icon,
+.bosses-link {
     color: black !important;
+}
+
+
+/* -------- BASE -------- */
+.grid-container {
+  height: 600px;
+  display: grid;
+  grid-template-columns: auto repeat(5, 100px);
+  grid-template-rows: repeat(7, 1fr);
+}
+
+.boss-img-1,
+.boss-img-2 {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
+
+.boss-img-1 {
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 5;
+    background-image: url('/assets/imgs/team/ricardo-bg.webp');
+}
+
+
+.boss-img-2 {
+    grid-column-start: 4;
+    grid-column-end: 7;
+    grid-row-start: 4;
+    grid-row-end: 8;
+    background-image: url('/assets/imgs/team/carolina-bg.webp');
+}
+
+/* -------- RESPONSIVE QUERIES -------- */
+
+/* 📱 Small screens (até 576px) */
+@media (max-width: 576px) {
+  .grid-container {
+    height: 300px;
+    grid-template-columns: auto 60px 60px 60px 60px;
+    grid-template-rows: repeat(6, 1fr);
+  }
+
+  .boss-img-1 {
+    grid-column: 2 / 4;
+    grid-row: 1 / 4;
+  }
+
+  .boss-img-2 {
+    grid-column: 3 / 6;
+    grid-row: 3 / 6;
+  }
+}
+
+/* 📱📲 Medium screens (até 768px) */
+@media (max-width: 768px) {
+  .grid-container {
+    height: 350px;
+    grid-template-columns: auto 65px 65px 65px 65px 65px;
+    grid-template-rows: repeat(7, 1fr);
+  }
+
+  .boss-img-1 {
+    grid-column: 2 / 5;
+    grid-row: 1 / 5;
+  }
+
+  .boss-img-2 {
+    grid-column: 4 / 7;
+    grid-row: 4 / 8;
+  }
+}
+
+/* 💻 Large screens (até 992px) */
+@media (max-width: 992px) {
+  .grid-container {
+    height: 400px;
+    grid-template-columns: auto 70px 70px 70px 70px 70px;
+  }
+
+  .boss-img-1 {
+    grid-column: 2 / 5;
+    grid-row: 1 / 5;
+  }
+
+  .boss-img-2 {
+    grid-column: 4 / 7;
+    grid-row: 4 / 8;
+  }
+}
+
+.boss-img {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.boss-img.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 
@@ -86,7 +197,7 @@ html, body {
     outline: none !important;
     box-shadow: none !important;
     border: none !important;
-    margin-top: 5px;
+    /*margin-top: 5px;*/
 }
 
 
@@ -147,7 +258,8 @@ html, body {
 }
 
 .nav-link:hover,
-.footer-link:hover {
+.footer-link:hover,
+.bosses-link:hover {
     text-decoration: underline !important;
     color: #A6151F !important;
     cursor: pointer;
@@ -157,7 +269,7 @@ html, body {
     padding: 10px 0px 10px 30px !important;
 }
 
-@media (max-width: 1199px) {
+@media (max-width: 1399px) {
     .nav-link-translate{
         padding: 10px 30px !important;
     }
@@ -543,6 +655,24 @@ html, body {
     max-height: 90%;
 }
 
+.general-txt-adapt {
+    font-family: "Instrument Sans", sans-serif;
+    font-size: clamp(1rem, 1.3vw, 1.7rem);
+    text-align: left;
+    margin: 0;
+    text-overflow: ellipsis;
+    max-height: 90%;
+}
+
+.general-txt-box {
+    font-family: "Instrument Sans", sans-serif;
+    font-size: clamp(0.8rem, 1vw, 1.2rem);
+    text-align: left;
+    margin: 0;
+    text-overflow: ellipsis;
+    max-height: 90%;
+}
+
 .regular {
     font-weight: 200;
 }
@@ -910,99 +1040,6 @@ body.scroll-locked {
 
 
 
-/* **************************************************** ESCRITÓRIOS ****************************************************** */
-
-.office {
-  height: 600px;
-  position: relative;
-  overflow: hidden;
-}
-
-.office-bg {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-
-  transition: transform 0.5s ease;
-  z-index: 0;
-  will-change: transform;
-
-  filter: grayscale(100%);
-}
-
-.office:hover .office-bg {
-  transform: scale(1.1);
-  filter: grayscale(0%);
-}
-
-/* Gradiente escuro na parte inferior */
-.office::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0));
-  z-index: 1;
-}
-
-/* Conteúdo sempre acima da imagem e overlay */
-.office > *:not(.office-bg) {
-  position: relative;
-  z-index: 2;
-}
-
-.office-link {
-    text-decoration: none;
-}
-
-.office-link:hover {
-    text-decoration: none;
-}
-
-/* Smartphones */
-@media (max-width: 576px) {
-    .office {
-        height: 300px;
-    }
-}
-
-
-/* Tablets */
-@media (min-width: 768px) {
-    .office {
-        height: 400px;
-    }
-}
-
-/* Laptops e desktops médios */
-@media (min-width: 1024px) {
-    .office {
-        height: 500px;
-    }
-}
-
-/* Desktops grandes */
-@media (min-width: 1400px) {
-    .office {
-        height: 600px;
-    }
-}
-
-/* Monitores ultra-wide */
-@media (min-width: 1800px) {
-    .office {
-        height: 700px;
-    }
-}
-
-/* **************************************************** ESCRITÓRIOS FIM ****************************************************** */
-
-
 
 /* **************************************************** PARCERIAS ****************************************************** */
 
@@ -1150,7 +1187,7 @@ filter: grayscale(0%);
 }
 
 
-@media (max-width: 1199px) {
+@media (max-width: 1399px) {
     .logo-image {
         width: 80px;
         height: 47px;
@@ -1370,19 +1407,19 @@ filter: grayscale(0%);
 
 
 
-
-
 /* ******************************************************** TEXT EFFECT FIM *********************************************************** */
 
 
-#lottie-animation,
-#lottie-animation-zero {
-    height: 400px;
+#lottie-animation-zero,
+#lottie-animation-two {
+    height: 500px;
 }
 
+
+
 @media (max-width: 700px) {
-    #lottie-animation,
-    #lottie-animation-zero {
+    #lottie-animation-zero,
+    #lottie-animation-two {
         height: 200px;
     }
 }
@@ -1394,3 +1431,140 @@ filter: grayscale(0%);
 .fade-in.show {
     opacity: 1;
 }
+
+/* *************************************************** UP BUTTON *********************************************** */
+
+#upButton {
+    background-color: #efefef;
+}
+
+#upButton:hover {
+    background-color: #A6151F;
+}
+
+
+#upButton:hover > svg {
+    color: #efefef;
+}
+
+
+/* *************************************************** UP BUTTON FIM ******************************************* */ 
+
+
+/* **************************************************** FOTOS ****************************************************** */
+
+.office {
+  height: 400px !important;
+  width: 5000px !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.office-bg {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  transition: transform 0.5s ease;
+  z-index: 0;
+  will-change: transform;
+
+  filter: grayscale(100%);
+}
+
+.office:hover .office-bg {
+     transform: scale(1.01) !important;
+    filter: grayscale(0%) !important;
+}
+
+/* Gradiente escuro na parte inferior */
+.office::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0));
+  z-index: 1;
+}
+
+.bosses-link {
+    color: black !important;
+}
+
+.bosses-link:hover {
+    text-decoration: underline !important;
+    color: #A6151F !important;
+    cursor: pointer;
+}
+
+
+/* Conteúdo sempre acima da imagem e overlay */
+.office > *:not(.office-bg) {
+  position: relative;
+  z-index: 2;
+}
+
+.office-link {
+    text-decoration: none;
+}
+
+.office-link:hover {
+    text-decoration: none;
+}
+
+/* Smartphones */
+@media (max-width: 576px) {
+    .office {
+        height: 300px !important;
+    }
+}
+
+
+/* Tablets */
+@media (min-width: 768px) {
+    .office {
+        height: 400px !important;
+    }
+}
+
+/* Laptops e desktops médios */
+@media (min-width: 1024px) {
+    .office {
+        height: 500px !important;
+    }
+}
+
+/* Desktops grandes */
+@media (min-width: 1400px) {
+    .office {
+        height: 600px;
+    }
+}
+
+/* Monitores ultra-wide */
+@media (min-width: 1800px) {
+    .office {
+        height: 700px;
+    }
+}
+
+.partnership-picture,
+.employee-picture {
+    filter: grayscale(100%);
+    transition: transform 0.4s ease, filter 0.4s ease;
+    width: 100%;
+    height: auto;
+}
+
+.partnership-picture.in-view,
+.employee-picture.in-view {
+    transform: scale(1.07);
+    filter: grayscale(0%);
+}
+
+/* **************************************************** FOTOS FIM ****************************************************** */

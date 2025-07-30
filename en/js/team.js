@@ -70,38 +70,66 @@ document.getElementById("ham-btn").addEventListener("click", () => {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-function handleStickyBlock(wrapper, content, scrollCol) {
-    const stickyHeight = content.offsetHeight;
-    const offsetTop = wrapper.offsetTop;
+  const stickySections = document.querySelectorAll(".sticky-wrapper");
+
+  function handleStickyContent(wrapper) {
+    const stickyContent = wrapper.querySelector(".sticky-content");
+    const scrollCol = wrapper.querySelector(".scrolling-column");
+
+    if (!stickyContent || !scrollCol) return;
+
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const offsetTop = wrapper.offsetTop;
+    const stickyHeight = stickyContent.offsetHeight;
     const end = offsetTop + scrollCol.offsetHeight - stickyHeight - 100;
     const start = offsetTop - 100;
 
     if (scrollTop > start && scrollTop < end) {
-    content.classList.add("fixed");
-    content.classList.remove("bottom");
+      stickyContent.classList.add("fixed");
+      stickyContent.classList.remove("bottom");
     } else if (scrollTop >= end) {
-    content.classList.remove("fixed");
-    content.classList.add("bottom");
+      stickyContent.classList.remove("fixed");
+      stickyContent.classList.add("bottom");
     } else {
-    content.classList.remove("fixed", "bottom");
+      stickyContent.classList.remove("fixed", "bottom");
     }
-}
+  }
 
-const wrappers = document.querySelectorAll(".sticky-wrapper");
+  function handleStickyGroup() {
+    const stickyEl = document.querySelector(".sticky-content-2");
+    const firstSection = document.getElementById("ricardo");
+    const lastSection = document.getElementById("joana");
 
-function onScroll() {
-    wrappers.forEach(wrapper => {
-    const content = wrapper.querySelector(".sticky-content");
-    const scrollCol = wrapper.querySelector(".scrolling-column");
-    handleStickyBlock(wrapper, content, scrollCol);
-    });
-}
+    if (!stickyEl || !firstSection || !lastSection) return;
 
-window.addEventListener("scroll", onScroll);
-window.addEventListener("resize", onScroll);
-onScroll(); // Executa na carga inicial
+    const scrollY = window.scrollY || window.pageYOffset;
+    const start = firstSection.offsetTop - 100;
+    const end = lastSection.offsetTop + lastSection.offsetHeight - stickyEl.offsetHeight - 100;
+
+    if (scrollY > start && scrollY < end) {
+      stickyEl.style.position = "fixed";
+      stickyEl.style.top = "100px";
+    } else if (scrollY >= end) {
+      stickyEl.style.position = "absolute";
+      stickyEl.style.top = (end - firstSection.offsetTop) + "px";
+    } else {
+      stickyEl.style.position = "static";
+      stickyEl.style.top = "auto";
+    }
+  }
+
+  function onScroll() {
+    stickySections.forEach(handleStickyContent);
+    handleStickyGroup();
+  }
+
+  // Executar na inicialização e em scroll/resize
+  window.addEventListener("scroll", onScroll);
+  window.addEventListener("resize", onScroll);
+  onScroll();
 });
+
+
 
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -237,4 +265,205 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+/* ****************************************** SCROLL ANIM ***************************************** */
 
+//Ao adicionar o scroll anim não esquecer de adicionar o ID no body da página correspondente -- id="indexPage"
+
+
+function scrollAnim(e) {
+    console.log(`Clicou em ${e}`);
+    const targetSelector = `#${e}`;
+    const targetElement = document.querySelector(targetSelector);
+
+    if (!targetElement) return;
+
+    const rect = targetElement.getBoundingClientRect();
+    const absoluteTop = rect.top + window.pageYOffset;
+
+    const offset = window.innerWidth < 992 ? 50 : 0;
+
+    window.scrollTo({
+        top: absoluteTop - offset,
+        behavior: 'smooth'
+    });
+
+    // Atualiza o hash da URL sem forçar scroll extra
+    history.replaceState(null, '', `#${e}`);
+
+    // Atualizar a navbar após o scroll suave (espera 1s como fallback)
+    setTimeout(() => {
+        updateNavbarShadow();
+    }, 1000);
+}
+
+function addScrollHandler(buttonId, sectionId) {
+  const button = document.getElementById(buttonId);
+  if (!button) return;
+
+  button.addEventListener("click", (event) => {
+    console.log("Clicou no botão para navegar para o topo");
+
+    event.preventDefault();
+    scrollAnim(sectionId);
+
+    // Limpa os botões da equipa se for o botão de topo
+    if (buttonId === "upButton") {
+      clearTeamRedClass();
+    }
+  });
+}
+
+function clearTeamRedClass() {
+  const teamButtons = document.querySelectorAll(
+    '#btnRicardo, #btnCarolina, #btnBrito, #btnVeronica, #btnJulia, #btnJoaom, #btnJoao, #btnBianca, #btnJoana'
+  );
+
+  if (teamButtons.length === 0) {
+    console.warn("⚠️ Nenhum botão da equipa encontrado!");
+    return;
+  }
+
+  teamButtons.forEach(btn => {
+    btn.classList.remove("red");
+    btn.classList.add("black"); // opcional: manter estilo consistente
+  });
+}
+
+
+// Detecta se estás na index de forma fiável
+function isIndexPage() {
+    return document.body.id === "indexPage";
+}
+
+// Lista de botões
+const scrollButtons = [
+    { id: "upButton", section: "top" },
+    { id: "btnRicardo", section: "ricardo" },
+    { id: "btnCarolina", section: "carolina" },
+    { id: "btnBrito", section: "brito" },
+    { id: "btnVeronica", section: "veronica" },
+    { id: "btnJulia", section: "julia" },
+    { id: "btnJoaom", section: "joaom" },
+    { id: "btnJoao", section: "joao" },
+    { id: "btnBianca", section: "bianca" },
+    { id: "btnJoana", section: "joana" }
+];
+
+// Aplica a todos os botões
+scrollButtons.forEach(({ id, section }) => addScrollHandler(id, section));
+
+function toggleFixedButtonVisibility() {
+  const fixedButton = document.getElementById("fixed-button");
+  if (!fixedButton) return;
+
+  if (window.scrollY > 1) {
+    fixedButton.classList.remove("disp-none");
+  } else {
+    fixedButton.classList.add("disp-none");
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Aplica visibilidade correta ao carregar
+  toggleFixedButtonVisibility();
+
+  // Atualiza visibilidade em scroll
+  window.addEventListener("scroll", toggleFixedButtonVisibility);
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const btns = document.querySelectorAll("#stickyBtnGroupTeam .sticky-btn");
+
+  btns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      // Remove 'red' de todos os botões
+      btns.forEach(b => b.classList.remove("red"));
+      btns.forEach(b => b.classList.add("black"));
+
+      // Adiciona 'red' ao botão clicado
+      btn.classList.add("red");
+      btn.classList.remove("black");
+    });
+  });
+});
+
+/* ****************************************** SCROLL ANIM FIM ***************************************** */
+
+document.addEventListener("DOMContentLoaded", function () {
+    const d = new Date();
+    let year = d.getFullYear();
+    console.log("Estamos no ano " + year);
+    document.getElementById("currentYear").innerHTML = year;
+});
+
+
+/* ************************************* higlight sticky buttns no scroll ************************************/
+
+document.addEventListener("DOMContentLoaded", function () {
+    const sections = [
+        "ricardo",
+        "carolina",
+        "brito",
+        "veronica",
+        "julia",
+        "joaom",
+        "joao",
+        "bianca",
+        "joana"
+    ];
+
+    const buttonMap = sections.reduce((acc, id) => {
+        acc[id] = document.getElementById(`btn${capitalizeFirst(id)}`);
+        return acc;
+    }, {});
+
+    function capitalizeFirst(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
+    let currentActive = null;
+
+    const observerOptions = {
+        root: null,
+        rootMargin: "0px 0px -60% 0px", // dispara antes da secção ocupar o topo
+        threshold: 0.3
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.id;
+
+                // Se já está ativo, não atualiza
+                if (currentActive === id) return;
+                currentActive = id;
+
+                // Atualiza a classe dos botões
+                Object.values(buttonMap).forEach(btn => {
+                  if (btn) {
+                    btn.classList.remove("red");
+                    btn.classList.add("black");
+                  }
+                });
+
+                const matchingBtn = buttonMap[id];
+                if (matchingBtn) {
+                  matchingBtn.classList.add("red");
+                  matchingBtn.classList.remove("black");
+                }
+
+
+                // Atualiza a hash do URL sem scroll extra
+                history.replaceState(null, '', `#${id}`);
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach(id => {
+        const section = document.getElementById(id);
+        if (section) observer.observe(section);
+    });
+});
+
+
+/* ************************************* higlight sticky buttns no scroll FIM ********************************/
