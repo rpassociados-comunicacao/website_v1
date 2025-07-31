@@ -445,7 +445,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  fetch("/assets/json-files/articles.json") //https://www.rpaadvogados.com/assets/json-files/articles.json
+  fetch("https://www.rpaadvogados.com/en/assets/json-files/articles.json") //https://www.rpaadvogados.com/assets/json-files/articles.json
     .then(response => response.json())
     .then(data => {
       allArticles = data;

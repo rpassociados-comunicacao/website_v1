@@ -395,7 +395,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
   }
 
-  fetch("https://www.rpaadvogados.com/assets/json-files/articles.json")
+  fetch("https://www.rpaadvogados.com/en/assets/json-files/articles.json")
     .then(response => response.json())
     .then(data => {
       const artigo = data[id];
@@ -447,3 +447,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 /* ********************************************* FETCH DETALHES ARTIGO FIM **************************************** */
+
+
+// Captura os parâmetros da URL atual
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
+
+// Se houver um ID, adicione-o ao link de troca de idioma
+if (id) {
+  const langToggle = document.getElementById("langToggle");
+  langToggle.href = `/destaques/detalhe/?id=${id}`;
+}
