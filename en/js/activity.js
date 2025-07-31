@@ -97,8 +97,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function handleStickyGroup() {
     const stickyEl = document.querySelector(".sticky-content-2");
-    const firstSection = document.getElementById("dAdministrativo");
-    const lastSection = document.getElementById("dRegistos");
+    const firstSection = document.getElementById("lAdministrative");
+    const lastSection = document.getElementById("lRegistry");
 
     if (!stickyEl || !firstSection || !lastSection) return;
 
@@ -315,8 +315,9 @@ function addScrollHandler(buttonId, sectionId) {
     });
 }
 
+
 function clearActivityRedClass() {
-  const activityButtons = document.querySelectorAll('#btnAdministrativo, #btnFiscal, #btnComercial, #btnFamilia, #btnSucessoes, #btnConsumidor, #btnCivil, #btnTrabalho, #btnPenal, #btnExecutivo, #btnImobiliario, #btnRodoviario, #btnRegistos');
+  const activityButtons = document.querySelectorAll('#btnAdministrative, #btnTax, #btnCommercial, #btnFamily, #btnSuccession, #btnConsumer, #btnCivil, #btnLabor, #btnCriminal, #btnEnforcement, #btnRealEstate, #btnTraffic, #btnRegistry');
 
   if (activityButtons.length === 0) {
     console.log("Nenhum botão de atividade encontrado — estás na página certa?");
@@ -339,19 +340,19 @@ function isIndexPage() {
 // Lista de botões
 const scrollButtons = [
     { id: "upButton", section: "top" },
-    { id: "btnAdministrativo", section: "dAdministrativo" },
-    { id: "btnFiscal", section: "dFiscal" },
-    { id: "btnComercial", section: "dComercial" },
-    { id: "btnFamilia", section: "dFamilia" },
-    { id: "btnSucessoes", section: "dSucessoes" },
-    { id: "btnConsumidor", section: "dConsumidor" },
-    { id: "btnCivil", section: "dCivil" },
-    { id: "btnTrabalho", section: "dTrabalho" },
-    { id: "btnPenal", section: "dPenal" },
-    { id: "btnExecutivo", section: "dExecutivo" },
-    { id: "btnImobiliario", section: "dImobiliario" },
-    { id: "btnRodoviario", section: "dRodoviario" },
-    { id: "btnRegistos", section: "dRegistos" }
+    { id: "btnAdministrative", section: "lAdministrative" },
+    { id: "btnTax", section: "lTax" },
+    { id: "btnCommercial", section: "lCommercial" },
+    { id: "btnFamily", section: "lFamily" },
+    { id: "btnSuccession", section: "lSuccession" },
+    { id: "btnConsumer", section: "lConsumer" },
+    { id: "btnCivil", section: "lCivil" },
+    { id: "btnLabor", section: "lLabor" },
+    { id: "btnCriminal", section: "lCriminal" },
+    { id: "btnEnforcement", section: "lEnforcement" },
+    { id: "btnRealEstate", section: "lRealEstate" },
+    { id: "btnTraffic", section: "lTraffic" },
+    { id: "btnRegistry", section: "lRegistry" }
 
 ];
 
@@ -411,23 +412,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", () => {
   const sections = [
-    "dAdministrativo",
-    "dFiscal",
-    "dComercial",
-    "dFamilia",
-    "dSucessoes",
-    "dConsumidor",
-    "dCivil",
-    "dTrabalho",
-    "dPenal",
-    "dExecutivo",
-    "dImobiliario",
-    "dRodoviario",
-    "dRegistos"
+    "lAdministrative",
+    "lTax",
+    "lCommercial",
+    "lFamily",
+    "lSuccession",
+    "lConsumer",
+    "lCivil",
+    "lLabor",
+    "lCriminal",
+    "lEnforcement",
+    "lRealEstate",
+    "lTraffic",
+    "lRegistry"
   ];
 
   const buttonMap = sections.reduce((map, id) => {
-    const key = id.replace(/^d/, "btn"); // ex: dFiscal → btnFiscal
+    const key = id.replace(/^l/, "btn"); // ex: dFiscal → btnFiscal
     const btn = document.getElementById(key);
     if (btn) map[id] = btn;
     return map;
