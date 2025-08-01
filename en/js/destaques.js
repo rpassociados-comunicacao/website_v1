@@ -411,7 +411,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="card-body d-flex flex-column justify-content-between">
             <div class="mb-2">
               <small class="text-body-secondary">
-                por <b><a class="newspaper-link" href="${artigo.writerLink}">${artigo.writerName}</a></b>
+                by <b><a class="newspaper-link" href="${artigo.writerLink}">${artigo.writerName}</a></b>
               </small>
             </div>
             <small class="text-body-secondary">${artigo.data}</small>
