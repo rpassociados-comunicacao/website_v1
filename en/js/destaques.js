@@ -524,3 +524,15 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("resize", onScroll);
   onScroll();
 });
+
+
+
+// Captura os parâmetros da URL atual
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
+
+// Se houver um ID, adicione-o ao link de troca de idioma
+if (id) {
+  const langToggle = document.getElementById("langToggle");
+  langToggle.href = `/destaques/?id=${id}`;
+}
