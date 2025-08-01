@@ -1,4 +1,18 @@
 {
+  "paternidade": {
+    "titulo": "Paternidade negada? Direitos garantidos!",
+    "area": ["civil", "familia"],
+    "data": "01/08/2025",
+    "fonte": "Jornal Açores 9",
+    "fonteURL": "https://jornalacores9.pt/2025/08/01/clinica-juridica-veronica-casimiro-paternidade-negada-direitos-garantidos/",
+    "thumbnail": "/assets/imgs/news/thumbnails/paternidade.png",
+    "imagem": "/assets/imgs/news/paternidade-raw.jpg",
+    "imageSource": "Foto de Brittani Burns na Unsplash",
+    "writerImg": "/assets/imgs/news/author/veronica.png",
+    "writerName": "Verónica Casimiro",
+    "writerLink": "/equipa/#veronica",
+    "texto": "<p>O reconhecimento de paternidade é um dos temas mais sensíveis e importantes no âmbito do Direito da Família. Não representa apenas o estabelecimento de um laço jurídico entre pai e filho, mas também um passo fundamental para assegurar direitos fundamentais que impactam tanto a criança quanto os pais.</p><p>No contexto jurídico, o reconhecimento de paternidade pode ocorrer de forma voluntária ou judicial. O reconhecimento voluntário é o cenário mais simples, em que o pai biológico declara oficialmente a paternidade perante o registo civil. Este ato tem efeitos imediatos, garantindo à criança direitos como o nome, alimentos, herança e inclusão no plano familiar.</p><p>Por outro lado, há situações em que o reconhecimento não ocorre de forma espontânea. Nesses casos, a mãe ou a própria criança, representada legalmente, pode recorrer aos tribunais para requerer a investigação de paternidade. Este processo é fundamentado em provas, muitas vezes incluindo exames de ADN, que garantem uma decisão baseada em evidências científicas. A decisão judicial, uma vez favorável, confere os mesmos direitos à criança como se o reconhecimento tivesse sido voluntário.</p><p>O impacto do reconhecimento de paternidade transcende as questões legais. Para a criança, este ato significa o acesso ao direito à identidade, um elemento crucial para o seu desenvolvimento emocional e social. Conhecer as suas origens promove uma sensação de pertença e enriquece a sua autoimagem. Além disso, assegura a possibilidade de estabelecer uma relação com o pai, com todas as implicações positivas que isso pode trazer para o seu crescimento.</p><p>Para os pais, o reconhecimento de paternidade também é uma oportunidade de cumprir um papel essencial na vida dos filhos. Este compromisso não é apenas financeiro, mas também emocional e educativo.</p><p>No entanto, o caminho até ao reconhecimento de paternidade nem sempre é isento de desafios. Casos de conflito ou resistência podem levar a processos longos e desgastantes. Nesses cenários, é essencial contar com apoio jurídico especializado que possa orientar as partes envolvidas, promovendo soluções rápidas e eficazes.</p><p>O reconhecimento de paternidade é, acima de tudo, um ato de responsabilidade e amor. Ele reforça a importância de proteger os laços familiares e de assegurar que cada criança tenha acesso aos direitos e ao cuidado que merece. Seja de forma voluntária ou judicial, este processo é uma demonstração clara de que o Direito da Família não é apenas uma questão de normas, mas também de humanidade.</p>"
+  },
   "protecao-testemunhas": {
     "titulo": "Testemunhas sob proteção: entre o dever cívico e a salvaguarda da vida",
     "area": ["penal"],
