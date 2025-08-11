@@ -171,10 +171,12 @@ html, body {
     cursor: pointer;
 }
 
+
 #langToggle:hover .translation {
   text-decoration: underline;
   color: #A6151F;
 }
+
 
 
 .round-btn {
