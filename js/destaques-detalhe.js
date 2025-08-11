@@ -447,3 +447,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 /* ********************************************* FETCH DETALHES ARTIGO FIM **************************************** */
+
+// Captura os parâmetros da URL atual
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
+
+// Se houver um ID, adicione-o ao link de troca de idioma
+if (id) {
+  const langToggle = document.getElementById("langToggle");
+  langToggle.href = `/en/insights/detail/?id=${id}`;
+}
