@@ -1,7 +1,6 @@
 # /admin/config.yml
 backend:
-  name: github
-  repo: rpassociados-comunicacao/website_v1
+  name: git-gateway
   branch: backend
 
 media_folder: "assets/imgs/news/uploads" # onde as imagens ficam no repositório
