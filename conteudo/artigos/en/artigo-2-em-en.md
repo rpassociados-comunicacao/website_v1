@@ -1,6 +1,6 @@
 ---
 title: Artigo 2 em EN
 date: 2025-08-20T00:00:00+01:00
-image: static/uploads/foto-perfil.jpeg
+image: /uploads/joao-morais-1.jpg
 iogurte: laranja
 ---
