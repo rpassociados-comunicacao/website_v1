@@ -1,7 +1,6 @@
 ---
-title: "Primeiro Artigo"
-date: "2025-08-18"
-image: "/images/artigo1.jpg"
+title: CloudCannot Artigo
+date: 2025-08-19T00:00:00+01:00
+image: /uploads/infiltracao.jfif
 ---
-
-Este é o corpo do primeiro artigo escrito em Markdown.
+Teste das batatas.
