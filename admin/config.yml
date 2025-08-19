@@ -1,0 +1,27 @@
+# /admin/config.yml
+backend:
+  name: git-gateway
+  branch: backend
+
+media_folder: "assets/imgs/news/uploads" # onde as imagens ficam no repositório
+public_folder: "/assets/imgs/news/uploads" # onde ficam acessíveis no site
+
+collections:
+  - name: "artigos"
+    label: "Artigos"
+    folder: "conteudo/artigos"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Título", name: "titulo", widget: "string" }
+      - { label: "Data", name: "data", widget: "datetime" }
+      - { label: "Área", name: "area", widget: "list", default: ["civil"] }
+      - { label: "Fonte", name: "fonte", widget: "string" }
+      - { label: "URL da Fonte", name: "fonteURL", widget: "string" }
+      - { label: "Thumbnail", name: "thumbnail", widget: "image" }
+      - { label: "Imagem Principal", name: "imagem", widget: "image" }
+      - { label: "Fonte da Imagem", name: "imageSource", widget: "string" }
+      - { label: "Imagem do Autor", name: "writerImg", widget: "image" }
+      - { label: "Nome do Autor", name: "writerName", widget: "string" }
+      - { label: "Link do Autor", name: "writerLink", widget: "string" }
+      - { label: "Texto do Artigo", name: "texto", widget: "markdown" }
