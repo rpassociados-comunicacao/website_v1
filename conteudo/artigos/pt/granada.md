@@ -15,7 +15,7 @@ fonte: Jornal Açores 9
 fonteURL: >-
   https://jornalacores9.pt/2025/08/15/clinica-juridica-joana-rosa-da-validade-do-pacto-de-nao-concorrencia/
 thumbnail: /assets/imgs/news/thumbnails/012.png
-thumbnail: /assets/imgs/news/thumbnails/012.png
+imagem: /assets/imgs/news/thumbnails/012.png
 imageSource: Foto de Fatima Shahid na Unsplash
 writerImg: /assets/imgs/news/author/joana.png
 writerName: Joana Rosa
