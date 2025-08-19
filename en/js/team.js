@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function handleStickyGroup() {
     const stickyEl = document.querySelector(".sticky-content-2");
     const firstSection = document.getElementById("ricardo");
-    const lastSection = document.getElementById("joana");
+    const lastSection = document.getElementById("bianca");
 
     if (!stickyEl || !firstSection || !lastSection) return;
 
