@@ -1,0 +1,11 @@
+collections_config:
+  artigos:
+    path: "artigos"
+    output: true
+    _inputs:
+      imagem:
+        type: image
+      titulo:
+        type: text
+      conteudo:
+        type: markdown
