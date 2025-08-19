@@ -17,7 +17,7 @@ URL: >-
 thumbnail: "/assets/imgs/news/thumbnails/012.png"
 image: "/assets/imgs/news/012-raw.jpg"
 imageSource: "Foto de Fatima Shahid na Unsplash"
-author picture: "/assets/imgs/news/author/joana.png"
+picture: "/assets/imgs/news/author/joana.png"
 writerName: "Joana Rosa"
 writerLink: "/equipa/#joana"
 ---
