@@ -3,6 +3,7 @@ backend:
   name: git-gateway
   branch: backend
 
+
 media_folder: "assets/imgs/news/uploads" # onde as imagens ficam no repositório
 public_folder: "/assets/imgs/news/uploads" # onde ficam acessíveis no site
 
