@@ -1,4 +1,4 @@
 ---
 thumbnail:
-imagem:
+image:
 ---
