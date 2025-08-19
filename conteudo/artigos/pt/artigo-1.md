@@ -1,5 +1,5 @@
 ---
 thumbnail:
 imagem:
- type: image
+  type: image
 ---
