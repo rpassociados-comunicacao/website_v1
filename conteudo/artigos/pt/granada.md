@@ -1,5 +1,5 @@
 ---
-titulo: "Da Validade dghhjmhjmo Pacto de Não Concorrência"
+title: "Da Validade dghhjmhjmo Pacto de Não Concorrência"
 area:
   type: checkboxes
   options:
@@ -10,20 +10,14 @@ area:
   default:
     - trabalho
     - penal
-data: 2025-08-19T00:00:00+01:00
-fonte: "Jornal Açores 9"
-fonteURL: >-
+date: 2025-08-19T00:00:00+01:00
+source: "Jornal Açores 9"
+URL: >-
   https://jornalacores9.pt/2025/08/15/clinica-juridica-joana-rosa-da-validade-do-pacto-de-nao-concorrencia/
-thumbnail:
-  type: image
-  default: "/assets/imgs/news/thumbnails/012.png"
-imagem:
-  type: image
-  default: "/assets/imgs/news/012-raw.jpg"
+thumbnail: "/assets/imgs/news/thumbnails/012.png"
+image: "/assets/imgs/news/012-raw.jpg"
 imageSource: "Foto de Fatima Shahid na Unsplash"
-writerImg:
-  type: image
-  default: "/assets/imgs/news/author/joana.png"
+writer Image: "/assets/imgs/news/author/joana.png"
 writerName: "Joana Rosa"
 writerLink: "/equipa/#joana"
 ---
