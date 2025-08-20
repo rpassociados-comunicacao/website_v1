@@ -1,7 +1,7 @@
 _schema: _schema
 paths:
-  uploads: static/uploads
-  static: static
+  uploads: uploads
+  static: uploads
 collections_config:
   conteudo_artigos:
     path: conteudo/artigos
