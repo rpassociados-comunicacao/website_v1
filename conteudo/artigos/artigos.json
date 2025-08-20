@@ -1,25 +1,20 @@
----
-layout: null
-permalink: /conteudo/artigos.json
----
-
 [
-  {% assign artigos = site.conteudo_artigos_pt | where_exp: "item", "item.path contains '/conteudo/artigos/'" %}
-  {% for artigo in artigos %}
-    {
-      "id": "{{ artigo.basename }}",
-      "titulo": {{ artigo.titulo | jsonify }},
-      "area": {{ artigo.area | jsonify }},
-      "data": "{{ artigo.data }}",
-      "fonte": {{ artigo.fonte | jsonify }},
-      "fonteURL": {{ artigo.fonteURL | jsonify }},
-      "thumbnail": "{{ artigo.thumbnail }}",
-      "imagem": "{{ artigo.imagem }}",
-      "imageSource": {{ artigo.imageSource | jsonify }},
-      "writerImg": "{{ artigo.writerImg }}",
-      "writerName": {{ artigo.writerName | jsonify }},
-      "writerLink": {{ artigo.writerLink | jsonify }},
-      "texto": {{ artigo.texto | jsonify }}
-    }{% unless forloop.last %},{% endunless %}
-  {% endfor %}
+{% assign artigos = site.pages | where_exp:"p","p.path contains '/conteudo/artigos/' and p.path != 'conteudo/artigos/exemplo.md'" %}
+{% for artigo in artigos %}
+  {
+    "slug": "{{ artigo.url | split: '/' | last | remove: '.html' }}",
+    "titulo": "{{ artigo.titulo | escape }}",
+    "area": [{% for a in artigo.area %}"{{ a }}"{% unless forloop.last %}, {% endunless %}{% endfor %}],
+    "data": "{{ artigo.data | date: '%Y-%m-%d' }}",
+    "fonte": "{{ artigo.fonte | escape }}",
+    "fonteURL": "{{ artigo.fonteURL }}",
+    "thumbnail": "{{ artigo.thumbnail }}",
+    "imagem": "{{ artigo.imagem }}",
+    "imageSource": "{{ artigo.imageSource | escape }}",
+    "writerImg": "{{ artigo.writerImg }}",
+    "writerName": "{{ artigo.writerName | escape }}",
+    "writerLink": "{{ artigo.writerLink }}",
+    "resumo": "{{ artigo.content | strip_html | strip_newlines | truncate: 200 | escape }}"
+  }{% unless forloop.last %}, {% endunless %}
+{% endfor %}
 ]

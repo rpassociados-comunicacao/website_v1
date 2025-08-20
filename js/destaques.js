@@ -459,6 +459,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     */
    // Carregar os artigos diretamente do JSON gerado pelos .md
+// Fetch dos artigos
 fetch("/conteudo/artigos.json")
   .then(response => {
     if (!response.ok) {
@@ -467,10 +468,18 @@ fetch("/conteudo/artigos.json")
     return response.json();
   })
   .then(data => {
-    // Filtrar para ignorar "exemplo.md", caso exista
-    allArticles = data.filter(artigo => artigo.id !== "exemplo");
+    // Converter array em objeto indexado pelo slug
+    const articlesObj = {};
+    data.forEach(artigo => {
+      // Ignorar artigo de exemplo caso exista
+      if (artigo.slug === "exemplo") return;
+      articlesObj[artigo.slug] = artigo;
+    });
 
-    // Renderizar no HTML
+    // Guardar globalmente
+    allArticles = articlesObj;
+
+    // Renderizar todos os artigos por defeito
     renderArticles(allArticles);
 
     // Esconde o loader depois de carregar
@@ -481,6 +490,7 @@ fetch("/conteudo/artigos.json")
     container.innerHTML = `<p>Erro ao carregar os destaques.</p>`;
     hideLoader();
   });
+
 
 
 
