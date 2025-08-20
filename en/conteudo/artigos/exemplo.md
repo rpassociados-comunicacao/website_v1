@@ -22,7 +22,7 @@ imagem: "/assets/imgs/news/012-raw.jpg"
 imageSource: "Foto de Fatima Shahid na Unsplash"
 writerImg: "/assets/imgs/news/author/joana.png"
 writerName: "Joana Rosa"
-writerLink: "/equipa/#joana"
+writerLink: "/en/team/#joana"
 ---
 
 Texto do artigo
