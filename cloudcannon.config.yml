@@ -32,6 +32,7 @@ collections_config:
           - imobiliario
           - rodoviario
           - registos
+        allow_custom: false   # impede o cliente de inventar novas categorias
       data:
         type: date
         label: "Data"
@@ -70,69 +71,70 @@ collections_config:
         label: "Texto do Artigo"
 
   conteudo_artigos_en:
-      path: conteudo/artigos/en
-      name: Conteúdo Artigos EN
-      icon: article
-      disable_add: false
-      disable_add_folder: false
-      disable_file_actions: false
-      _inputs:
-        titulo:
-          type: text
-          label: "Título"
-        area:
-          type: multiselect
-          label: "Área(s)"
-          options:
-            - administrativo
-            - fiscal
-            - comercial
-            - familia
-            - sucessoes
-            - consumidor
-            - civil
-            - trabalho
-            - penal
-            - executivo
-            - imobiliario
-            - rodoviario
-            - registos
-        data:
-          type: date
-          label: "Data"
-        fonte:
-          type: text
-          label: "Fonte"
-        fonteURL:
-          type: url
-          label: "URL da Fonte"
-        thumbnail:
-          type: image
-          label: "Thumbnail"
-          options:
-            uploads_dir: "uploads/thumbnails"
-        imagem:
-          type: image
-          label: "Imagem Principal"
-          options:
-            uploads_dir: "uploads/artigos"
-        imageSource:
-          type: text
-          label: "Créditos da Imagem"
-        writerImg:
-          type: image
-          label: "Foto do Autor"
-          options:
-            uploads_dir: "uploads/autores"
-        writerName:
-          type: text
-          label: "Nome do Autor"
-        writerLink:
-          type: text
-          label: "Link do Autor"
-        texto:
-          type: markdown
-          label: "Texto do Artigo"
+    path: conteudo/artigos/en
+    name: Conteúdo Artigos EN
+    icon: article
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+    _inputs:
+      titulo:
+        type: text
+        label: "Title"
+      area:
+        type: multiselect
+        label: "Area(s)"
+        options:
+          - administrative
+          - tax
+          - commercial
+          - family
+          - inheritance
+          - consumer
+          - civil
+          - labour
+          - criminal
+          - enforcement
+          - real estate
+          - road traffic
+          - registries
+        allow_custom: false   # idem para inglês
+      data:
+        type: date
+        label: "Date"
+      fonte:
+        type: text
+        label: "Source"
+      fonteURL:
+        type: url
+        label: "Source URL"
+      thumbnail:
+        type: image
+        label: "Thumbnail"
+        options:
+          uploads_dir: "uploads/thumbnails"
+      imagem:
+        type: image
+        label: "Main Image"
+        options:
+          uploads_dir: "uploads/artigos"
+      imageSource:
+        type: text
+        label: "Image Credits"
+      writerImg:
+        type: image
+        label: "Author Photo"
+        options:
+          uploads_dir: "uploads/autores"
+      writerName:
+        type: text
+        label: "Author Name"
+      writerLink:
+        type: text
+        label: "Author Link"
+      texto:
+        type: markdown
+        label: "Article Body"
 
 timezone: Europe/Lisbon
 
