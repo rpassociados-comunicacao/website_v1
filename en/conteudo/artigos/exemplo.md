@@ -26,4 +26,3 @@ writerLink: "/equipa/#joana"
 ---
 
 Texto do artigo
-

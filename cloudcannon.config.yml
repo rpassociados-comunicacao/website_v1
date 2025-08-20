@@ -5,7 +5,7 @@ paths:
 
 collections_config:
   conteudo_artigos_pt:
-    path: conteudo/artigos/pt
+    path: conteudo/artigos
     name: Conteúdo Artigos PT
     icon: article
     disable_add: false
@@ -70,7 +70,7 @@ collections_config:
         label: "Texto do Artigo"
 
   conteudo_artigos_en:
-      path: conteudo/artigos/en
+      path: /en/conteudo/artigos
       name: Conteúdo Artigos EN
       icon: article
       disable_add: false
