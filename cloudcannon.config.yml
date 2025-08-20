@@ -61,62 +61,62 @@ collections_config:
         type: markdown
         label: "Texto do Artigo"
 
-conteudo_artigos_en:
-    path: conteudo/artigos/en
-    name: Conteúdo Artigos EN
-    icon: article
-    disable_add: false
-    disable_add_folder: false
-    disable_file_actions: false
-    _inputs:
-      titulo:
-        type: text
-        label: "Título"
-      area:
-        type: multiselect
-        label: "Área(s)"
-        options:
-          - trabalho
-          - fiscal
-          - civil
-          - comercial
-          - penal
-      data:
-        type: date
-        label: "Data"
-      fonte:
-        type: text
-        label: "Fonte"
-      fonteURL:
-        type: url
-        label: "URL da Fonte"
-      thumbnail:
-        type: image
-        label: "Thumbnail"
-        options:
-          uploads_dir: "uploads/thumbnails"
-      imagem:
-        type: image
-        label: "Imagem Principal"
-        options:
-          uploads_dir: "uploads/artigos"
-      imageSource:
-        type: text
-        label: "Créditos da Imagem"
-      writerImg:
-        type: image
-        label: "Foto do Autor"
-        options:
-          uploads_dir: "uploads/autores"
-      writerName:
-        type: text
-        label: "Nome do Autor"
-      writerLink:
-        type: text
-        label: "Link do Autor"
-      texto:
-        type: markdown
-        label: "Texto do Artigo"
+  conteudo_artigos_en:
+      path: conteudo/artigos/en
+      name: Conteúdo Artigos EN
+      icon: article
+      disable_add: false
+      disable_add_folder: false
+      disable_file_actions: false
+      _inputs:
+        titulo:
+          type: text
+          label: "Título"
+        area:
+          type: multiselect
+          label: "Área(s)"
+          options:
+            - trabalho
+            - fiscal
+            - civil
+            - comercial
+            - penal
+        data:
+          type: date
+          label: "Data"
+        fonte:
+          type: text
+          label: "Fonte"
+        fonteURL:
+          type: url
+          label: "URL da Fonte"
+        thumbnail:
+          type: image
+          label: "Thumbnail"
+          options:
+            uploads_dir: "uploads/thumbnails"
+        imagem:
+          type: image
+          label: "Imagem Principal"
+          options:
+            uploads_dir: "uploads/artigos"
+        imageSource:
+          type: text
+          label: "Créditos da Imagem"
+        writerImg:
+          type: image
+          label: "Foto do Autor"
+          options:
+            uploads_dir: "uploads/autores"
+        writerName:
+          type: text
+          label: "Nome do Autor"
+        writerLink:
+          type: text
+          label: "Link do Autor"
+        texto:
+          type: markdown
+          label: "Texto do Artigo"
 
 timezone: Europe/Lisbon
 
