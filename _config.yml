@@ -15,6 +15,7 @@ collections:
 
 # Inclui estas pastas no build
 include:
+  - conteudo/artigos.json
   - conteudo/artigos
   - en/conteudo/artigos
 
