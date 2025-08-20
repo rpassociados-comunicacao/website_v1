@@ -2,7 +2,7 @@
 
 title: "RPA Advogados"
 baseurl: "" # se o site estiver em /subpasta, define aqui
-url: "https://www.teusite.com" # substitui pelo domínio real
+url: "https://www.rpaadvogados.com" # substitui pelo domínio real
 
 # Ativa as coleções
 collections:
