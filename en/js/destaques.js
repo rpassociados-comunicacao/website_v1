@@ -444,19 +444,24 @@ document.addEventListener("DOMContentLoaded", () => {
     renderArticles(filtered);
   }
 
+//https://www.rpaadvogados.com/assets/json-files/articles.json
+  fetch("/en/assets/json-files/artigos.json")
+  .then(response => response.json())
+  .then(data => {
+    // CloudCannon gera um array, transformamos em objeto com IDs
+    allArticles = Object.fromEntries(
+      data.map((artigo, index) => [index, artigo])
+    );
 
-  fetch("https://www.rpaadvogados.com/en/assets/json-files/articles.json") //https://www.rpaadvogados.com/assets/json-files/articles.json
-    .then(response => response.json())
-    .then(data => {
-      allArticles = data;
-      renderArticles(allArticles); // mostra todos por defeito
-      hideLoader();
-    })
-    .catch(error => {
-      console.error("Erro ao carregar artigos:", error);
-      container.innerHTML = `<p>Erro ao carregar os destaques.</p>`;
-      hideLoader();
-    });
+    renderArticles(allArticles); // mostra todos por defeito
+    hideLoader();
+  })
+  .catch(error => {
+    console.error("Erro ao carregar artigos:", error);
+    container.innerHTML = `<p>Erro ao carregar os destaques.</p>`;
+    hideLoader();
+  });
+
 });
 
 

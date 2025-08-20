@@ -1,0 +1,4 @@
+collection: artigos
+output: /en/assets/json-files/artigos.json
+exclude:
+  - exemplo.md

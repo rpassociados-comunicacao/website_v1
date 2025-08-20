@@ -445,9 +445,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-//https://www.rpaadvogados.com/assets/json-files/articles.json
-
-  fetch("/assets/json-files/artigos.json")
+  fetch("/assets/json-files/artigos.json") //https://www.rpaadvogados.com/assets/json-files/articles.json
     .then(response => response.json())
     .then(data => {
       // CloudCannon gera um array, transformamos em objeto com IDs
