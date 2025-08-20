@@ -16,4 +16,4 @@ writerImg: /autores/foto-perfil.jpeg
 writerName: Gabriel Faria
 writerLink: /equipa/#gabriel
 ---
-Texto do artigo
+Texto do artigo das batatas
