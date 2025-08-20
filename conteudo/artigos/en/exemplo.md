@@ -1,5 +1,5 @@
 ---
-titulo: "Da Validade do Pacto de Não Concorrência"
+titulo: "Título"
 area:
   - administrativo
   - fiscal
@@ -25,5 +25,5 @@ writerName: "Joana Rosa"
 writerLink: "/equipa/#joana"
 ---
 
-Imagine que no seu contrato de trabalho foi aposta uma cláusula nos termos da qual se obrigou...
+Texto do artigo
 
