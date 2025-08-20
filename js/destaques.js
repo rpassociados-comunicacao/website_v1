@@ -445,14 +445,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  fetch("/assets/json-files/artigos.json") //https://www.rpaadvogados.com/assets/json-files/articles.json
+  fetch("https://www.rpaadvogados.com/assets/json-files/articles.json") //https://www.rpaadvogados.com/assets/json-files/articles.json
     .then(response => response.json())
     .then(data => {
-      // CloudCannon gera um array, transformamos em objeto com IDs
-      allArticles = Object.fromEntries(
-        data.map((artigo, index) => [index, artigo])
-      );
-
+      allArticles = data;
       renderArticles(allArticles); // mostra todos por defeito
       hideLoader();
     })
