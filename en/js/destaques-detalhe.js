@@ -395,7 +395,16 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
   }
 
-  fetch("https://www.rpaadvogados.com/en/assets/json-files/articles.json")
+  // Função para transformar texto com quebras de linha em <p>
+  function formatText(text) {
+    if (!text) return "";
+    // Divide o texto por linhas em branco (\n\n ou \r\n\r\n)
+    const paragraphs = text.split(/\r?\n\s*\r?\n/).map(p => p.trim()).filter(p => p);
+    // Envolve cada parágrafo em <p> e junta tudo
+    return paragraphs.map(p => `<p>${p}</p>`).join("");
+  }
+
+  fetch("https://sheetdb.io/api/v1/f1yqo8yye7aw3")
     .then(response => response.json())
     .then(data => {
       const artigo = data[id];
@@ -406,6 +415,9 @@ document.addEventListener("DOMContentLoaded", function () {
         container.innerHTML = "<p>Artigo não encontrado.</p>";
         return;
       }
+
+      // Aplica a formatação automática ao texto
+      const textoFormatado = formatText(artigo.texto);
 
       container.innerHTML = `
         <div class="col">
@@ -427,7 +439,7 @@ document.addEventListener("DOMContentLoaded", function () {
             </a>
           </div>
 
-          <div class="general-font lead">${artigo.texto}</div>
+          <div class="general-font lead">${textoFormatado}</div>
 
           <p class="text-muted mb-4 mb-lg-5">
             <small><span class="general-font">${artigo.data}</span> | 

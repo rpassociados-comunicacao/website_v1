@@ -446,17 +446,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   fetch("https://sheetdb.io/api/v1/74klqjvml6bo1") //https://www.rpaadvogados.com/assets/json-files/articles.json
-    .then(response => response.json())
-    .then(data => {
-      allArticles = data;
-      renderArticles(allArticles); // mostra todos por defeito
-      hideLoader();
-    })
-    .catch(error => {
-      console.error("Erro ao carregar artigos:", error);
-      container.innerHTML = `<p>Erro ao carregar os destaques.</p>`;
-      hideLoader();
+  .then(response => response.json())
+  .then(data => {
+    allArticles = data.map(item => {
+      return {
+        ...item,
+        area: item.area ? item.area.split(",").map(a => a.trim()) : []
+      };
     });
+    renderArticles(allArticles);
+    hideLoader();
+  })
+  .catch(error => {
+    console.error("Erro ao carregar artigos:", error);
+    container.innerHTML = `<p>Erro ao carregar os destaques.</p>`;
+    hideLoader();
+  });
+
 });
 
 
