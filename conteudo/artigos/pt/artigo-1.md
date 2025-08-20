@@ -1,5 +1,0 @@
----
-thumbnail:
-imagem:
-  type: image
----
