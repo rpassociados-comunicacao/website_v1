@@ -32,7 +32,25 @@ collections_config:
           - imobiliario
           - rodoviario
           - registos
-        allow_custom: false   # impede o cliente de inventar novas categorias
+        allow_custom: false
+        _schema:
+          type: array
+          items:
+            type: string
+            enum:
+              - administrativo
+              - fiscal
+              - comercial
+              - familia
+              - sucessoes
+              - consumidor
+              - civil
+              - trabalho
+              - penal
+              - executivo
+              - imobiliario
+              - rodoviario
+              - registos
       data:
         type: date
         label: "Data"
@@ -80,34 +98,52 @@ collections_config:
     _inputs:
       titulo:
         type: text
-        label: "Title"
+        label: "Título"
       area:
         type: multiselect
-        label: "Area(s)"
+        label: "Área(s)"
         options:
-          - administrative
-          - tax
-          - commercial
-          - family
-          - inheritance
-          - consumer
+          - administrativo
+          - fiscal
+          - comercial
+          - familia
+          - sucessoes
+          - consumidor
           - civil
-          - labour
-          - criminal
-          - enforcement
-          - real estate
-          - road traffic
-          - registries
-        allow_custom: false   # idem para inglês
+          - trabalho
+          - penal
+          - executivo
+          - imobiliario
+          - rodoviario
+          - registos
+        allow_custom: false
+        _schema:
+          type: array
+          items:
+            type: string
+            enum:
+              - administrativo
+              - fiscal
+              - comercial
+              - familia
+              - sucessoes
+              - consumidor
+              - civil
+              - trabalho
+              - penal
+              - executivo
+              - imobiliario
+              - rodoviario
+              - registos
       data:
         type: date
-        label: "Date"
+        label: "Data"
       fonte:
         type: text
-        label: "Source"
+        label: "Fonte"
       fonteURL:
         type: url
-        label: "Source URL"
+        label: "URL da Fonte"
       thumbnail:
         type: image
         label: "Thumbnail"
@@ -115,26 +151,26 @@ collections_config:
           uploads_dir: "uploads/thumbnails"
       imagem:
         type: image
-        label: "Main Image"
+        label: "Imagem Principal"
         options:
           uploads_dir: "uploads/artigos"
       imageSource:
         type: text
-        label: "Image Credits"
+        label: "Créditos da Imagem"
       writerImg:
         type: image
-        label: "Author Photo"
+        label: "Foto do Autor"
         options:
           uploads_dir: "uploads/autores"
       writerName:
         type: text
-        label: "Author Name"
+        label: "Nome do Autor"
       writerLink:
         type: text
-        label: "Author Link"
+        label: "Link do Autor"
       texto:
         type: markdown
-        label: "Article Body"
+        label: "Texto do Artigo"
 
 timezone: Europe/Lisbon
 
