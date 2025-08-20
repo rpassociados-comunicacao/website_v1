@@ -19,11 +19,19 @@ collections_config:
         type: multiselect
         label: "Área(s)"
         options:
-          - trabalho
+          - administrativo
           - fiscal
-          - civil
           - comercial
+          - familia
+          - sucessoes
+          - consumidor
+          - civil
+          - trabalho
           - penal
+          - executivo
+          - imobiliario
+          - rodoviario
+          - registos
       data:
         type: date
         label: "Data"
@@ -76,11 +84,19 @@ collections_config:
           type: multiselect
           label: "Área(s)"
           options:
-            - trabalho
+            - administrativo
             - fiscal
-            - civil
             - comercial
+            - familia
+            - sucessoes
+            - consumidor
+            - civil
+            - trabalho
             - penal
+            - executivo
+            - imobiliario
+            - rodoviario
+            - registos
         data:
           type: date
           label: "Data"
