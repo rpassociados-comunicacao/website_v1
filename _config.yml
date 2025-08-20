@@ -1,0 +1,48 @@
+# _config.yml (na raiz do projeto)
+
+title: "RPA Advogados"
+baseurl: "" # se o site estiver em /subpasta, define aqui
+url: "https://www.teusite.com" # substitui pelo domínio real
+
+# Ativa as coleções
+collections:
+  conteudo_artigos_pt:
+    output: true        # exporta páginas HTML para cada artigo
+    permalink: /artigos/:name/
+  conteudo_artigos_en:
+    output: true
+    permalink: /en/artigos/:name/
+
+# Inclui estas pastas no build
+include:
+  - conteudo/artigos
+  - en/conteudo/artigos
+
+# Plugins úteis (se precisares de JSON)
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-archives
+  - jekyll-json
+
+# Gera JSON com todas as coleções
+json:
+  conteudo_artigos_pt:
+    output: true
+    exclude:
+      - exemplo.md
+  conteudo_artigos_en:
+    output: true
+    exclude:
+      - exemplo.md
+
+# Timezone
+timezone: Europe/Lisbon
+
+# Configuração do Markdown
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  syntax_highlighter: rouge
