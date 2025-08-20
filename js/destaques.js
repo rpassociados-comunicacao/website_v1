@@ -460,7 +460,7 @@ document.addEventListener("DOMContentLoaded", () => {
     */
    // Carregar os artigos diretamente do JSON gerado pelos .md
 // Fetch dos artigos
-fetch("/conteudo/artigos.json")
+fetch("{{ site.baseurl }}/conteudo/artigos.json")
   .then(response => {
     if (!response.ok) {
       throw new Error("Não foi possível carregar os artigos.");
