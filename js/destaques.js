@@ -445,7 +445,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  /*fetch("https://www.rpaadvogados.com/assets/json-files/articles.json") //https://www.rpaadvogados.com/assets/json-files/articles.json
+  fetch("https://www.rpaadvogados.com/assets/json-files/articles.json") //https://www.rpaadvogados.com/assets/json-files/articles.json
     .then(response => response.json())
     .then(data => {
       allArticles = data;
@@ -457,10 +457,12 @@ document.addEventListener("DOMContentLoaded", () => {
       container.innerHTML = `<p>Erro ao carregar os destaques.</p>`;
       hideLoader();
     });
-    */
+    
    // Carregar os artigos diretamente do JSON gerado pelos .md
 // Fetch dos artigos
-fetch("{{ site.baseurl }}/conteudo/artigos.json")
+
+/*
+fetch("{{ site.baseurl }}/assets/json-files/artigos.json")
   .then(response => {
     if (!response.ok) {
       throw new Error("Não foi possível carregar os artigos.");
@@ -490,7 +492,7 @@ fetch("{{ site.baseurl }}/conteudo/artigos.json")
     container.innerHTML = `<p>Erro ao carregar os destaques.</p>`;
     hideLoader();
   });
-
+*/
 
 
 
