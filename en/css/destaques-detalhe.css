@@ -1423,7 +1423,7 @@ filter: grayscale(0%);
 
 @media (max-width: 991px) {
     .news-img {
-        height: 250px !important; 
+        height: 190px !important; 
     }
 
     #writerImg {
@@ -1435,7 +1435,7 @@ filter: grayscale(0%);
 
 @media (max-width: 600px) {
     .news-img {
-        height: 200px !important; 
+        height: 120px !important; 
     }
 
     #writerImg {
