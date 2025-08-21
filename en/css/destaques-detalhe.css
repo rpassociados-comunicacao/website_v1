@@ -1463,3 +1463,43 @@ filter: grayscale(0%);
     align-items: center;
     z-index: 10000000;
 }
+
+
+/* Tamanho por defeito (desktop grande) */
+.rounded-circle {
+  width: 133px;
+  height: 133px;
+  object-fit: cover; /* opcional, para imagens não distorcerem */
+}
+
+/* Tablets grandes (até 1200px) */
+@media (max-width: 1200px) {
+  .rounded-circle {
+    width: 110px;
+    height: 110px;
+  }
+}
+
+/* Tablets médios (até 992px) */
+@media (max-width: 992px) {
+  .rounded-circle {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* Tablets pequenos / phablets (até 768px) */
+@media (max-width: 768px) {
+  .rounded-circle {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+/* Smartphones (até 576px) */
+@media (max-width: 576px) {
+  .rounded-circle {
+    width: 80px;
+    height: 80px;
+  }
+}

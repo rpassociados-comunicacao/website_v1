@@ -422,7 +422,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
           <div class="writer-id d-flex align-items-center mb-3 mb-lg-5">
             <a href="${artigo.writerLink}" class="text-center text-decoration-none d-flex align-items-center">
-              <img src="${artigo.writerImg}" class="rounded-circle me-2 mb-lg-2" alt="${artigo.writerName}" style="width: 133px; height: 133px;">
+              <img src="${artigo.writerImg}" class="rounded-circle me-2 mb-lg-2" alt="${artigo.writerName}">
               <p class="general-txt mb-0 ms-3" style="color: #000000">${artigo.writerName}</p>
             </a>
           </div>
