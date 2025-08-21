@@ -139,7 +139,6 @@ document.addEventListener("DOMContentLoaded", function () {
         // Largura < 768px
         targetElement.classList.add("container");
         targetElement.classList.remove("container-left");
-        targetElement.classList.add("px-5");
         juliaImg.src = "./assets/imgs/team/julia-bg.webp";
         carolinaImg.src = "./assets/imgs/team/carolina-bg.webp";
         joanaImg.src = "./assets/imgs/team/joana-bg.webp";
