@@ -136,6 +136,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const targetElement = document.getElementById("SectionLeft");
     const mediaQuery = window.matchMedia("(min-width: 768px)");
     const juliaImg = document.getElementById("juliaImg");
+    const jorgeImg = document.getElementById("jorgeImg");
     const carolinaImg = document.getElementById("carolinaImg");
     const joanaImg = document.getElementById("joanaImg");
     const joaoImg = document.getElementById("joaoImg");
@@ -155,6 +156,7 @@ document.addEventListener("DOMContentLoaded", function () {
         targetElement.classList.remove("container");
         targetElement.classList.remove("px-5");
         juliaImg.src = "./assets/imgs/team/julia-bg.webp";
+        jorgeImg.src = "./assets/imgs/team/jorge-bg.webp";
         carolinaImg.src = "./assets/imgs/team/carolina-bg.webp";
         joanaImg.src = "./assets/imgs/team/joana-bg.webp";
         veronicaImg.src = "./assets/imgs/team/veronica-bg.webp";
@@ -169,6 +171,7 @@ document.addEventListener("DOMContentLoaded", function () {
         targetElement.classList.remove("container-left");
         targetElement.classList.add("px-5");
         juliaImg.src = "./assets/imgs/team/julia-bg.webp";
+        jorgeImg.src = "./assets/imgs/team/jorge-bg.webp";
         carolinaImg.src = "./assets/imgs/team/carolina-bg.webp";
         joanaImg.src = "./assets/imgs/team/joana-bg.webp";
         joaoImg.src = "./assets/imgs/team/joao-bg.webp";
@@ -315,7 +318,7 @@ function addScrollHandler(buttonId, sectionId) {
 
 function clearTeamRedClass() {
   const teamButtons = document.querySelectorAll(
-    '#btnRicardo, #btnCarolina, #btnBrito, #btnVeronica, #btnJulia, #btnJoaom, #btnJoao, #btnBianca, #btnJoana'
+    '#btnRicardo, #btnCarolina, #btnBrito, #btnVeronica, #btnJulia, #btnJorge, #btnJoaom, #btnJoao, #btnBianca, #btnJoana'
   );
 
   if (teamButtons.length === 0) {
@@ -343,6 +346,7 @@ const scrollButtons = [
     { id: "btnBrito", section: "brito" },
     { id: "btnVeronica", section: "veronica" },
     { id: "btnJulia", section: "julia" },
+    { id: "btnJorge", section: "jorge" },
     { id: "btnJoaom", section: "joaom" },
     { id: "btnJoao", section: "joao" },
     { id: "btnBianca", section: "bianca" },
@@ -406,6 +410,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "brito",
         "veronica",
         "julia",
+        "jorge",
         "joaom",
         "joao",
         "bianca",
@@ -467,3 +472,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 /* ************************************* higlight sticky buttns no scroll FIM ********************************/
+
