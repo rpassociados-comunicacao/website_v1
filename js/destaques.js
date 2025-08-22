@@ -395,11 +395,17 @@ document.addEventListener("DOMContentLoaded", () => {
                                 </div>
                               </div>
                             `;
-
       return;
     }
 
-    Object.entries(filteredArticles).forEach(([id, artigo]) => {
+    // Ordena os artigos por data (mais recente primeiro)
+    const sortedArticles = Object.entries(filteredArticles).sort(([, a], [, b]) => {
+      const dateA = parseDate(a.data);
+      const dateB = parseDate(b.data);
+      return dateB - dateA; // Descendente
+    });
+
+    sortedArticles.forEach(([id, artigo]) => {
       const card = document.createElement("div");
       card.className = "col";
       card.innerHTML = `
@@ -419,6 +425,16 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
       container.appendChild(card);
     });
+  }
+
+  function parseDate(dateStr) {
+    if (!dateStr) return new Date(0); // Caso não exista data, coloca como mais antiga
+    const parts = dateStr.split("/");
+    if (parts.length === 3) {
+      const [day, month, year] = parts.map(Number);
+      return new Date(year, month - 1, day);
+    }
+    return new Date(dateStr); // Fallback caso esteja noutro formato
   }
 
   function handleFilter(area) {
@@ -443,24 +459,37 @@ document.addEventListener("DOMContentLoaded", () => {
     renderArticles(filtered);
   }
 
+  const csvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQTrnmhTcaDwu2oATr0azKVjOuIk3AZlvqBb3dQR3GstLaFepswT66C7GUE2E6KVe66X7kZztl5aWCg/pub?gid=732946328&single=true&output=csv";
 
-  fetch("https://sheetdb.io/api/v1/74klqjvml6bo1") //https://www.rpaadvogados.com/assets/json-files/articles.json
-  .then(response => response.json())
-  .then(data => {
-    allArticles = data.map(item => {
-      return {
-        ...item,
-        area: item.area ? item.area.split(",").map(a => a.trim()) : []
-      };
+  fetch(csvUrl)
+    .then(response => response.text())
+    .then(csvText => {
+      const parsed = Papa.parse(csvText, {
+        header: true,      // Usa primeira linha como cabeçalho
+        skipEmptyLines: true,
+      });
+
+      const data = parsed.data;
+
+      // Normaliza o campo 'area'
+      allArticles = {};
+      data.forEach((item, index) => {
+        allArticles[index] = {
+          ...item,
+          area: item.area ? item.area.split(",").map(a => a.trim()) : []
+        };
+      });
+
+      console.log("JSON gerado a partir do CSV:", allArticles);
+
+      renderArticles(allArticles);
+      hideLoader();
+    })
+    .catch(error => {
+      console.error("Erro ao carregar artigos:", error);
+      container.innerHTML = `<p>Erro ao carregar os destaques.</p>`;
+      hideLoader();
     });
-    renderArticles(allArticles);
-    hideLoader();
-  })
-  .catch(error => {
-    console.error("Erro ao carregar artigos:", error);
-    container.innerHTML = `<p>Erro ao carregar os destaques.</p>`;
-    hideLoader();
-  });
 
 });
 

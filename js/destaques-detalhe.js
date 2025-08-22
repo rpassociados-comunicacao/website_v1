@@ -385,6 +385,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const loader = document.getElementById("mainLoader");
   const container = document.getElementById("articleContent");
 
+  const csvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQTrnmhTcaDwu2oATr0azKVjOuIk3AZlvqBb3dQR3GstLaFepswT66C7GUE2E6KVe66X7kZztl5aWCg/pub?gid=732946328&single=true&output=csv";
+
   function hideLoader() {
     if (loader) loader.style.display = "none";
   }
@@ -398,18 +400,33 @@ document.addEventListener("DOMContentLoaded", function () {
   // Função para transformar texto com quebras de linha em <p>
   function formatText(text) {
     if (!text) return "";
-    // Divide o texto por linhas em branco (\n\n ou \r\n\r\n)
+    // Divide por linhas em branco ou múltiplas quebras
     const paragraphs = text.split(/\r?\n\s*\r?\n/).map(p => p.trim()).filter(p => p);
-    // Envolve cada parágrafo em <p> e junta tudo
     return paragraphs.map(p => `<p>${p}</p>`).join("");
   }
 
-  fetch("https://sheetdb.io/api/v1/74klqjvml6bo1")
-    .then(response => response.json())
-    .then(data => {
-      const artigo = data[id];
+  fetch(csvUrl)
+    .then(response => response.text())
+    .then(csvText => {
+      const parsed = Papa.parse(csvText, {
+        header: true,        // Usa cabeçalhos da primeira linha
+        skipEmptyLines: true // Remove linhas vazias
+      });
+
+      const data = parsed.data;
+
+      // Constrói objeto indexado pelo índice (já que não tens coluna "id" única)
+      const allArticles = {};
+      data.forEach((item, index) => {
+        allArticles[index] = {
+          ...item,
+          area: item.area ? item.area.split(",").map(a => a.trim()) : []
+        };
+      });
 
       hideLoader();
+
+      const artigo = allArticles[id];
 
       if (!artigo) {
         container.innerHTML = "<p>Artigo não encontrado.</p>";
@@ -453,8 +470,8 @@ document.addEventListener("DOMContentLoaded", function () {
       hideLoader();
       container.innerHTML = "<p>Erro ao carregar o artigo.</p>";
     });
-
 });
+
 
 
 
