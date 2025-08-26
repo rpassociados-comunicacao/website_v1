@@ -1271,98 +1271,136 @@ collapseEl.addEventListener('hidden.bs.collapse', updateNavbarShadow);
 
 /* ******************************************* gerar dinâmicamente 4 cards simplificados ********************************** */
 
-// 1. Gera os 4 primeiros artigos
-function generateArticles() {
+
+
+  // 1. Gera os 4 primeiros artigos a partir do CSV
+  function generateArticles() {
+
+    const csvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQTrnmhTcaDwu2oATr0azKVjOuIk3AZlvqBb3dQR3GstLaFepswT66C7GUE2E6KVe66X7kZztl5aWCg/pub?gid=2068835197&single=true&output=csv";
     console.log("✅ Chamou generateArticles()");
-  fetch("https://www.rpaadvogados.com/assets/json-files/articles.json") // https://raw.githubusercontent.com/rpassociados-comunicacao/website_v1/main/assets/json-files/articles.json
-    .then((response) => response.json())
-    .then((data) => {
-      const container = document.getElementById("newsCards");
-      if (!container) {
-        console.warn("Elemento #newsCards não encontrado.");
-        return;
-      }
 
-      // Limita aos 4 primeiros artigos
-      const artigosLimitados = Object.entries(data).slice(0, 4);
+    fetch(csvUrl)
+      .then(response => response.text())
+      .then(csvText => {
+        const parsed = Papa.parse(csvText, {
+          header: true, // Usa cabeçalhos
+          skipEmptyLines: true
+        });
 
-      artigosLimitados.forEach(([id, artigo]) => {
-        const div = document.createElement("div");
-        div.className = "news-item";
-        div.innerHTML = `
-          <a href="/destaques/detalhe/?id=${id}" target="_blank" class="news-detail-link">
-            <div class="news-img-wrapper">
-              <img src="${artigo.thumbnail}" alt="Thumbnail notícia">
-            </div>
-          </a>
-        `;
-        container.appendChild(div);
-      });
+        const data = parsed.data;
 
-    document.querySelectorAll('.news-item a').forEach(link => {
-        let isDragging = false;
-        let startX;
+        // Normaliza dados e cria estrutura semelhante ao JSON original
+        const allArticles = {};
+        data.forEach((item, index) => {
+          allArticles[index] = {
+            ...item,
+            area: item.area ? item.area.split(",").map(a => a.trim()) : []
+          };
+        });
 
-        link.addEventListener('mousedown', (e) => {
+        const container = document.getElementById("newsCards");
+        if (!container) {
+          console.warn("Elemento #newsCards não encontrado.");
+          return;
+        }
+
+        // Limita aos 4 primeiros artigos (ordena pela data desc)
+        const sortedArticles = Object.entries(allArticles).sort(([, a], [, b]) => {
+          const dateA = parseDate(a.data);
+          const dateB = parseDate(b.data);
+          return dateB - dateA;
+        });
+
+        const artigosLimitados = sortedArticles.slice(0, 4);
+
+        artigosLimitados.forEach(([id, artigo]) => {
+          const div = document.createElement("div");
+          div.className = "news-item";
+          div.innerHTML = `
+            <a href="/destaques/detalhe/?id=${id}" target="_blank" class="news-detail-link">
+              <div class="news-img-wrapper">
+                <img src="${artigo.thumbnail}" alt="${artigo.titulo || 'Thumbnail notícia'}">
+              </div>
+            </a>
+          `;
+          container.appendChild(div);
+        });
+
+        // Previne clique em caso de drag
+        document.querySelectorAll('.news-item a').forEach(link => {
+          let isDragging = false;
+          let startX;
+
+          link.addEventListener('mousedown', (e) => {
             isDragging = false;
             startX = e.pageX;
-        });
+          });
 
-        link.addEventListener('mousemove', (e) => {
+          link.addEventListener('mousemove', (e) => {
             if (Math.abs(e.pageX - startX) > 5) {
-                isDragging = true;
+              isDragging = true;
             }
-        });
+          });
 
-        link.addEventListener('click', (e) => {
+          link.addEventListener('click', (e) => {
             if (isDragging) {
-                e.preventDefault();
+              e.preventDefault();
             }
+          });
         });
-    });
 
-      // Agora que os artigos existem, aplicar visibilidade condicional em mobile
-      showLastNewsItemsMobileOnly();
-    })
-    .catch((error) => {
-      console.error("Erro ao carregar artigos:", error);
-    });
-}
-
-// 2. Controla a visibilidade dos artigos em mobile (mostra só os últimos 3)
-function showLastNewsItemsMobileOnly() {
-  const isMobile = window.innerWidth < 576;
-  const items = Array.from(document.querySelectorAll(".news-item"));
-
-  if (isMobile) {
-    items.forEach((item, index) => {
-      item.style.display = index < items.length - 4 ? "none" : "flex";
-    });
-  } else {
-    items.forEach(item => item.style.display = "flex");
-  }
-}
-
-// 3. Espera até que o loader termine, e só depois gera os artigos
-document.addEventListener("DOMContentLoaded", function () {
-  const loader = document.getElementById("mainLoader");
-
-  if (!loader) {
-    // Se não houver loader, gera imediatamente
-    generateArticles();
-    return;
+        // Controla visibilidade em mobile
+        showLastNewsItemsMobileOnly();
+      })
+      .catch(error => {
+        console.error("Erro ao carregar artigos:", error);
+      });
   }
 
-  const checkLoaderInterval = setInterval(() => {
-    if (loader.classList.contains("disp-none")) {
-      clearInterval(checkLoaderInterval);
-      generateArticles();
+  // Função para parse da data DD/MM/YYYY
+  function parseDate(dateStr) {
+    if (!dateStr) return new Date(0);
+    const parts = dateStr.split("/");
+    if (parts.length === 3) {
+      const [day, month, year] = parts.map(Number);
+      return new Date(year, month - 1, day);
     }
-  }, 100); // verifica a cada 100ms
-});
+    return new Date(dateStr);
+  }
 
-// 4. Atualiza visibilidade dos artigos ao redimensionar janela
-window.addEventListener("resize", showLastNewsItemsMobileOnly);
+  // 2. Controla a visibilidade dos artigos em mobile
+  function showLastNewsItemsMobileOnly() {
+    const isMobile = window.innerWidth < 576;
+    const items = Array.from(document.querySelectorAll(".news-item"));
+
+    if (isMobile) {
+      items.forEach((item, index) => {
+        item.style.display = index < items.length - 4 ? "none" : "flex";
+      });
+    } else {
+      items.forEach(item => item.style.display = "flex");
+    }
+  }
+
+  // 3. Espera pelo loader ou chama logo
+  document.addEventListener("DOMContentLoaded", function () {
+    const loader = document.getElementById("mainLoader");
+
+    if (!loader) {
+      generateArticles();
+      return;
+    }
+
+    const checkLoaderInterval = setInterval(() => {
+      if (loader.classList.contains("disp-none")) {
+        clearInterval(checkLoaderInterval);
+        generateArticles();
+      }
+    }, 100);
+  });
+
+  // 4. Atualiza visibilidade em resize
+  window.addEventListener("resize", showLastNewsItemsMobileOnly);
 
 
 
