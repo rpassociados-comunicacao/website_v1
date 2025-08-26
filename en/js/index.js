@@ -1271,62 +1271,105 @@ collapseEl.addEventListener('hidden.bs.collapse', updateNavbarShadow);
 
 /* ******************************************* gerar dinâmicamente 4 cards simplificados ********************************** */
 
+// 1. Exibe skeletons enquanto carrega
+function showSkeletonLoading() {
+  const container = document.getElementById("newsCards");
+  if (!container) return;
 
+  container.innerHTML = ""; // Limpa
+  for (let i = 0; i < 4; i++) {
+    const div = document.createElement("div");
+    div.className = "news-item skeleton";
+    div.innerHTML = `
+      <div class="news-img-wrapper skeleton-box"></div>
+    `;
+    container.appendChild(div);
+  }
+}
 
-  // 1. Gera os 4 primeiros artigos a partir do CSV
-  function generateArticles() {
+// 2. Remove skeletons suavemente
+function hideSkeletonLoading() {
+  const skeletons = document.querySelectorAll(".skeleton");
+  skeletons.forEach(el => {
+    el.style.opacity = "0";
+    setTimeout(() => el.remove(), 300);
+  });
+}
 
-    const csvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQTrnmhTcaDwu2oATr0azKVjOuIk3AZlvqBb3dQR3GstLaFepswT66C7GUE2E6KVe66X7kZztl5aWCg/pub?gid=2068835197&single=true&output=csv";
-    console.log("✅ Chamou generateArticles()");
+// 3. Gera os 4 primeiros artigos a partir do CSV
+function generateArticles() {
+  showSkeletonLoading();
 
-    fetch(csvUrl)
-      .then(response => response.text())
-      .then(csvText => {
-        const parsed = Papa.parse(csvText, {
-          header: true, // Usa cabeçalhos
-          skipEmptyLines: true
+  const csvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQTrnmhTcaDwu2oATr0azKVjOuIk3AZlvqBb3dQR3GstLaFepswT66C7GUE2E6KVe66X7kZztl5aWCg/pub?gid=2068835197&single=true&output=csv";
+  console.log("✅ Chamou generateArticles()");
+
+  fetch(csvUrl)
+    .then(response => response.text())
+    .then(csvText => {
+      const parsed = Papa.parse(csvText, {
+        header: true,
+        skipEmptyLines: true
+      });
+
+      const data = parsed.data;
+      const allArticles = {};
+      data.forEach((item, index) => {
+        allArticles[index] = {
+          ...item,
+          area: item.area ? item.area.split(",").map(a => a.trim()) : []
+        };
+      });
+
+      const container = document.getElementById("newsCards");
+      if (!container) {
+        console.warn("Elemento #newsCards não encontrado.");
+        return;
+      }
+
+      // Ordena por data desc
+      const sortedArticles = Object.entries(allArticles).sort(([, a], [, b]) => {
+        const dateA = parseDate(a.data);
+        const dateB = parseDate(b.data);
+        return dateB - dateA;
+      });
+
+      const artigosLimitados = sortedArticles.slice(0, 4);
+
+      // ✅ Renderiza artigos escondidos (para não haver salto)
+      artigosLimitados.forEach(([id, artigo]) => {
+        const div = document.createElement("div");
+        div.className = "news-item hidden-until-ready";
+        div.innerHTML = `
+          <a href="/destaques/detalhe/?id=${id}" target="_blank" class="news-detail-link">
+            <div class="news-img-wrapper">
+              <img src="${artigo.thumbnail}" alt="${artigo.titulo || 'Thumbnail notícia'}">
+            </div>
+          </a>
+        `;
+        container.appendChild(div);
+      });
+
+      // ✅ Espera todas as imagens carregarem antes de mostrar e remover skeleton
+      const images = container.querySelectorAll(".news-item img");
+      const promises = Array.from(images).map(img => {
+        return new Promise(resolve => {
+          if (img.complete) resolve();
+          else img.onload = resolve;
+        });
+      });
+
+      Promise.all(promises).then(() => {
+        // ✅ Fade-in dos artigos reais
+        document.querySelectorAll(".hidden-until-ready").forEach(el => {
+          el.classList.remove("hidden-until-ready");
         });
 
-        const data = parsed.data;
+        hideSkeletonLoading();
 
-        // Normaliza dados e cria estrutura semelhante ao JSON original
-        const allArticles = {};
-        data.forEach((item, index) => {
-          allArticles[index] = {
-            ...item,
-            area: item.area ? item.area.split(",").map(a => a.trim()) : []
-          };
-        });
+        // Controla visibilidade mobile
+        showLastNewsItemsMobileOnly();
 
-        const container = document.getElementById("newsCards");
-        if (!container) {
-          console.warn("Elemento #newsCards não encontrado.");
-          return;
-        }
-
-        // Limita aos 4 primeiros artigos (ordena pela data desc)
-        const sortedArticles = Object.entries(allArticles).sort(([, a], [, b]) => {
-          const dateA = parseDate(a.data);
-          const dateB = parseDate(b.data);
-          return dateB - dateA;
-        });
-
-        const artigosLimitados = sortedArticles.slice(0, 4);
-
-        artigosLimitados.forEach(([id, artigo]) => {
-          const div = document.createElement("div");
-          div.className = "news-item";
-          div.innerHTML = `
-            <a href="/destaques/detalhe/?id=${id}" target="_blank" class="news-detail-link">
-              <div class="news-img-wrapper">
-                <img src="${artigo.thumbnail}" alt="${artigo.titulo || 'Thumbnail notícia'}">
-              </div>
-            </a>
-          `;
-          container.appendChild(div);
-        });
-
-        // Previne clique em caso de drag
+        // ✅ Previne clique em caso de drag
         document.querySelectorAll('.news-item a').forEach(link => {
           let isDragging = false;
           let startX;
@@ -1348,61 +1391,57 @@ collapseEl.addEventListener('hidden.bs.collapse', updateNavbarShadow);
             }
           });
         });
-
-        // Controla visibilidade em mobile
-        showLastNewsItemsMobileOnly();
-      })
-      .catch(error => {
-        console.error("Erro ao carregar artigos:", error);
       });
+    })
+    .catch(error => {
+      console.error("Erro ao carregar artigos:", error);
+    });
+}
+
+// Função para parse da data DD/MM/YYYY
+function parseDate(dateStr) {
+  if (!dateStr) return new Date(0);
+  const parts = dateStr.split("/");
+  if (parts.length === 3) {
+    const [day, month, year] = parts.map(Number);
+    return new Date(year, month - 1, day);
+  }
+  return new Date(dateStr);
+}
+
+// 4. Controla a visibilidade dos artigos em mobile
+function showLastNewsItemsMobileOnly() {
+  const isMobile = window.innerWidth < 576;
+  const items = Array.from(document.querySelectorAll(".news-item"));
+
+  if (isMobile) {
+    items.forEach((item, index) => {
+      item.style.display = index < items.length - 4 ? "none" : "flex";
+    });
+  } else {
+    items.forEach(item => item.style.display = "flex");
+  }
+}
+
+// 5. Espera pelo loader ou chama logo
+document.addEventListener("DOMContentLoaded", function () {
+  const loader = document.getElementById("mainLoader");
+
+  if (!loader) {
+    generateArticles();
+    return;
   }
 
-  // Função para parse da data DD/MM/YYYY
-  function parseDate(dateStr) {
-    if (!dateStr) return new Date(0);
-    const parts = dateStr.split("/");
-    if (parts.length === 3) {
-      const [day, month, year] = parts.map(Number);
-      return new Date(year, month - 1, day);
-    }
-    return new Date(dateStr);
-  }
-
-  // 2. Controla a visibilidade dos artigos em mobile
-  function showLastNewsItemsMobileOnly() {
-    const isMobile = window.innerWidth < 576;
-    const items = Array.from(document.querySelectorAll(".news-item"));
-
-    if (isMobile) {
-      items.forEach((item, index) => {
-        item.style.display = index < items.length - 4 ? "none" : "flex";
-      });
-    } else {
-      items.forEach(item => item.style.display = "flex");
-    }
-  }
-
-  // 3. Espera pelo loader ou chama logo
-  document.addEventListener("DOMContentLoaded", function () {
-    const loader = document.getElementById("mainLoader");
-
-    if (!loader) {
+  const checkLoaderInterval = setInterval(() => {
+    if (loader.classList.contains("disp-none")) {
+      clearInterval(checkLoaderInterval);
       generateArticles();
-      return;
     }
+  }, 100);
+});
 
-    const checkLoaderInterval = setInterval(() => {
-      if (loader.classList.contains("disp-none")) {
-        clearInterval(checkLoaderInterval);
-        generateArticles();
-      }
-    }, 100);
-  });
-
-  // 4. Atualiza visibilidade em resize
-  window.addEventListener("resize", showLastNewsItemsMobileOnly);
-
-
+// 6. Atualiza visibilidade em resize
+window.addEventListener("resize", showLastNewsItemsMobileOnly);
 
 /* ******************************************* gerar dinâmicamente 4 cards simplificados FIM ********************************** */
 
