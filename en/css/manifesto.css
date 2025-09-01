@@ -103,7 +103,7 @@ html, body {
     grid-column-end: 5;
     grid-row-start: 1;
     grid-row-end: 5;
-    background-image: url('/assets/imgs/team/ricardo-bg.webp');
+    background-image: url('/assets/imgs/manifesto/ricardo-bg.jpg');
 }
 
 
@@ -112,7 +112,7 @@ html, body {
     grid-column-end: 7;
     grid-row-start: 4;
     grid-row-end: 8;
-    background-image: url('/assets/imgs/team/carolina-bg.webp');
+    background-image: url('/assets/imgs/manifesto/carolina-bg.jpg');
 }
 
 /* -------- RESPONSIVE QUERIES -------- */
