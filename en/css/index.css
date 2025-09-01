@@ -37,7 +37,8 @@ html, body {
 #sectionBackground {
   position: relative;
   height: 100vh;
-  background-image: url('/assets/imgs/paisagem.webp');
+  /*background-image: url('/assets/imgs/paisagem.webp');*/
+  background-image: url('/assets/imgs/team/all1.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -50,6 +51,7 @@ html, body {
 }
 
 #fog-animation {
+    display: none;
     position: absolute;
     top: 0;
     left: 0;
