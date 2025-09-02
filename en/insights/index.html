@@ -28,11 +28,13 @@
 </head>
 <body id="indexPage" data-bs-spy="scroll" data-bs-target="#navbar">
 
-    <div id="mainLoader" class="loader-container">
-        <div class="spinner-border" role="status">
-            <span class="sr-only">Loading...</span>
+    <!--
+        <div id="mainLoader" class="loader-container">
+            <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
         </div>
-    </div>
+    -->
     
     <div id="mainContent">
 
@@ -123,7 +125,68 @@
                                 <div class="album"> 
                                     <div class="container px-sm-3 px-md-0"> 
                                         <div id="newsCards" class="row row-cols-1 row-cols-sm-2 row-cols-md-2 g-3">
-                                        <!-- Cards geradas aqui dinamicamente -->
+                                            <!-- Skeleton cards (visíveis no primeiro load) -->
+                                            <div class="col skeleton">
+                                                <div class="card shadow-sm h-100">
+                                                <div class="skeleton-box card-img-top" style="height:290px;"></div>
+                                                <div class="card-body">
+                                                    <div class="skeleton-box" style="height:16px; width:60%; margin-bottom:8px;"></div>
+                                                    <div class="skeleton-box" style="height:14px; width:40%;"></div>
+                                                </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col skeleton">
+                                                <div class="card shadow-sm h-100">
+                                                <div class="skeleton-box card-img-top" style="height:290px;"></div>
+                                                <div class="card-body">
+                                                    <div class="skeleton-box" style="height:16px; width:70%; margin-bottom:8px;"></div>
+                                                    <div class="skeleton-box" style="height:14px; width:50%;"></div>
+                                                </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col skeleton">
+                                                <div class="card shadow-sm h-100">
+                                                <div class="skeleton-box card-img-top" style="height:290px;"></div>
+                                                <div class="card-body">
+                                                    <div class="skeleton-box" style="height:16px; width:50%; margin-bottom:8px;"></div>
+                                                    <div class="skeleton-box" style="height:14px; width:30%;"></div>
+                                                </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col skeleton">
+                                                <div class="card shadow-sm h-100">
+                                                <div class="skeleton-box card-img-top" style="height:290px;"></div>
+                                                <div class="card-body">
+                                                    <div class="skeleton-box" style="height:16px; width:50%; margin-bottom:8px;"></div>
+                                                    <div class="skeleton-box" style="height:14px; width:30%;"></div>
+                                                </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col skeleton">
+                                                <div class="card shadow-sm h-100">
+                                                <div class="skeleton-box card-img-top" style="height:290px;"></div>
+                                                <div class="card-body">
+                                                    <div class="skeleton-box" style="height:16px; width:50%; margin-bottom:8px;"></div>
+                                                    <div class="skeleton-box" style="height:14px; width:30%;"></div>
+                                                </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col skeleton">
+                                                <div class="card shadow-sm h-100">
+                                                <div class="skeleton-box card-img-top" style="height:290px;"></div>
+                                                <div class="card-body">
+                                                    <div class="skeleton-box" style="height:16px; width:50%; margin-bottom:8px;"></div>
+                                                    <div class="skeleton-box" style="height:14px; width:30%;"></div>
+                                                </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Repete quantos achares necessário (4–6 normalmente fica bem) -->
                                         </div>
                                     </div>
                                 </div>

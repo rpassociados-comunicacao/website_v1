@@ -337,11 +337,10 @@ document.addEventListener("DOMContentLoaded", function () {
 /* ******************************************* gerar dinâmicamente cards das notícias ********************************** */
 
 document.addEventListener("DOMContentLoaded", () => {
-  const loader = document.getElementById("mainLoader");
   const container = document.getElementById("newsCards");
 
   const sections = [
-    "geral", // especial, para o botão 'btnGeral'
+    "geral",
     "administrativo",
     "fiscal",
     "comercial",
@@ -364,7 +363,6 @@ document.addEventListener("DOMContentLoaded", () => {
       buttons[area] = btn;
       btn.addEventListener("click", () => {
         handleFilter(area);
-        console.log(area);
       });
     }
   });
@@ -375,16 +373,18 @@ document.addEventListener("DOMContentLoaded", () => {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
 
-  function hideLoader() {
-    if (loader) loader.style.display = "none";
-  }
-
-  function showLoader() {
-    if (loader) loader.style.display = "flex";
+  function parseDate(dateStr) {
+    if (!dateStr) return new Date(0);
+    const parts = dateStr.split("/");
+    if (parts.length === 3) {
+      const [day, month, year] = parts.map(Number);
+      return new Date(year, month - 1, day);
+    }
+    return new Date(dateStr);
   }
 
   function renderArticles(filteredArticles) {
-    container.innerHTML = "";
+    const fragment = document.createDocumentFragment();
 
     if (Object.keys(filteredArticles).length === 0) {
       container.innerHTML = `<div class="no-articles-message d-flex text-center" style="height: 100vh;">
@@ -393,16 +393,14 @@ document.addEventListener("DOMContentLoaded", () => {
                                   <p class="general-txt mb-0 fs-5">Sem artigos disponíveis para esta área.</p>
                                   <p class="general-font small">Por favor, tente outra categoria.</p>
                                 </div>
-                              </div>
-                            `;
+                              </div>`;
       return;
     }
 
-    // Ordena os artigos por data (mais recente primeiro)
     const sortedArticles = Object.entries(filteredArticles).sort(([, a], [, b]) => {
       const dateA = parseDate(a.data);
       const dateB = parseDate(b.data);
-      return dateB - dateA; // Descendente
+      return dateB - dateA;
     });
 
     sortedArticles.forEach(([id, artigo]) => {
@@ -423,24 +421,27 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
         </div>
       `;
-      container.appendChild(card);
+      fragment.appendChild(card);
     });
-  }
 
-  function parseDate(dateStr) {
-    if (!dateStr) return new Date(0); // Caso não exista data, coloca como mais antiga
-    const parts = dateStr.split("/");
-    if (parts.length === 3) {
-      const [day, month, year] = parts.map(Number);
-      return new Date(year, month - 1, day);
-    }
-    return new Date(dateStr); // Fallback caso esteja noutro formato
+    // só mostra os cards depois das imagens carregarem
+    const imgs = fragment.querySelectorAll("img");
+    const imgPromises = Array.from(imgs).map(img => {
+      return new Promise(resolve => {
+        if (img.complete) resolve();
+        else img.onload = img.onerror = resolve;
+      });
+    });
+
+    Promise.all(imgPromises).then(() => {
+      container.innerHTML = ""; 
+      container.appendChild(fragment);
+    });
   }
 
   function handleFilter(area) {
     const normalizedArea = area.toLowerCase().trim();
 
-    // Atualiza classe dos botões
     Object.values(buttons).forEach(btn => btn.classList.remove("red"));
     if (buttons[normalizedArea]) buttons[normalizedArea].classList.add("red");
 
@@ -465,13 +466,12 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(response => response.text())
     .then(csvText => {
       const parsed = Papa.parse(csvText, {
-        header: true,      // Usa primeira linha como cabeçalho
+        header: true,
         skipEmptyLines: true,
       });
 
       const data = parsed.data;
 
-      // Normaliza o campo 'area'
       allArticles = {};
       data.forEach((item, index) => {
         allArticles[index] = {
@@ -480,24 +480,19 @@ document.addEventListener("DOMContentLoaded", () => {
         };
       });
 
-      console.log("JSON gerado a partir do CSV:", allArticles);
-
       renderArticles(allArticles);
-      hideLoader();
     })
     .catch(error => {
       console.error("Erro ao carregar artigos:", error);
       container.innerHTML = `<p>Erro ao carregar os destaques.</p>`;
-      hideLoader();
     });
 
 });
 
 
-
-
-
 /* ******************************************* gerar dinâmicamente cards das notícias FIM ********************************** */
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
   const stickySections = document.querySelectorAll(".sticky-wrapper");
