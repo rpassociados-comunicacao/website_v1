@@ -91,9 +91,9 @@ const scrollButtons = [
     { id: "FooterBtnParcerias", section: "Parcerias" },
     { id: "ButtonBlog", section: "Destaques" },
     { id: "FooterBtnBlog", section: "Destaques" },
-    { id: "valuesContactBtn", section: "contact" },
-    { id: "valuesContactBtnMobile", section: "contact" },
-    { id: "equipaContactBtn", section: "contact" },
+    { id: "valuesContactBtn", section: "Contacto" },
+    { id: "valuesContactBtnMobile", section: "Contacto" },
+    { id: "equipaContactBtn", section: "Contacto" },
     { id: "upButton", section: "indexPage" },
 ];
 
