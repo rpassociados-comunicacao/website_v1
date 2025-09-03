@@ -877,7 +877,7 @@ document.querySelectorAll(".team-item").forEach(item => {
                     document.getElementById("descriptionName").classList.add("invisible-txt");
                     document.getElementById("descriptionName").textContent = ".";
                     document.getElementById("descriptionFunction").textContent =
-                        "Diverse legal team, with professionals dedicated to defending your rights.";
+                        "Equipa jurídica diversificada, com profissionais dedicados a defender os seus direitos.";
                 }
             }, 10);
         });
