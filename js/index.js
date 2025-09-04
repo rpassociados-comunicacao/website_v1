@@ -94,6 +94,7 @@ const scrollButtons = [
     { id: "valuesContactBtn", section: "Contacto" },
     { id: "valuesContactBtnMobile", section: "Contacto" },
     { id: "equipaContactBtn", section: "Contacto" },
+    { id: "ButtonContacto", section: "Contacto" },
     { id: "upButton", section: "indexPage" },
 ];
 
