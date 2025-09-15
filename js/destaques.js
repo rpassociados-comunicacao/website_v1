@@ -408,7 +408,7 @@ document.addEventListener("DOMContentLoaded", () => {
       card.className = "col";
       card.innerHTML = `
         <div class="card shadow-sm news-card h-100">
-          <a href="/destaques/detalhe/?id=${id}" target="_blank">
+          <a href="/opinioes/detalhe/?id=${id}" target="_blank">
             <img src="${artigo.thumbnail}" class="card-img-top news-card-img" alt="${artigo.titulo}">
           </a>
           <div class="card-body d-flex flex-column justify-content-between">
@@ -484,7 +484,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch(error => {
       console.error("Erro ao carregar artigos:", error);
-      container.innerHTML = `<p>Erro ao carregar os destaques.</p>`;
+      container.innerHTML = `<p>Erro ao carregar o conteúdo.</p>`;
     });
 
 });
