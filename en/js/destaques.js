@@ -484,8 +484,8 @@ document.addEventListener("DOMContentLoaded", () => {
       renderArticles(allArticles);
     })
     .catch(error => {
-      console.error("Erro ao carregar artigos:", error);
-      container.innerHTML = `<p>Erro ao carregar os destaques.</p>`;
+      console.error("Error loading the articles.", error);
+      container.innerHTML = `<p>Error loading content.</p>`;
     });
 
 });

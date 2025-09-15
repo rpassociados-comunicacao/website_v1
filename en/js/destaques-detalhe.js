@@ -485,5 +485,5 @@ const id = params.get("id");
 // Se houver um ID, adicione-o ao link de troca de idioma
 if (id) {
   const langToggle = document.getElementById("langToggle");
-  langToggle.href = `/destaques/detalhe/?id=${id}`;
+  langToggle.href = `/opinioes/detalhe/?id=${id}`;
 }
