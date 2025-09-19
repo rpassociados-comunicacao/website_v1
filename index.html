@@ -44,6 +44,20 @@
 
     <div id="mainContent" class="disp-none">
 
+
+        <!-- **************************************** BANNER REDES SOCIAIS ************************************** -->
+
+        <div class="banner-scroll d-flex flex-column">
+            <a class="link-body-emphasis" href="https://www.instagram.com/ricardopachecoadvogados/"  target="_blank" aria-label="Instagram"><i class="bi bi-instagram social-network-icon"></i></a>
+            <a class="link-body-emphasis" href="https://www.facebook.com/rpassociados/?locale=pt_PT" target="_blank" aria-label="Facebook"><i class="bi bi-facebook social-network-icon"></i></a>
+            <a class="link-body-emphasis" href="https://www.linkedin.com/company/rp-associadoss/" target="_blank" aria-label="LinkedIn"><i class="bi bi-linkedin social-network-icon"></i></a>
+        </div>
+
+
+        <!-- **************************************** BANNER REDES SOCIAIS fim************************************** -->
+
+
+
         <!-- ==================================== NAVBAR ======================================= -->
 
         <nav class="navbar navbar-expand-xxl fixed-top mb-5">
@@ -115,6 +129,10 @@
         <!-- ==================================== NEWS ======================================= -->
 
         <section class="pt-0 pt-lg-5" id="Destaques">
+
+            
+
+
             <div class="ps-3 ps-lg-5 pt-3 mt-2 mt-lg-5 mb-lg-5">
                 <h1 class="general-title">Opiniões</h1>
             </div>
@@ -1309,6 +1327,27 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
     
     <script src="./js/index.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+      const banner = document.querySelector(".banner-scroll");
+
+      function toggleBanner() {
+        if (window.scrollY === 0) {
+          banner.classList.add("show");
+        } else {
+          banner.classList.remove("show");
+        }
+      }
+
+      // correr ao carregar a página
+      toggleBanner();
+
+      // correr sempre que há scroll
+      window.addEventListener("scroll", toggleBanner);
+    });
+
+    </script>
 
 </body>
 </html>

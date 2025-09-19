@@ -1445,6 +1445,3 @@ document.addEventListener("DOMContentLoaded", function () {
 window.addEventListener("resize", showLastNewsItemsMobileOnly);
 
 /* ******************************************* gerar dinâmicamente 4 cards simplificados FIM ********************************** */
-
-
-
