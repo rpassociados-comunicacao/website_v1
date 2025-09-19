@@ -1625,3 +1625,34 @@ filter: grayscale(0%);
 
 
 /* *************************************************** UP BUTTON FIM ******************************************* */
+
+
+/* ********************************************************* BANNER REDES SOCIAIS ******************************************** */
+
+.banner-scroll {
+    position: fixed;
+    top: 50%;
+    right: -200px; /* começa escondida */
+    transform: translateY(-50%);
+    transition: right 0.5s ease-in-out;
+    z-index: 9999;
+    background-color: #efefef;
+    color: #000000;
+    padding: 20px;
+}
+
+.banner-scroll i:hover {
+    color: #A6151F;
+}
+
+.banner-scroll ul {
+    list-style-type: none;
+}
+
+@media (min-width: 769px) {
+    .banner-scroll.show {
+        right: 0; /* aparece */
+    }
+}
+
+/* ********************************************************* BANNER REDES SOCIAIS ******************************************** */
