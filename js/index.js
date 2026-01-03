@@ -1341,7 +1341,7 @@ function generateArticles() {
         const div = document.createElement("div");
         div.className = "news-item hidden-until-ready";
         div.innerHTML = `
-          <a href="/destaques/detalhe/?id=${id}" target="_blank" class="news-detail-link">
+          <a href="/opinioes/detalhe/?id=${id}" target="_blank" class="news-detail-link">
             <div class="news-img-wrapper">
               <img src="${artigo.thumbnail}" alt="${artigo.titulo || 'Thumbnail notícia'}">
             </div>
