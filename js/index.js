@@ -66,13 +66,15 @@ function addScrollHandler(buttonId, sectionId) {
     if (!button) return;
 
     button.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        if (buttonId === "valuesContactBtn" || buttonId === "valuesContactBtnMobile") {
+            window.location.href = "/manifesto";
+            return;
+        }
+
         if (isIndexPage()) {
-            // Estás na index — impede comportamento padrão e faz scroll
-            event.preventDefault();
             scrollAnim(sectionId);
-        } else {
-            // Estás noutra página — deixa o link funcionar para navegar
-            // nada a fazer aqui, deixar o comportamento normal do <a href> seguir
         }
     });
 }
