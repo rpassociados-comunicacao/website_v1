@@ -91,6 +91,7 @@ const scrollButtons = [
     { id: "FooterBtnParcerias", section: "Parcerias" },
     { id: "ButtonBlog", section: "Destaques" },
     { id: "FooterBtnBlog", section: "Destaques" },
+    { id: "introContactBtn", section: "Contacto" },
     { id: "valuesContactBtn", section: "Contacto" },
     { id: "valuesContactBtnMobile", section: "Contacto" },
     { id: "equipaContactBtn", section: "Contacto" },
@@ -1120,6 +1121,41 @@ document.addEventListener("DOMContentLoaded", function () {
     // E ao mudar de tamanho
     mediaQuery.addEventListener("change", updateClasses);
 });
+
+// *********************************************************************************************************************************************
+
+document.addEventListener("DOMContentLoaded", function () {
+    const targetElement = document.getElementById("SectionIntroLeft");
+    const mediaQuery = window.matchMedia("(min-width: 768px)");
+    const bostonPartnershipImg = document.getElementById("introImg");
+    const bostonTowerMobile = document.getElementById("introImgMobile");
+  
+    function updateClasses(e) {
+      if (!targetElement) return;
+  
+      if (e.matches) {
+        // Largura >= 768px
+        targetElement.classList.add("container-left");
+        targetElement.classList.remove("container");
+        targetElement.classList.remove("px-5");
+        bostonPartnershipImg.classList.remove("disp-none");
+        bostonTowerMobile.classList.add("disp-none");
+      } else {
+        // Largura < 768px
+        targetElement.classList.remove("container-left");
+        bostonPartnershipImg.classList.add("disp-none");
+        bostonTowerMobile.classList.remove("disp-none");
+      }
+    }
+  
+    // Executa à carga
+    updateClasses(mediaQuery);
+  
+    // E ao mudar de tamanho
+    mediaQuery.addEventListener("change", updateClasses);
+});
+
+// *********************************************************************************************************************************************
 
 
 document.addEventListener("DOMContentLoaded", function () {

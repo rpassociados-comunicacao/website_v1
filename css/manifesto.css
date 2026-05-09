@@ -618,6 +618,10 @@ html, body {
     padding-right: 10%;
 }
 
+.values-container > div { 
+    align-items: left !important;
+}
+
 
 
 /* Estilização responsiva do título */
@@ -763,7 +767,9 @@ body.scroll-locked {
     align-self: flex-start; /* Mantém o alinhamento à esquerda */
     margin: 0;
     border: none;
+    text-decoration: none !important;
 }
+
 
 .contact-btn:hover,
 .contact-btn-m:hover,
